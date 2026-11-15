@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>浪漫樂派大冒險｜黑貓老師的音符時光機（初期 ＆ 早期篇）</title>
     <meta name="description" content="國小音樂課互動漫畫電子書：黑貓老師帶你翻頁闖關，認識浪漫樂派早期四大天王貝多芬、韋伯、羅西尼、舒伯特。">
-    <meta name="theme-color" content="#FFD23F">
+    <meta name="theme-color" content="#F7D117">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%88%E2%80%8D%E2%AC%9B%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;700;900&family=Huninn&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #2B2340;
-            --ink-2: #5B4F78;
-            --paper: #FFFDF7;
-            --cream: #FFF3D1;
-            --dot: #F2D58A;
-            --pink: #FF7AA2;
-            --sky: #4CC9F0;
-            --orange: #FF9F43;
-            --mint: #2ED3A0;
-            --lemon: #FFD23F;
-            --blue: #6EA8FF;
-            --grape: #B18CFF;
-            --coral: #FF6B6B;
-            --bad: #FF9AA2;
-            --star: #FFC93C;
+            --ink: #222222;
+            --ink-2: #555555;
+            --paper: #FFFCF0;
+            --cream: #9ED9EC;
+            --dot: rgba(255,255,255,.6);
+            --pink: #F0604D;
+            --sky: #6CC3EE;
+            --orange: #F6A33A;
+            --mint: #5DBB4F;
+            --lemon: #F7D117;
+            --blue: #4FA3E0;
+            --grape: #8A8CF0;
+            --coral: #F0604D;
+            --bad: #FF9E8F;
+            --star: #F7D117;
             --accent: var(--pink);
             --bd: 3px solid var(--ink);
             --outline: -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink), 0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink);
@@ -119,7 +119,7 @@
         @keyframes turnIn { from { transform: rotateY(-112deg); } to { transform: rotateY(0); } }
         @keyframes shadeIn { to { opacity: 1; } }
         @keyframes shadeOut { from { opacity: 1; } to { opacity: 0; } }
-        .page-no { text-align: center; color: #A99BC6; font-size: .82rem; margin-top: 20px; font-weight: 700; }
+        .page-no { text-align: center; color: #9AA9B5; font-size: .82rem; margin-top: 20px; font-weight: 700; }
 
         /* ===== 下方翻頁列 ===== */
         .pager { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--paper); border-top: var(--bd); padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); }
@@ -131,7 +131,7 @@
         .pg-info { flex: 1; min-width: 0; text-align: center; font-weight: 700; font-size: .86rem; }
         .pg-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .pg-bar { height: 10px; border: 2.5px solid var(--ink); border-radius: 999px; background: #fff; overflow: hidden; margin-top: 3px; }
-        .pg-bar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--mint) 0 8px, #5BE3B8 8px 16px); transition: width .4s; }
+        .pg-bar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--mint) 0 8px, #7FCF6F 8px 16px); transition: width .4s; }
         @media (max-width: 560px) { .pg-btn span { display: none; } }
 
         /* ===== 共用按鈕 ===== */
@@ -209,7 +209,15 @@
         .tag { background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 12px; font-weight: 700; font-size: .85rem; box-shadow: 2px 2px 0 var(--ink); }
         .cover-h { font-family: 'Huninn', sans-serif; font-weight: 400; text-align: center; line-height: 1.15; margin: 12px 0 18px; }
         .cover-h .l1 { display: block; font-size: clamp(1.1rem, 3.8vw, 1.5rem); color: var(--ink-2); }
-        .cover-h .l2 { display: block; margin-top: 6px; font-size: clamp(2.2rem, 9vw, 3.6rem); color: var(--pink); letter-spacing: 2px; text-shadow: var(--outline), 5px 5px 0 var(--ink); animation: wobble 3s ease-in-out infinite; }
+        .cover-h .l2 { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; margin-top: 10px; font-size: clamp(1.7rem, 7.6vw, 3rem); }
+        .tile { display: grid; place-items: center; width: 1.45em; height: 1.45em; border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); line-height: 1; animation: tileBob 2.4s ease-in-out infinite; }
+        .tile:nth-child(5n+1) { background: #333; color: #fff; transform: rotate(-4deg); }
+        .tile:nth-child(5n+2) { background: #F2E6B8; transform: rotate(3deg) translateY(6px); }
+        .tile:nth-child(5n+3) { background: var(--pink); color: #fff; transform: rotate(-2deg); }
+        .tile:nth-child(5n+4) { background: #333; color: #fff; transform: rotate(4deg) translateY(-4px); }
+        .tile:nth-child(5n) { background: var(--mint); color: #fff; transform: rotate(-3deg) translateY(4px); }
+        .tile:nth-child(odd) { animation-delay: -1.2s; }
+        @keyframes tileBob { 50% { translate: 0 -4px; } }
         .cover-h .l3 { display: inline-block; margin-top: 12px; font-size: 1.02rem; background: var(--sky); border: 2.5px solid var(--ink); border-radius: 999px; padding: 2px 16px; box-shadow: 3px 3px 0 var(--ink); }
         @keyframes wobble { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg) scale(1.02); } }
         .frame { border: var(--bd); border-radius: 18px; overflow: hidden; box-shadow: 5px 5px 0 var(--ink); background: #fff; margin: 0; }
@@ -218,15 +226,15 @@
         .frame.tilt { transform: rotate(-1.2deg); }
         .feat { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px 0 6px; }
         .feat li { background: #fff; border: 2.5px solid var(--ink); border-radius: 12px; padding: 6px 8px; font-weight: 700; font-size: .92rem; box-shadow: 3px 3px 0 var(--ink); text-align: center; }
-        .feat li:nth-child(1) { background: #FFE3EC; } .feat li:nth-child(2) { background: #DFF5FF; } .feat li:nth-child(3) { background: #E3FBEF; }
-        .feat li:nth-child(4) { background: #FFF3C4; } .feat li:nth-child(5) { background: #EFE6FF; } .feat li:nth-child(6) { background: #FFE8D6; }
+        .feat li:nth-child(1) { background: #FFE1DC; } .feat li:nth-child(2) { background: #DDF3FF; } .feat li:nth-child(3) { background: #E2F6DC; }
+        .feat li:nth-child(4) { background: #FFF3C4; } .feat li:nth-child(5) { background: #FFE9CC; } .feat li:nth-child(6) { background: #E2F6DC; }
         @media (min-width: 640px) { .feat { grid-template-columns: repeat(3, 1fr); } }
         .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 18px 0 12px; }
         .cta .big-btn { font-size: 1.2rem; padding: 13px 26px; background: var(--pink); }
         .tip { font-size: .86rem; color: var(--ink-2); text-align: center; line-height: 1.65; }
 
         /* ===== 冒險地圖 ===== */
-        .rank-card { display: flex; gap: 12px; align-items: center; background: linear-gradient(135deg, #FFF0B3, #FFD6E5); border: var(--bd); border-radius: 18px; padding: 12px 14px; box-shadow: 4px 4px 0 var(--ink); margin: 4px 0 18px; }
+        .rank-card { display: flex; gap: 12px; align-items: center; background: linear-gradient(135deg, #FFF2B0, #CFEFFF); border: var(--bd); border-radius: 18px; padding: 12px 14px; box-shadow: 4px 4px 0 var(--ink); margin: 4px 0 18px; }
         .rank-ico { font-size: 2.4rem; width: 64px; height: 64px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; flex: 0 0 64px; }
         .rank-main { flex: 1; min-width: 0; }
         .rank-name b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.25rem; }
@@ -235,7 +243,7 @@
         .rank-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--lemon), var(--orange)); }
         .rank-next { font-size: .8rem; color: var(--ink-2); }
         .levels { list-style: none; position: relative; display: flex; flex-direction: column; gap: 14px; padding: 6px 0; }
-        .levels::before { content: ""; position: absolute; left: 50%; top: 14px; bottom: 14px; border-left: 4px dashed #CDBFE6; transform: translateX(-2px); }
+        .levels::before { content: ""; position: absolute; left: 50%; top: 14px; bottom: 14px; border-left: 4px dashed #B9C9D6; transform: translateX(-2px); }
         .lv { position: relative; width: min(80%, 400px); }
         .lv.l { align-self: flex-start; } .lv.r { align-self: flex-end; }
         .lv-btn { width: 100%; display: flex; align-items: center; gap: 10px; background: #fff; border: var(--bd); border-radius: 18px; padding: 8px 12px; box-shadow: 4px 4px 0 var(--ink); text-align: left; transition: transform .12s; }
@@ -263,7 +271,7 @@
         .mission { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: #fff; border: 2.5px dashed var(--ink); border-radius: 14px; padding: 10px 12px; font-weight: 700; font-size: .92rem; margin-top: 10px; }
         .mission b { background: var(--ink); color: #fff; border-radius: 8px; padding: 0 8px; margin-right: 2px; }
         .mission i { font-style: normal; color: var(--ink-2); }
-        .boss { display: flex; flex-direction: column; align-items: center; gap: 6px; border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); background: radial-gradient(circle at 50% 35%, #FFF3B0, #FFB3C7 75%); padding: 26px 10px; text-align: center; }
+        .boss { display: flex; flex-direction: column; align-items: center; gap: 6px; border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); background: radial-gradient(circle at 50% 35%, #FFF3B0, #9ED9EC 75%); padding: 26px 10px; text-align: center; }
         .boss .trophy { font-size: 4.6rem; line-height: 1; animation: bob 1.2s ease-in-out infinite alternate; }
         .boss b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.45rem; }
         .boss span { font-weight: 700; }
@@ -283,7 +291,7 @@
         .chat-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
         .chat-row.right { flex-direction: row-reverse; }
         .chat-b { background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; padding: 7px 12px; box-shadow: 3px 3px 0 var(--ink); max-width: calc(100% - 56px); }
-        .chat-row.right .chat-b { background: #FFF1F6; }
+        .chat-row.right .chat-b { background: #FFF6CC; }
         .chat-b > b { display: block; font-size: .76rem; color: var(--ink-2); }
         .chat-row .av { flex: 0 0 44px; width: 44px; height: 44px; font-size: 1.4rem; }
         .table-wrap { overflow-x: auto; border: var(--bd); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); background: #fff; -webkit-overflow-scrolling: touch; }
@@ -296,7 +304,7 @@
 
         /* ===== 頭像 ===== */
         .av { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2.5px solid var(--ink); font-size: 1.25rem; line-height: 1; overflow: hidden; }
-        .av-cat { width: 100%; height: 100%; background: #FFE3EE; display: block; }
+        .av-cat { width: 100%; height: 100%; background: #FFF3C4; display: block; }
 
         /* ===== 口訣＋音樂 ===== */
         .mn-card { position: relative; background: var(--lemon); border: var(--bd); border-radius: 18px; padding: 14px 16px; box-shadow: 5px 5px 0 var(--ink); transform: rotate(-.8deg); margin: 6px 0 4px; }
@@ -342,7 +350,7 @@
         .talk.r { flex-direction: row-reverse; transform-origin: right top; }
         .talk.show { opacity: 1; transform: none; }
         .tb { position: relative; background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; padding: 5px 11px 6px; box-shadow: 2px 2px 0 var(--ink); max-width: calc(100% - 50px); }
-        .talk.r .tb { background: #FFF1F6; }
+        .talk.r .tb { background: #FFF6CC; }
         .tb::before { content: ""; position: absolute; top: 11px; left: -10px; border-style: solid; border-width: 6px 9px 6px 0; border-color: transparent var(--ink) transparent transparent; }
         .talk.r .tb::before { left: auto; right: -10px; border-width: 6px 0 6px 9px; border-color: transparent transparent transparent var(--ink); }
         .tb > b { display: block; font-size: .72rem; color: var(--ink-2); line-height: 1.3; }
@@ -366,7 +374,7 @@
         .q-no { display: inline-block; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 10px; padding: 0 8px; margin-right: 8px; font-family: 'Huninn', sans-serif; font-weight: 400; box-shadow: 2px 2px 0 var(--ink); }
         .opts { display: grid; gap: 10px; }
         .opt { display: flex; align-items: center; gap: 12px; text-align: left; padding: 11px 14px; border: var(--bd); border-radius: 16px; background: var(--o); box-shadow: 4px 4px 0 var(--ink); font-weight: 700; font-size: 1.02rem; line-height: 1.5; transition: transform .1s, box-shadow .1s, opacity .2s; }
-        .opt-0 { --o: #FFE3EC; } .opt-1 { --o: #DFF5FF; } .opt-2 { --o: #E3FBEF; } .opt-3 { --o: #FFF3C4; }
+        .opt-0 { --o: #FFE1DC; } .opt-1 { --o: #DDF3FF; } .opt-2 { --o: #E2F6DC; } .opt-3 { --o: #FFF3C4; }
         .opt:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
         .opt:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
         .opt:disabled { cursor: default; }
@@ -1095,7 +1103,7 @@
         const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const LETTERS = ['A', 'B', 'C', 'D'];
-        const ACCENTS = ['#FF7AA2', '#4CC9F0', '#FF9F43', '#2ED3A0', '#FFD23F', '#6EA8FF', '#B18CFF', '#FF6B6B'];
+        const ACCENTS = ['#F0604D', '#5DBB4F', '#F6A33A', '#F7D117', '#6CC3EE', '#8A8CF0', '#4DB37A', '#F0604D'];
         const SHORT = ['浪漫的定義', '風格特徵', '貝多芬', '韋伯', '羅西尼', '舒伯特', '早期總整理', '總複習'];
         const BM = ['浪漫', '風格', '貝多芬', '韋伯', '羅西尼', '舒伯特', '總整理', '總複習'];
         const STICKERS = [['👑', '浪漫皇冠'], ['🎢', '風格雲霄飛車'], ['⚡', '命運閃電'], ['🦉', '魔彈貓頭鷹'], ['🍝', '大廚義大利麵'], ['🐟', '跳跳鱒魚'], ['🚂', '天王列車'], ['🏆', '浪漫大師獎盃']];
@@ -1217,8 +1225,8 @@
 <path d="M53 64 L47 30 L80 52 Z M147 64 L153 30 L120 52 Z" fill="#FF8FAB"/>
 <ellipse cx="100" cy="90" rx="66" ry="54" fill="#2B2340" stroke="#15101F" stroke-width="5"/>
 <g transform="rotate(-10 100 40)">
-<path d="M78 40 L78 52 Q100 60 122 52 L122 40 Z" fill="#6A4BE0" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
-<path d="M60 36 L100 22 L140 36 L100 50 Z" fill="#8B6CFF" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
+<path d="M78 40 L78 52 Q100 60 122 52 L122 40 Z" fill="#2E8B3E" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
+<path d="M60 36 L100 22 L140 36 L100 50 Z" fill="#3FA34D" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
 <path d="M100 36 L132 40 L134 60" fill="none" stroke="#FFD23F" stroke-width="3" stroke-linecap="round"/>
 <circle cx="134" cy="62" r="4.5" fill="#FFD23F" stroke="#15101F" stroke-width="2"/>
 </g>
@@ -1494,7 +1502,7 @@
             cover() {
                 const r = App.resume;
                 return `<div class="cover-top"><span class="tag">🎵 國小音樂課</span><span class="tag">📖 互動漫畫電子書</span></div>
-                    <h1 class="cover-h"><span class="l1">穿越音符時光機！</span><span class="l2">浪漫樂派大冒險</span><span class="l3">初期 ＆ 早期篇</span></h1>
+                    <h1 class="cover-h"><span class="l1">穿越音符時光機！</span><span class="l2">${'浪漫樂派大冒險'.split('').map(c => `<b class="tile">${c}</b>`).join('')}</span><span class="l3">初期 ＆ 早期篇</span></h1>
                     <figure class="frame tilt"><img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：小樂站在古典鋼琴前，穿過 1820 年的金色音符大門，就是充滿故事與色彩的浪漫世界"></figure>
                     ${catBox(CAT.cover)}
                     <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🎧 12 首示範音樂', '📝 86 題闖關', '⭐ 集星星換稱號', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
@@ -1618,7 +1626,7 @@
             const el = document.createElement('section');
             el.className = 'page page-' + p.type;
             if (p.ci != null) el.dataset.ci = p.ci;
-            el.style.setProperty('--accent', p.ci != null ? ACCENTS[p.ci] : '#FF7AA2');
+            el.style.setProperty('--accent', p.ci != null ? ACCENTS[p.ci] : '#F7D117');
             el.innerHTML = RENDER[p.type](p) + `<div class="page-no">— ${i + 1} —</div><i class="shade"></i>`;
             if (p.type === 'know') enhanceDialogs(el);
             return el;
