@@ -334,7 +334,6 @@
         .panel-img { position: relative; aspect-ratio: 1 / 1; background: #F3EEFA; overflow: hidden; }
         .panel .sfx { animation: sfxPop .5s cubic-bezier(.2,1.6,.4,1) .3s both; }
         .panel-img img { width: 100%; height: 100%; object-fit: cover; }
-        .panel-tag { position: absolute; left: 8px; top: 8px; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 10px; font-family: 'Huninn', sans-serif; font-size: 1.1rem; padding: 0 10px; box-shadow: 2px 2px 0 var(--ink); }
         .sfx { position: absolute; right: 10px; top: 10px; font-family: 'Huninn', sans-serif; font-size: 1.35rem; color: var(--lemon); text-shadow: var(--outline), 4px 4px 0 var(--ink); transform: rotate(-8deg); white-space: nowrap; }
         .pc-q-unused { width: 86px; height: 86px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; box-shadow: 4px 4px 0 var(--ink); font-family: 'Huninn', sans-serif; font-size: 3.2rem; line-height: 1; animation: bob 1.1s ease-in-out infinite alternate; }
         @keyframes sfxPop { from { transform: rotate(-8deg) scale(0); } to { transform: rotate(-8deg) scale(1); } }
@@ -1338,7 +1337,6 @@
         const BM = ['浪漫', '風格', '貝多芬', '韋伯', '羅西尼', '舒伯特', '總整理', '總複習'];
         const STICKERS = [['👑', '浪漫皇冠'], ['🎢', '風格雲霄飛車'], ['⚡', '命運閃電'], ['🦉', '魔彈貓頭鷹'], ['🍝', '大廚義大利麵'], ['🐟', '跳跳鱒魚'], ['🚂', '天王列車'], ['🏆', '浪漫大師獎盃']];
         const RANKS = [[0, '🐣', '見習小樂手'], [100, '🎒', '音符探險家'], [300, '🪄', '旋律魔法師'], [500, '🎻', '浪漫小達人'], [700, '👑', '浪漫大師']];
-        const PANEL_TAGS = ['起', '承', '轉', '合'];
         const AV = { '小樂': '👦', '咪咪': '🧚', '霍夫曼': '🎩', '貝多芬': '😤', '古典樂手': '🎻', '浪漫樂手': '🎺', '各國大師': '🚩', '四道閃電': '⚡', '小韋伯': '🧒', '米夏埃爾': '👴', '韋伯': '🏹', '貓頭鷹': '🦉', '羅西尼': '👨‍🍳', '威廉泰爾': '🍎', '理髮師': '💈', '舒伯特': '👓', '好友們': '🧑‍🤝‍🧑', '音符精靈們': '🎵' };
 
         // ===== 四格漫畫：簡單搞笑對話 =====
@@ -1390,7 +1388,7 @@
         // ===== 黑貓老師台詞 =====
         const CAT = {
             cover: '喵～我是黑貓老師！今天帶你搭上音符時光機，闖過 8 關浪漫樂派大冒險。按「開始冒險」出發吧！',
-            comicStart: '漫畫時間！起、承、轉、合四格一次看完，每格的 🔊 可以聽我念喵～',
+            comicStart: '漫畫時間！四格一次看完，每格的 🔊 可以聽我念喵～',
             thinking: ['慢慢想，答案藏在剛剛的漫畫裡喵～', '這題你一定會，相信自己喵！', '想一想再按，不要被我的尾巴分心喵～', '嗯……有點難，加油喵！'],
             cheers: ['答對了喵！🎉', '太神啦，送你一個肉球！🐾', '喵喵喵～答得好！', '你的腦袋超靈光喵！', '完全正確，浪漫指數上升！'],
             oops: ['喵嗚……差一點點！', '沒關係，貓也會踩空喵～', '再記一次就不會錯了喵！'],
@@ -1823,7 +1821,6 @@
                         <figure class="panel" data-k="${k}">
                             <div class="panel-img">
                                 <img src="images/comic_ch${ci + 1}_${k + 1}.jpg" width="500" height="500" alt="第 ${ci + 1} 話四格漫畫第 ${k + 1} 格">
-                                <span class="panel-tag">${PANEL_TAGS[k]}</span>
                                 <span class="sfx">${pn.sfx}</span>
                             </div>
                             <figcaption class="panel-talk">
