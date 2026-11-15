@@ -1,538 +1,491 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>浪漫樂派大冒險｜穿越音符時光機（初期 ＆ 早期篇）</title>
-    <meta name="description" content="國小音樂課圖文漫畫電子書：8 幅章節大插圖、7 組情境記憶四格漫畫、12 首雙聲部示範音樂、86 題隨堂大挑戰。">
-    <meta property="og:title" content="穿越音符時光機！浪漫樂派大冒險（初期 ＆ 早期篇）">
-    <meta property="og:description" content="貝多芬、韋伯、羅西尼、舒伯特：用四格漫畫、示範音樂和 86 題隨堂考，輕鬆認識浪漫樂派。">
-    <meta property="og:image" content="https://laierin615.github.io/romantic-music-ebook/images/hero_cover.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>浪漫樂派大冒險｜黑貓老師的音符時光機（初期 ＆ 早期篇）</title>
+    <meta name="description" content="國小音樂課互動漫畫電子書：黑貓老師帶你翻頁闖關，認識浪漫樂派早期四大天王貝多芬、韋伯、羅西尼、舒伯特。">
+    <meta name="theme-color" content="#FFD23F">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%88%E2%80%8D%E2%AC%9B%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;700;900&family=Huninn&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6366f1;
-            --primary-hover: #4f46e5;
-            --accent-color: #f59e0b;
-            --bg-slate: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-sub: #475569;
-            --border-color: #e2e8f0;
-            --success-color: #10b981;
-            --error-color: #ef4444;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --ink: #2B2340;
+            --ink-2: #5B4F78;
+            --paper: #FFFDF7;
+            --cream: #FFF3D1;
+            --dot: #F2D58A;
+            --pink: #FF7AA2;
+            --sky: #4CC9F0;
+            --orange: #FF9F43;
+            --mint: #2ED3A0;
+            --lemon: #FFD23F;
+            --blue: #6EA8FF;
+            --grape: #B18CFF;
+            --coral: #FF6B6B;
+            --bad: #FF9AA2;
+            --star: #FFC93C;
+            --accent: var(--pink);
+            --bd: 3px solid var(--ink);
+            --outline: -2px -2px 0 var(--ink), 2px -2px 0 var(--ink), -2px 2px 0 var(--ink), 2px 2px 0 var(--ink), 0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink);
+            --outline-s: -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink), 1px 1px 0 var(--ink);
+            color-scheme: light;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { scroll-behavior: smooth; }
-
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-slate);
-            color: var(--text-main);
-            line-height: 1.7;
+            font-family: 'Chiron GoRound TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--ink);
+            background-color: var(--cream);
+            background-image: radial-gradient(var(--dot) 1.3px, transparent 1.6px);
+            background-size: 18px 18px;
+            font-size: 17px;
+            line-height: 1.75;
+            min-height: 100vh;
+            padding-bottom: calc(86px + env(safe-area-inset-bottom));
+            overflow-x: hidden;
         }
+        button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+        img { max-width: 100%; display: block; }
+        .hand { font-family: 'Huninn', 'Chiron GoRound TC', sans-serif; font-weight: 400; }
 
-        header {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: white;
-            padding: 2.5rem 1rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-        }
+        /* ===== 頂部列 ===== */
+        .topbar { position: sticky; top: 0; z-index: 50; background: var(--lemon); border-bottom: var(--bd); }
+        .topbar-in { max-width: 880px; margin: 0 auto; display: flex; align-items: center; gap: 8px; padding: 8px 14px; }
+        .brand { flex: 1; min-width: 0; text-align: left; font-family: 'Huninn', sans-serif; font-size: 1.12rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .hud { display: flex; gap: 6px; align-items: center; }
+        .hud-chip { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 10px; font-weight: 900; font-size: .9rem; box-shadow: 2px 2px 0 var(--ink); white-space: nowrap; }
+        .hud-chip.bump { animation: bump .5s ease; }
+        .icon-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--paper); border: 2.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); font-size: 1rem; line-height: 1; }
+        @keyframes bump { 30% { transform: scale(1.25) rotate(-4deg); background: var(--mint); } }
 
-        header h1 {
-            font-family: 'Noto Serif TC', serif;
-            font-size: clamp(1.6rem, 5vw, 2.5rem);
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-            line-height: 1.35;
-        }
+        /* ===== 章節書籤 ===== */
+        .bookmarks { position: relative; display: flex; gap: 8px; overflow-x: auto; padding: 12px 14px 10px; max-width: 880px; margin: 0 auto; scrollbar-width: none; }
+        .bookmarks::-webkit-scrollbar { display: none; }
+        .bm { flex: 0 0 auto; background: var(--paper); border: 2.5px solid var(--ink); border-radius: 14px 14px 6px 6px; padding: 3px 12px 2px; font-weight: 700; font-size: .86rem; box-shadow: 3px 3px 0 var(--ink); display: flex; flex-direction: column; align-items: center; line-height: 1.3; transition: transform .15s, background .15s; }
+        .bm small { font-size: .7rem; letter-spacing: 1px; color: var(--star); text-shadow: var(--outline-s); }
+        .bm:hover { transform: translateY(-2px); }
+        .bm.active { background: var(--c); transform: translateY(-4px); }
 
-        header p { font-size: 1.05rem; opacity: 0.92; }
-
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-
-        /* 封面區 */
-        .cover-section {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .cover-img { width: 100%; height: auto; display: block; }
-
-        .cover-content { padding: 1.5rem 2rem; }
-        .cover-content h2 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; }
-        .cover-content p { margin-bottom: 0.5rem; }
-
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem;
-            margin: 1rem 0;
-            list-style: none;
-        }
-
-        .feature-list li {
-            background: #eef2ff;
-            border-radius: 0.5rem;
-            padding: 0.5rem 0.75rem;
-            font-weight: 700;
-            color: #3730a3;
-        }
-
-        .tip {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            background: #fffbeb;
-            border: 1px solid #fde68a;
-            border-radius: 0.5rem;
-            padding: 0.5rem 0.75rem;
-        }
-
-        .caption {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            padding: 0.6rem 1rem;
-            background: #f8fafc;
-        }
-
-        /* 導覽按鈕列 */
-        .nav-tabs {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding: 0.6rem 0;
-            margin-bottom: 1.5rem;
-            background: var(--bg-slate);
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .tab-btn {
-            background-color: white;
-            border: 1px solid var(--border-color);
-            padding: 0.55rem 1.1rem;
-            border-radius: 0.5rem;
-            font-weight: 700;
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s;
-        }
-
-        .tab-btn:hover { background-color: #f1f5f9; color: var(--primary-color); }
-
-        .tab-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* 章節內容區 */
-        .chapter-card {
-            display: none;
-            background: var(--card-bg);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-            scroll-margin-top: 4.5rem;
-        }
-
-        .chapter-card.active { display: block; }
-
-        .chapter-header {
-            margin-bottom: 1.25rem;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 1rem;
-        }
-
-        .chapter-kicker {
-            display: inline-block;
-            font-weight: 900;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .chapter-title {
-            font-family: 'Noto Serif TC', serif;
-            font-size: clamp(1.35rem, 3.6vw, 1.8rem);
-            color: var(--text-main);
-            line-height: 1.45;
-        }
-
-        .hero-img-container {
-            margin: 1.25rem 0;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .hero-img { width: 100%; height: auto; display: block; }
-
-        .story p, .story li { margin-bottom: 0.4rem; }
-        .story h3 {
-            font-size: 1.15rem;
-            margin: 1.25rem 0 0.5rem;
-            color: #312e81;
-        }
-        .story ul { padding-left: 1.4rem; }
-        .story ul ul { margin-top: 0.3rem; }
-
-        .intro-dialog {
-            background: #f5f3ff;
-            border-radius: 0.75rem;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .intro-dialog p { margin-bottom: 0.4rem; }
-
-        .spk { font-weight: 700; color: #581c87; }
-
-        .mnemonic {
-            background: #fffbeb;
-            border: 2px solid #fcd34d;
-            border-radius: 0.75rem;
-            padding: 0.9rem 1.2rem;
-            margin: 1.5rem 0;
-            font-weight: 700;
-            color: #92400e;
-        }
-
-        .table-wrap { overflow-x: auto; margin: 1rem 0; }
-
-        table.summary {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 620px;
-            font-size: 0.95rem;
-        }
-
-        table.summary th, table.summary td {
-            border: 1px solid var(--border-color);
-            padding: 0.55rem 0.7rem;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        table.summary th { background: #eef2ff; color: #3730a3; }
-        table.summary tr:nth-child(even) td { background: #f8fafc; }
-
-        /* 音樂播放器 */
-        .audio-section { margin: 1.75rem 0; }
-        .audio-section > h3 { font-size: 1.15rem; margin-bottom: 0.25rem; color: #312e81; }
-        .audio-note { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 0.5rem; }
-
-        .player {
-            background-color: #f1f5f9;
-            border-left: 4px solid var(--primary-color);
-            padding: 0.9rem 1.25rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-            margin: 0.75rem 0;
-        }
-
-        .player-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .audio-info { flex: 1; min-width: 220px; }
-        .audio-title { font-weight: 700; color: var(--text-main); }
-        .audio-desc { font-size: 0.875rem; color: var(--text-sub); }
-
-        .play-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 700;
-            font-family: inherit;
-            font-size: 0.95rem;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 0.2s;
-        }
-
-        .play-btn:hover { background-color: var(--primary-hover); }
-        .play-btn.playing { background-color: #dc2626; }
-        .play-btn.playing:hover { background-color: #b91c1c; }
-
-        .prog {
-            height: 6px;
-            background: #e2e8f0;
-            border-radius: 3px;
-            margin-top: 0.6rem;
+        /* ===== 書本舞台與翻頁 ===== */
+        .stage-wrap { max-width: 880px; margin: 0 auto; padding: 2px 14px 24px; }
+        .stage { display: grid; perspective: 2200px; }
+        .page {
+            grid-area: 1 / 1;
+            position: relative;
+            min-width: 0;
+            background: var(--paper);
+            border: var(--bd);
+            border-radius: 22px;
+            box-shadow: 6px 6px 0 var(--ink);
+            padding: 34px 18px 20px;
+            transform-origin: left center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
             overflow: hidden;
         }
-
-        .prog i {
-            display: block;
-            height: 100%;
-            width: 0;
-            background: var(--primary-color);
-            transition: width 0.2s linear;
+        .page::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 14px;
+            background-color: var(--accent);
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.45) 0 10px, transparent 10px 20px);
+            border-bottom: 3px solid var(--ink);
         }
-
-        /* 四格漫畫區 */
-        .comic-section {
-            background-color: #faf5ff;
-            border: 2px dashed #c084fc;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin: 2rem 0;
+        .page::after {
+            content: "";
+            position: absolute;
+            right: -3px;
+            bottom: -3px;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--cream) 0 50%, var(--accent) 50%);
+            border-left: 3px solid var(--ink);
+            border-top: 3px solid var(--ink);
+            border-radius: 12px 0 22px 0;
         }
+        .page.leaving { pointer-events: none; }
+        .page.turn-out { z-index: 3; animation: turnOut .62s cubic-bezier(.45,.05,.55,.95) forwards; }
+        .page.turn-in { z-index: 3; animation: turnIn .62s cubic-bezier(.45,.05,.55,.95) both; }
+        .page.under { z-index: 1; }
+        .shade { position: absolute; inset: 0; pointer-events: none; border-radius: inherit; background: linear-gradient(90deg, rgba(43,35,64,0), rgba(43,35,64,.4)); opacity: 0; }
+        .page.turn-out .shade { animation: shadeIn .62s forwards; }
+        .page.turn-in .shade { animation: shadeOut .62s forwards; }
+        @keyframes turnOut { from { transform: rotateY(0); } to { transform: rotateY(-112deg); box-shadow: 40px 10px 40px rgba(43,35,64,.18); } }
+        @keyframes turnIn { from { transform: rotateY(-112deg); } to { transform: rotateY(0); } }
+        @keyframes shadeIn { to { opacity: 1; } }
+        @keyframes shadeOut { from { opacity: 1; } to { opacity: 0; } }
+        .page-no { text-align: center; color: #A99BC6; font-size: .82rem; margin-top: 20px; font-weight: 700; }
 
-        .comic-title {
-            font-family: 'Noto Serif TC', serif;
-            color: #6b21a8;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            text-align: center;
+        /* ===== 下方翻頁列 ===== */
+        .pager { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--paper); border-top: var(--bd); padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); }
+        .pager-in { max-width: 880px; margin: 0 auto; display: flex; gap: 10px; align-items: center; }
+        .pg-btn { min-width: 58px; height: 54px; padding: 0 16px; border-radius: 18px; border: var(--bd); background: var(--sky); box-shadow: 4px 4px 0 var(--ink); font-weight: 900; font-size: 1.05rem; white-space: nowrap; transition: transform .1s, box-shadow .1s; }
+        .pg-btn.next { background: var(--pink); }
+        .pg-btn:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+        .pg-btn:disabled { opacity: .35; cursor: default; }
+        .pg-info { flex: 1; min-width: 0; text-align: center; font-weight: 700; font-size: .86rem; }
+        .pg-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .pg-bar { height: 10px; border: 2.5px solid var(--ink); border-radius: 999px; background: #fff; overflow: hidden; margin-top: 3px; }
+        .pg-bar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--mint) 0 8px, #5BE3B8 8px 16px); transition: width .4s; }
+        @media (max-width: 560px) { .pg-btn span { display: none; } }
+
+        /* ===== 共用按鈕 ===== */
+        .big-btn, .ghost-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 20px; border-radius: 16px; border: var(--bd); box-shadow: 4px 4px 0 var(--ink); font-weight: 900; font-size: 1.04rem; transition: transform .1s, box-shadow .1s; }
+        .big-btn { background: var(--accent); }
+        .ghost-btn { background: #fff; }
+        .big-btn:hover, .ghost-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+        .big-btn:active, .ghost-btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+        .ghost-btn.small { font-size: .86rem; padding: 7px 14px; box-shadow: 3px 3px 0 var(--ink); }
+        .center { text-align: center; margin-top: 18px; }
+
+        /* ===== 黑貓老師 ===== */
+        .catbox { display: flex; align-items: flex-end; gap: 12px; margin: 18px 0 6px; }
+        .cat { width: 100px; flex: 0 0 100px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+        .catbox.compact { margin-top: 4px; }
+        .catbox.compact .cat { width: 78px; flex-basis: 78px; }
+        @media (min-width: 720px) { .cat { width: 124px; flex-basis: 124px; } .catbox.compact .cat { width: 92px; flex-basis: 92px; } }
+        .cat svg { width: 100%; height: auto; overflow: visible; display: block; }
+        .bubble { position: relative; flex: 1; min-width: 0; background: #fff; border: var(--bd); border-radius: 20px; padding: 10px 14px 10px; box-shadow: 4px 4px 0 var(--ink); margin-bottom: 26px; cursor: pointer; }
+        .bubble::before { content: ""; position: absolute; left: -19px; bottom: 14px; border-style: solid; border-width: 9px 18px 9px 0; border-color: transparent var(--ink) transparent transparent; }
+        .bubble::after { content: ""; position: absolute; left: -13px; bottom: 17px; border-style: solid; border-width: 6px 13px 6px 0; border-color: transparent #fff transparent transparent; }
+        .bubble-name { font-size: .74rem; font-weight: 900; color: var(--ink-2); letter-spacing: 1px; }
+        .bubble-text { font-family: 'Huninn', sans-serif; font-size: 1.1rem; line-height: 1.6; min-height: 1.6em; word-break: break-word; }
+        .caret { display: inline-block; width: 2px; height: 1em; background: var(--ink); vertical-align: -2px; margin-left: 2px; animation: caret .6s steps(2) infinite; }
+        @keyframes caret { 50% { opacity: 0; } }
+        .say-btn { margin-top: 6px; font-size: .82rem; font-weight: 900; background: var(--lemon); border: 2px solid var(--ink); border-radius: 999px; padding: 2px 11px; box-shadow: 2px 2px 0 var(--ink); }
+        .say-btn.on { background: var(--mint); }
+
+        .cat .tail { transform-origin: 140px 196px; animation: tail 2.6s ease-in-out infinite; }
+        .cat .body { transform-origin: 100px 230px; animation: breathe 3.2s ease-in-out infinite; }
+        .cat .head { transform-origin: 100px 136px; transition: transform .3s; }
+        .cat .eyes-open { transform-origin: 100px 92px; animation: blink 4.8s infinite; }
+        .cat .pupil { transition: transform .25s; }
+        .cat .arm { transform-origin: 128px 170px; }
+        .cat .mouth-open { transform-origin: 100px 115px; opacity: 0; }
+        .cat .eyes-happy, .cat .sad-bits, .cat .think-q, .cat .sparkle { display: none; }
+        .cat.talking .mouth-open { opacity: 1; animation: talk .22s ease-in-out infinite alternate; }
+        .cat.talking .mouth-closed { opacity: 0; }
+        .cat.talking .head { animation: nod .5s ease-in-out infinite alternate; }
+        .cat.talking .arm { animation: baton .45s ease-in-out infinite alternate; }
+        .cat[data-mood="happy"] .eyes-open { display: none; }
+        .cat[data-mood="happy"] .eyes-happy, .cat[data-mood="happy"] .sparkle { display: inline; }
+        .cat[data-mood="happy"] svg { animation: hop .55s ease 2; }
+        .cat[data-mood="happy"] .sparkle { animation: twinkle .8s ease-in-out infinite alternate; transform-origin: center; }
+        .cat[data-mood="sad"] .sad-bits { display: inline; }
+        .cat[data-mood="sad"] .head { transform: rotate(-7deg) translateY(4px); }
+        .cat[data-mood="sad"] .pupil { transform: translateY(4px); }
+        .cat[data-mood="sad"] svg { animation: shake .45s ease 1; }
+        .cat[data-mood="think"] .think-q { display: inline; animation: bob 1s ease-in-out infinite alternate; }
+        .cat[data-mood="think"] .pupil { transform: translate(3px, -5px); }
+        .cat.pop svg { animation: popIn .6s cubic-bezier(.2,1.5,.4,1) both; }
+        body.music-on .cat svg { animation: dance .42s ease-in-out infinite alternate; }
+        .think-q { font: 900 40px 'Huninn', sans-serif; fill: var(--lemon); stroke: #15101F; stroke-width: 2.5px; paint-order: stroke fill; }
+        @keyframes tail { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-14deg); } }
+        @keyframes breathe { 50% { transform: scale(1.025, .985); } }
+        @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.08); } }
+        @keyframes talk { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+        @keyframes nod { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+        @keyframes baton { from { transform: rotate(6deg); } to { transform: rotate(-16deg); } }
+        @keyframes hop { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-16px) rotate(-4deg); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(5px); } }
+        @keyframes bob { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+        @keyframes twinkle { from { opacity: .4; } to { opacity: 1; } }
+        @keyframes popIn { from { transform: scale(.3) translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+        @keyframes dance { from { transform: rotate(-5deg); } to { transform: rotate(5deg) translateY(-6px); } }
+
+        /* ===== 頁首小標 ===== */
+        .page-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .chip { background: var(--accent); border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 12px; font-weight: 900; font-size: .84rem; box-shadow: 2px 2px 0 var(--ink); }
+        .ph-r { font-family: 'Huninn', sans-serif; font-size: 1.05rem; }
+        .ch-title { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: clamp(1.45rem, 4.8vw, 2.1rem); line-height: 1.35; margin: 4px 0 14px; }
+
+        /* ===== 封面 ===== */
+        .cover-top { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .tag { background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 12px; font-weight: 700; font-size: .85rem; box-shadow: 2px 2px 0 var(--ink); }
+        .cover-h { font-family: 'Huninn', sans-serif; font-weight: 400; text-align: center; line-height: 1.15; margin: 12px 0 18px; }
+        .cover-h .l1 { display: block; font-size: clamp(1.1rem, 3.8vw, 1.5rem); color: var(--ink-2); }
+        .cover-h .l2 { display: block; margin-top: 6px; font-size: clamp(2.2rem, 9vw, 3.6rem); color: var(--pink); letter-spacing: 2px; text-shadow: var(--outline), 5px 5px 0 var(--ink); animation: wobble 3s ease-in-out infinite; }
+        .cover-h .l3 { display: inline-block; margin-top: 12px; font-size: 1.02rem; background: var(--sky); border: 2.5px solid var(--ink); border-radius: 999px; padding: 2px 16px; box-shadow: 3px 3px 0 var(--ink); }
+        @keyframes wobble { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg) scale(1.02); } }
+        .frame { border: var(--bd); border-radius: 18px; overflow: hidden; box-shadow: 5px 5px 0 var(--ink); background: #fff; margin: 0; }
+        .frame img { width: 100%; height: auto; }
+        .frame figcaption { padding: 8px 12px; font-size: .92rem; border-top: 3px solid var(--ink); background: #FFF7E0; }
+        .frame.tilt { transform: rotate(-1.2deg); }
+        .feat { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 16px 0 6px; }
+        .feat li { background: #fff; border: 2.5px solid var(--ink); border-radius: 12px; padding: 6px 8px; font-weight: 700; font-size: .92rem; box-shadow: 3px 3px 0 var(--ink); text-align: center; }
+        .feat li:nth-child(1) { background: #FFE3EC; } .feat li:nth-child(2) { background: #DFF5FF; } .feat li:nth-child(3) { background: #E3FBEF; }
+        .feat li:nth-child(4) { background: #FFF3C4; } .feat li:nth-child(5) { background: #EFE6FF; } .feat li:nth-child(6) { background: #FFE8D6; }
+        @media (min-width: 640px) { .feat { grid-template-columns: repeat(3, 1fr); } }
+        .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 18px 0 12px; }
+        .cta .big-btn { font-size: 1.2rem; padding: 13px 26px; background: var(--pink); }
+        .tip { font-size: .86rem; color: var(--ink-2); text-align: center; line-height: 1.65; }
+
+        /* ===== 冒險地圖 ===== */
+        .rank-card { display: flex; gap: 12px; align-items: center; background: linear-gradient(135deg, #FFF0B3, #FFD6E5); border: var(--bd); border-radius: 18px; padding: 12px 14px; box-shadow: 4px 4px 0 var(--ink); margin: 4px 0 18px; }
+        .rank-ico { font-size: 2.4rem; width: 64px; height: 64px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; flex: 0 0 64px; }
+        .rank-main { flex: 1; min-width: 0; }
+        .rank-name b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.25rem; }
+        .rank-meta { font-size: .9rem; font-weight: 700; }
+        .rank-bar { height: 12px; border: 2.5px solid var(--ink); border-radius: 999px; background: #fff; overflow: hidden; margin: 6px 0 2px; }
+        .rank-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--lemon), var(--orange)); }
+        .rank-next { font-size: .8rem; color: var(--ink-2); }
+        .levels { list-style: none; position: relative; display: flex; flex-direction: column; gap: 14px; padding: 6px 0; }
+        .levels::before { content: ""; position: absolute; left: 50%; top: 14px; bottom: 14px; border-left: 4px dashed #CDBFE6; transform: translateX(-2px); }
+        .lv { position: relative; width: min(80%, 400px); }
+        .lv.l { align-self: flex-start; } .lv.r { align-self: flex-end; }
+        .lv-btn { width: 100%; display: flex; align-items: center; gap: 10px; background: #fff; border: var(--bd); border-radius: 18px; padding: 8px 12px; box-shadow: 4px 4px 0 var(--ink); text-align: left; transition: transform .12s; }
+        .lv-btn:hover { transform: translate(-2px, -2px) rotate(-1deg); }
+        .lv-num { flex: 0 0 46px; height: 46px; border-radius: 50%; background: var(--c); border: var(--bd); display: grid; place-items: center; font-family: 'Huninn', sans-serif; font-size: 1.4rem; }
+        .lv-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+        .lv-txt b { font-size: 1.02rem; }
+        .lv-txt small { color: var(--star); font-size: 1rem; letter-spacing: 2px; text-shadow: var(--outline-s); }
+        .lv-stk { font-size: 1.6rem; }
+        .sticker-book { margin-top: 18px; background: #fff; border: var(--bd); border-radius: 18px; padding: 12px; box-shadow: 4px 4px 0 var(--ink); }
+        .sticker-book h3 { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.2rem; margin-bottom: 8px; }
+        .stk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .stk-slot { border: 2.5px dashed #BFB3D6; border-radius: 14px; padding: 8px 4px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #9A8FB3; }
+        .stk-slot span { font-size: 1.8rem; line-height: 1.2; }
+        .stk-slot small { font-size: .72rem; line-height: 1.25; }
+        .stk-slot.got { border: 2.5px solid var(--ink); background: #FFF6D6; color: var(--ink); box-shadow: 2px 2px 0 var(--ink); transform: rotate(-3deg); }
+        .stk-slot.got:nth-child(even) { transform: rotate(3deg); }
+
+        /* ===== 關卡開場 ===== */
+        .stage-banner { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+        .st-l { font-family: 'Huninn', sans-serif; letter-spacing: 3px; background: var(--ink); color: var(--lemon); padding: 1px 10px; border-radius: 8px; }
+        .st-n { font-family: 'Huninn', sans-serif; font-size: 2.4rem; line-height: 1; color: var(--accent); text-shadow: var(--outline), 3px 3px 0 var(--ink); }
+        .st-tag { background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; padding: 0 10px; font-weight: 700; font-size: .85rem; }
+        .st-stars { margin-left: auto; color: var(--star); font-size: 1.35rem; letter-spacing: 2px; text-shadow: var(--outline-s); }
+        .mission { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: #fff; border: 2.5px dashed var(--ink); border-radius: 14px; padding: 10px 12px; font-weight: 700; font-size: .92rem; margin-top: 10px; }
+        .mission b { background: var(--ink); color: #fff; border-radius: 8px; padding: 0 8px; margin-right: 2px; }
+        .mission i { font-style: normal; color: var(--ink-2); }
+        .boss { display: flex; flex-direction: column; align-items: center; gap: 6px; border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); background: radial-gradient(circle at 50% 35%, #FFF3B0, #FFB3C7 75%); padding: 26px 10px; text-align: center; }
+        .boss .trophy { font-size: 4.6rem; line-height: 1; animation: bob 1.2s ease-in-out infinite alternate; }
+        .boss b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.45rem; }
+        .boss span { font-weight: 700; }
+
+        /* ===== 知識頁 ===== */
+        .story h3 { display: inline-block; font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.2rem; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 12px; padding: 2px 12px; box-shadow: 3px 3px 0 var(--ink); margin: 18px 0 12px; transform: rotate(-1.2deg); }
+        .story > h3:first-child { margin-top: 4px; }
+        .story ul { list-style: none; display: grid; gap: 9px; }
+        .story > ul > li { position: relative; background: #fff; border: 2.5px solid var(--ink); border-radius: 14px; padding: 9px 12px 9px 40px; box-shadow: 3px 3px 0 var(--ink); }
+        .story > ul > li::before { content: "♪"; position: absolute; left: 10px; top: 11px; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); border: 2px solid var(--ink); display: grid; place-items: center; font-size: .78rem; font-weight: 900; line-height: 1; }
+        .story ul ul { margin-top: 6px; gap: 5px; }
+        .story ul ul li { position: relative; padding-left: 18px; }
+        .story ul ul li::before { content: "•"; position: absolute; left: 4px; color: var(--ink-2); }
+        .story strong { font-weight: 900; background: linear-gradient(transparent 58%, #FFE27A 58%); }
+        .story p { margin: 6px 0; }
+        .intro-dialog { margin-bottom: 4px; }
+        .chat-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+        .chat-row.right { flex-direction: row-reverse; }
+        .chat-b { background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; padding: 7px 12px; box-shadow: 3px 3px 0 var(--ink); max-width: calc(100% - 56px); }
+        .chat-row.right .chat-b { background: #FFF1F6; }
+        .chat-b > b { display: block; font-size: .76rem; color: var(--ink-2); }
+        .chat-row .av { flex: 0 0 44px; width: 44px; height: 44px; font-size: 1.4rem; }
+        .table-wrap { overflow-x: auto; border: var(--bd); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); background: #fff; -webkit-overflow-scrolling: touch; }
+        table.summary { border-collapse: collapse; min-width: 660px; width: 100%; font-size: .95rem; line-height: 1.55; }
+        .summary th { background: var(--accent); font-family: 'Huninn', sans-serif; font-weight: 400; padding: 8px 10px; border-bottom: 3px solid var(--ink); text-align: left; white-space: nowrap; }
+        .summary td { padding: 8px 10px; border-top: 2px dashed #D9CFE8; vertical-align: top; }
+        .summary tbody tr:first-child td { border-top: none; }
+        .summary td:first-child { font-weight: 900; white-space: nowrap; }
+        .swipe-hint { font-size: .8rem; color: var(--ink-2); margin-top: 6px; }
+
+        /* ===== 頭像 ===== */
+        .av { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 2.5px solid var(--ink); font-size: 1.25rem; line-height: 1; overflow: hidden; }
+        .av-cat { width: 100%; height: 100%; background: #FFE3EE; display: block; }
+
+        /* ===== 口訣＋音樂 ===== */
+        .mn-card { position: relative; background: var(--lemon); border: var(--bd); border-radius: 18px; padding: 14px 16px; box-shadow: 5px 5px 0 var(--ink); transform: rotate(-.8deg); margin: 6px 0 4px; }
+        .mn-label { display: inline-block; background: var(--ink); color: #fff; border-radius: 8px; padding: 0 10px; font-weight: 900; font-size: .85rem; margin-bottom: 6px; }
+        .mn-card p { font-family: 'Huninn', sans-serif; font-size: 1.28rem; line-height: 1.7; }
+        .audio-box { margin-top: 14px; }
+        .audio-box h3 { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.25rem; margin-bottom: 4px; }
+        .audio-note { font-size: .96rem; margin-bottom: 12px; }
+        .audio-note small { color: var(--ink-2); }
+        .player { background: #fff; border: var(--bd); border-radius: 16px; padding: 10px 12px; box-shadow: 4px 4px 0 var(--ink); margin-bottom: 12px; }
+        .player-row { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .audio-info { flex: 1 1 220px; min-width: 0; }
+        .audio-title { font-weight: 900; }
+        .audio-desc { font-size: .88rem; color: var(--ink-2); line-height: 1.55; }
+        .play-btn { background: var(--mint); border: var(--bd); border-radius: 999px; padding: 8px 16px; font-weight: 900; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+        .play-btn.playing { background: var(--pink); animation: pulse 1s ease-in-out infinite; }
+        @keyframes pulse { 50% { transform: scale(1.04); } }
+        .prog { height: 10px; border: 2.5px solid var(--ink); border-radius: 999px; background: #F3EEFA; overflow: hidden; margin-top: 8px; }
+        .prog i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(45deg, var(--sky) 0 8px, var(--blue) 8px 16px); transition: width .2s linear; }
+        .listen-player { background: #F2FBFF; margin: 0 0 14px; }
+
+        /* ===== 四格漫畫 ===== */
+        .comic-name { font-family: 'Huninn', sans-serif; font-weight: 400; text-align: center; font-size: clamp(1.35rem, 4.6vw, 1.8rem); margin: 0 0 6px; }
+        .comic-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 10px; }
+        @media (min-width: 700px) { .comic-grid { grid-template-columns: 1fr 1fr; } }
+        .panel { margin: 0; background: #fff; border: var(--bd); border-radius: 18px; box-shadow: 4px 4px 0 var(--ink); overflow: hidden; scroll-margin: 80px 0 110px; }
+        .panel-img { position: relative; aspect-ratio: 1 / 1; background: #F3EEFA; cursor: pointer; overflow: hidden; }
+        .panel-img img { width: 100%; height: 100%; object-fit: cover; }
+        .panel-tag { position: absolute; left: 8px; top: 8px; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 10px; font-family: 'Huninn', sans-serif; font-size: 1.1rem; padding: 0 10px; box-shadow: 2px 2px 0 var(--ink); }
+        .sfx { position: absolute; right: 10px; top: 10px; font-family: 'Huninn', sans-serif; font-size: 1.35rem; color: var(--lemon); text-shadow: var(--outline), 4px 4px 0 var(--ink); transform: rotate(-8deg); white-space: nowrap; }
+        .panel-cover { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background-color: var(--accent); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.35) 0 14px, transparent 14px 28px); }
+        .panel.covered .panel-cover { display: flex; }
+        .panel.covered .panel-talk, .panel.covered .sfx { display: none; }
+        .pc-q { width: 86px; height: 86px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; box-shadow: 4px 4px 0 var(--ink); font-family: 'Huninn', sans-serif; font-size: 3.2rem; line-height: 1; animation: bob 1.1s ease-in-out infinite alternate; }
+        .panel-cover b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.6rem; }
+        .panel-cover small { font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 0 10px; }
+        .panel.revealed .panel-img { animation: reveal .5s ease; }
+        .panel.revealed .sfx { animation: sfxPop .5s cubic-bezier(.2,1.6,.4,1) .25s both; }
+        @keyframes reveal { from { transform: rotateY(90deg); } to { transform: none; } }
+        @keyframes sfxPop { from { transform: rotate(-8deg) scale(0); } to { transform: rotate(-8deg) scale(1); } }
+        .panel-talk { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 12px 10px 12px; background: #FFFDF7; border-top: 3px solid var(--ink); }
+        .talk { display: flex; gap: 8px; align-items: flex-start; opacity: 0; transform: scale(.7); transform-origin: left top; transition: opacity .25s, transform .3s cubic-bezier(.2,1.5,.4,1); }
+        .talk.r { flex-direction: row-reverse; transform-origin: right top; }
+        .talk.show { opacity: 1; transform: none; }
+        .tb { position: relative; background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; padding: 5px 11px 6px; box-shadow: 2px 2px 0 var(--ink); max-width: calc(100% - 50px); }
+        .talk.r .tb { background: #FFF1F6; }
+        .tb::before { content: ""; position: absolute; top: 11px; left: -10px; border-style: solid; border-width: 6px 9px 6px 0; border-color: transparent var(--ink) transparent transparent; }
+        .talk.r .tb::before { left: auto; right: -10px; border-width: 6px 0 6px 9px; border-color: transparent transparent transparent var(--ink); }
+        .tb > b { display: block; font-size: .72rem; color: var(--ink-2); line-height: 1.3; }
+        .tb .t { font-family: 'Huninn', sans-serif; font-size: 1.04rem; line-height: 1.5; }
+        .panel-say { position: absolute; right: 10px; top: -21px; width: 38px; height: 38px; border-radius: 50%; background: var(--lemon); border: 2.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); font-size: 1rem; line-height: 1; }
+        .panel-say.on { background: var(--mint); }
+        .comic-ctrl { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+
+        /* ===== 闖關測驗 ===== */
+        .quiz-hud { display: flex; align-items: center; gap: 8px 12px; flex-wrap: wrap; margin: 4px 0 12px; scroll-margin-top: 80px; }
+        .q-count { font-weight: 900; font-size: 1.02rem; }
+        .q-count b { font-size: 1.4rem; }
+        .combo { font-weight: 900; color: #E8590C; }
+        .q-dots { display: flex; gap: 5px; flex-wrap: wrap; margin-left: auto; }
+        .q-dots i { width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--ink); background: #fff; }
+        .q-dots i.now { background: var(--lemon); transform: scale(1.25); }
+        .q-dots i.ok { background: var(--mint); }
+        .q-dots i.no { background: var(--bad); }
+        .q-card { background: #fff; border: var(--bd); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink); padding: 16px 14px; animation: popIn .4s ease both; }
+        .q-text { font-size: 1.14rem; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+        .q-no { display: inline-block; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 10px; padding: 0 8px; margin-right: 8px; font-family: 'Huninn', sans-serif; font-weight: 400; box-shadow: 2px 2px 0 var(--ink); }
+        .opts { display: grid; gap: 10px; }
+        .opt { display: flex; align-items: center; gap: 12px; text-align: left; padding: 11px 14px; border: var(--bd); border-radius: 16px; background: var(--o); box-shadow: 4px 4px 0 var(--ink); font-weight: 700; font-size: 1.02rem; line-height: 1.5; transition: transform .1s, box-shadow .1s, opacity .2s; }
+        .opt-0 { --o: #FFE3EC; } .opt-1 { --o: #DFF5FF; } .opt-2 { --o: #E3FBEF; } .opt-3 { --o: #FFF3C4; }
+        .opt:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+        .opt:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+        .opt:disabled { cursor: default; }
+        .opt-l { flex: 0 0 36px; height: 36px; border-radius: 50%; background: #fff; border: 2.5px solid var(--ink); display: grid; place-items: center; font-family: 'Huninn', sans-serif; font-size: 1.1rem; line-height: 1; }
+        .opt.right { background: var(--mint); animation: boing .5s ease; }
+        .opt.wrong { background: var(--bad); animation: shake .45s ease; }
+        .opt:disabled:not(.right):not(.wrong) { opacity: .5; }
+        @keyframes boing { 30% { transform: scale(1.05); } 60% { transform: scale(.97); } }
+        .q-fb { margin-top: 14px; border: 2.5px dashed var(--ink); border-radius: 14px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; }
+        .q-fb.ok { background: #E3FBEF; } .q-fb.no { background: #FFECEE; }
+        .q-fb .fb-txt { display: flex; flex-direction: column; }
+        .q-next-row { margin-top: 14px; text-align: right; scroll-margin-bottom: 110px; }
+        .result { text-align: center; background: #fff; border: var(--bd); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink); padding: 18px 14px; animation: popIn .45s ease both; }
+        .res-stars { font-size: 3.4rem; line-height: 1.1; letter-spacing: 6px; }
+        .rs { color: #E6DFF2; text-shadow: var(--outline); display: inline-block; }
+        .rs.on { color: var(--star); animation: starPop .55s cubic-bezier(.2,1.6,.4,1) both; }
+        @keyframes starPop { from { transform: scale(0) rotate(-90deg); } to { transform: none; } }
+        .res-score { font-size: 1.2rem; font-weight: 900; margin-top: 4px; }
+        .res-score b { font-size: 1.8rem; color: #E8590C; }
+        .res-sub { font-size: .9rem; color: var(--ink-2); }
+        .sticker-get { display: inline-flex; align-items: center; gap: 10px; margin: 12px 0 4px; background: #FFF6D6; border: 2.5px solid var(--ink); border-radius: 16px; padding: 6px 14px 6px 8px; box-shadow: 3px 3px 0 var(--ink); transform: rotate(-2deg); }
+        .sticker-get .stk { font-size: 2.2rem; line-height: 1; }
+        .sticker-get.dim { background: #F6F3FB; transform: none; }
+        .review { text-align: left; margin-top: 14px; border: 2.5px solid var(--ink); border-radius: 14px; background: #FFFDF7; }
+        .review summary { cursor: pointer; font-weight: 900; padding: 8px 12px; }
+        .review ol { padding: 0 14px 10px 34px; display: grid; gap: 10px; }
+        .review .ans { font-weight: 900; color: #11845B; }
+        .review .exp { font-size: .9rem; color: var(--ink-2); }
+        .perfect { font-weight: 900; margin-top: 10px; }
+        .res-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+
+        /* ===== 結業證書 ===== */
+        .cert { border: 4px solid var(--ink); border-radius: 22px; background: #FFFBEA; box-shadow: 6px 6px 0 var(--ink); padding: 10px; }
+        .cert-in { border: 3px dashed #E0B84A; border-radius: 16px; padding: 20px 14px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .cert-ribbon { background: var(--pink); border: var(--bd); border-radius: 10px; padding: 3px 18px; font-family: 'Huninn', sans-serif; font-size: 1.3rem; box-shadow: 3px 3px 0 var(--ink); }
+        .cert h2 { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.85rem; line-height: 1.3; }
+        .cert h2 small { display: block; font-size: 1rem; color: var(--ink-2); }
+        .cert-name { font-size: 1.1rem; }
+        .cert-name .line { display: inline-block; width: 9em; border-bottom: 2.5px solid var(--ink); vertical-align: -4px; }
+        .cert-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .cert-stats div { background: #fff; border: 2.5px solid var(--ink); border-radius: 14px; padding: 6px 14px; display: flex; flex-direction: column; align-items: center; min-width: 96px; }
+        .cert-stats b { font-size: 1.4rem; }
+        .cert-stats small { font-size: .8rem; color: var(--ink-2); }
+        .stk-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+        .stk-row span { width: 46px; height: 46px; border-radius: 50%; border: 2.5px dashed #C9BDE0; display: grid; place-items: center; font-size: 1.4rem; color: #B3A7CC; }
+        .stk-row span.got { border: 2.5px solid var(--ink); background: #fff; }
+        .cert-sign { font-family: 'Huninn', sans-serif; }
+
+        /* ===== 特效 ===== */
+        #fx { position: fixed; inset: 0; pointer-events: none; z-index: 100; overflow: hidden; }
+        .cf { position: absolute; font-size: 22px; animation: cf 1.25s cubic-bezier(.2,.7,.3,1) forwards; }
+        @keyframes cf { 0% { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 70% { opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy) + 90px)) rotate(var(--rot)); opacity: 0; } }
+        #toast { position: fixed; left: 50%; top: 70px; transform: translate(-50%, -16px); opacity: 0; background: var(--ink); color: #fff; padding: 8px 18px; border-radius: 999px; font-weight: 700; z-index: 120; transition: opacity .25s, transform .25s; pointer-events: none; white-space: nowrap; }
+        #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+        @media (min-width: 720px) {
+            body { font-size: 18px; }
+            .page { padding: 38px 32px 24px; }
         }
-
-        .comic-img-container {
-            max-width: 560px;
-            margin: 0 auto 1rem;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #e9d5ff;
-            background: white;
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
         }
-
-        .comic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1rem;
-        }
-
-        .comic-panel {
-            background: white;
-            border: 1px solid #e9d5ff;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .panel-num {
-            display: inline-block;
-            background: #9333ea;
-            color: white;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 0.1rem 0.5rem;
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .dialogue-line { margin-bottom: 0.4rem; font-size: 0.92rem; }
-        .dialogue-speaker { font-weight: 700; color: #581c87; }
-
-        /* 測驗區 */
-        .quiz-section {
-            margin-top: 2.5rem;
-            background-color: #f8fafc;
-            border: 1px solid var(--border-color);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-        }
-
-        .quiz-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .quiz-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
-
-        .score {
-            font-weight: 700;
-            color: #3730a3;
-            background: #eef2ff;
-            border-radius: 999px;
-            padding: 0.25rem 0.9rem;
-            font-size: 0.9rem;
-        }
-
-        .quiz-item {
-            background: white;
-            padding: 1rem 1.25rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .quiz-q { font-weight: 700; margin-bottom: 0.75rem; }
-        .quiz-q .qn { color: var(--primary-color); margin-right: 0.25rem; }
-
-        .listen-btn {
-            display: inline-block;
-            margin: 0 0 0.75rem;
-            background: #0ea5e9;
-        }
-
-        .listen-btn:hover { background: #0284c7; }
-
-        .quiz-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-
-        @media (max-width: 720px) {
-            .quiz-options { grid-template-columns: 1fr; }
-            .chapter-card { padding: 1.25rem; }
-            .cover-content { padding: 1.25rem; }
-            .comic-section { padding: 1rem; }
-            .quiz-section { padding: 1rem; }
-        }
-
-        .option-btn {
-            background: #f1f5f9;
-            border: 1px solid var(--border-color);
-            padding: 0.55rem 0.75rem;
-            border-radius: 0.375rem;
-            text-align: left;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.92rem;
-            color: var(--text-main);
-            transition: all 0.2s;
-        }
-
-        .option-btn:hover:not(:disabled) { background: #e2e8f0; }
-        .option-btn:disabled { cursor: default; }
-
-        .option-btn.correct {
-            background-color: #d1fae5 !important;
-            border-color: var(--success-color) !important;
-            color: #065f46;
-            font-weight: 700;
-        }
-
-        .option-btn.wrong {
-            background-color: #fee2e2 !important;
-            border-color: var(--error-color) !important;
-            color: #991b1b;
-        }
-
-        .quiz-explanation {
-            margin-top: 0.6rem;
-            font-size: 0.88rem;
-            color: var(--text-sub);
-            display: none;
-            padding: 0.5rem 0.7rem;
-            background: #f8fafc;
-            border-radius: 0.25rem;
-        }
-
-        .quiz-explanation.ok { border-left: 3px solid var(--success-color); }
-        .quiz-explanation.ng { border-left: 3px solid var(--error-color); }
-
-        .quiz-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-
-        .reset-btn, .next-btn {
-            font-family: inherit;
-            font-weight: 700;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .reset-btn {
-            background: white;
-            border: 1px solid var(--border-color);
-            color: var(--text-sub);
-            padding: 0.45rem 1rem;
-        }
-
-        .reset-btn:hover { background: #f1f5f9; }
-
-        .finish-msg { font-weight: 700; color: #065f46; }
-
-        .next-wrap { text-align: right; margin-top: 1.5rem; }
-
-        .next-btn {
-            background: var(--accent-color);
-            border: none;
-            color: white;
-            padding: 0.65rem 1.3rem;
-        }
-
-        .next-btn:hover { background: #d97706; }
-
-        .total-box {
-            margin-top: 1.5rem;
-            background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
-            border: 2px solid #c7d2fe;
-            border-radius: 0.75rem;
-            padding: 1rem 1.25rem;
-            font-weight: 700;
-            color: #312e81;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 3rem;
+        @media print {
+            body { background: #fff; padding: 0; }
+            .topbar, .bookmarks, .pager, .catbox, .res-btns, .page-no, #fx, #toast { display: none !important; }
+            .page { border: none; box-shadow: none; }
+            .page::before, .page::after { display: none; }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>🎼 穿越音符時光機！<br>浪漫樂派大冒險（初期 ＆ 早期篇）</h1>
-        <p>國小音樂課超好懂圖文漫畫電子書</p>
+    <header class="topbar">
+        <div class="topbar-in">
+            <button class="brand" onclick="Book.go(0)" aria-label="回到封面">🎼 浪漫樂派大冒險</button>
+            <div class="hud">
+                <span class="hud-chip" title="音符幣（每答對 1 題得 10 枚，取每關最佳成績）">🪙 <b id="hudCoins">0</b></span>
+                <span class="hud-chip" title="星星（每關最多 3 顆）">⭐ <b id="hudStars">0</b></span>
+                <button id="sfxBtn" class="icon-btn" onclick="App.toggleSfx()" aria-label="音效開關">🔔</button>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <section class="cover-section">
-            <img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：左邊是整齊規矩的古典鋼琴，穿過 1820 年的金色音符大門後，是充滿故事與色彩的浪漫樂派世界" class="cover-img">
-            <div class="caption">▲ 封面插圖：左邊是整齊規矩的古典鋼琴，穿過 1820 年的金色音符大門後，是充滿故事與色彩的浪漫樂派世界！</div>
-            <div class="cover-content">
-                <h2>歡迎來到浪漫樂派的黃金年代！</h2>
-                <p>跟著小樂和音符精靈咪咪，從「浪漫」這個詞的由來出發，認識早期浪漫樂派的四大天王：貝多芬、韋伯、羅西尼、舒伯特。</p>
-                <ul class="feature-list">
-                    <li>🖼️ 8 幅章節大插圖</li>
-                    <li>🎬 7 組情境記憶四格漫畫</li>
-                    <li>🎧 12 首雙聲部示範音樂</li>
-                    <li>📝 86 題隨堂大挑戰</li>
-                </ul>
-                <p class="tip">🔈 示範音樂由瀏覽器即時合成，不用下載音檔。iPhone／iPad 請先關閉「靜音模式」才聽得到聲音。</p>
+    <nav class="bookmarks" id="bookmarks" aria-label="章節書籤"></nav>
+
+    <main class="stage-wrap">
+        <div class="stage" id="stage" aria-live="polite"></div>
+    </main>
+
+    <nav class="pager" aria-label="翻頁">
+        <div class="pager-in">
+            <button class="pg-btn prev" id="prevBtn" onclick="Book.prev()" aria-label="上一頁">◀<span> 上一頁</span></button>
+            <div class="pg-info">
+                <div class="pg-label" id="pgLabel"></div>
+                <div class="pg-bar"><i id="pgBar"></i></div>
             </div>
-        </section>
+            <button class="pg-btn next" id="nextBtn" onclick="Book.next()" aria-label="下一頁"><span>下一頁 </span>▶</button>
+        </div>
+    </nav>
 
-        <nav class="nav-tabs" id="navTabs" aria-label="章節"></nav>
+    <div id="fx" aria-hidden="true"></div>
+    <div id="toast" role="status"></div>
 
-        <div id="chaptersContainer"></div>
-    </div>
-
-    <footer>
-        <p>穿越音符時光機！浪漫樂派大冒險（初期 ＆ 早期篇）｜國小音樂課互動電子書 © 2026</p>
-    </footer>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="catHead" viewBox="26 10 148 144">
+                <path d="M46 80 L38 16 L94 50 Z M154 80 L162 16 L106 50 Z" fill="#2B2340" stroke="#15101F" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M53 64 L47 30 L80 52 Z M147 64 L153 30 L120 52 Z" fill="#FF8FAB"/>
+                <ellipse cx="100" cy="90" rx="66" ry="54" fill="#2B2340" stroke="#15101F" stroke-width="5"/>
+                <ellipse cx="74" cy="92" rx="16" ry="18" fill="#FFE066" stroke="#15101F" stroke-width="3"/>
+                <ellipse cx="126" cy="92" rx="16" ry="18" fill="#FFE066" stroke="#15101F" stroke-width="3"/>
+                <ellipse cx="76" cy="95" rx="7" ry="11" fill="#15101F"/>
+                <ellipse cx="128" cy="95" rx="7" ry="11" fill="#15101F"/>
+                <circle cx="72" cy="87" r="4" fill="#fff"/>
+                <circle cx="124" cy="87" r="4" fill="#fff"/>
+                <path d="M94 106 L106 106 L100 113 Z" fill="#FF8FAB"/>
+                <path d="M88 115 Q94 122 100 115 Q106 122 112 115" fill="none" stroke="#FFB3C7" stroke-width="3" stroke-linecap="round"/>
+            </symbol>
+        </defs>
+    </svg>
 
     <script>
         // ===== Web Audio 合成器：雙聲部示範音樂 =====
@@ -834,8 +787,8 @@
                 heroCap: '▲ 1810 年德國樂評家 E.T.A. 霍夫曼把莫札特、海頓、貝多芬列為三大「浪漫作曲家」！',
                 content: `
                     <div class="intro-dialog">
-                        <p><span class="spk">👦 小樂（國小五年級）：</span>「咪咪！老師說要學『浪漫樂派』，是不是全部都在寫粉紅泡泡的情歌啊？💕」</p>
-                        <p><span class="spk">🧚 音符精靈 咪咪：</span>「猜錯囉！『浪漫』（Romantic / Romance）的字根其實是『羅馬』（Roman / Roma）！原本是指羅馬或羅曼語系民族的熱情，後來演變成<strong>『對夢想不斷追求與實現的情懷』</strong>！」</p>
+                        <p><span class="spk">👦 小樂（國小五年級）：</span>「黑貓老師！我們要學『浪漫樂派』，是不是全部都在寫粉紅泡泡的情歌啊？💕」</p>
+                        <p><span class="spk">🐈‍⬛ 黑貓老師：</span>「喵～猜錯囉！『浪漫』（Romantic / Romance）的字根其實是『羅馬』（Roman / Roma）！原本是指羅馬或羅曼語系民族的熱情，後來演變成<strong>『對夢想不斷追求與實現的情懷』</strong>！」</p>
                     </div>
                     <h3>⏰ 時代座標</h3>
                     <ul>
@@ -852,13 +805,6 @@
                 audioIntro: '霍夫曼和史伯爾都稱讚的貝多芬《第五交響曲》，先來聽聽它的開頭。',
                 audio: ['b5'],
                 comicTitle: '🎬 第 1 話情境記憶四格漫畫：《浪漫不是談戀愛？！》',
-                comicImg: 'images/comic_ch1.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（臉紅心跳💕）', lines: [['👦 小樂', '嘿嘿，浪漫樂派是不是都在教大家寫情書跟唱情歌呀？'], ['🧚 咪咪', '醒醒啊同學！你的粉紅泡泡快破掉啦！']] },
-                    { num: '第 2 格【承】（NO！飛高高🎈）', lines: [['🧚 咪咪', '浪漫（Romantic）字根是『羅馬』！代表坐上熱氣球去追夢的熱血情懷！'], ['👦 小樂', '原來是熱血追夢人，不是戀愛腦！']] },
-                    { num: '第 3 格【轉】（叮咚加冕👑）', lines: [['🎩 霍夫曼', '1810 年我宣布：莫札特、海頓、貝多芬是三大浪漫作曲家！'], ['👓 史伯爾', '沒錯！貝多芬《第五交響曲》就是『好的浪漫風格』！']] },
-                    { num: '第 4 格【合】（1820 轟隆⚡）', lines: [['😤 貝多芬', '莫札特、海頓請回古典隊，1820–1900 浪漫大門由我領軍衝鋒！'], ['👦 小樂', '記住了！1820 貝多芬是浪漫開山王！']] }
-                ],
                 quizzes: [
                     { q: '「浪漫」（Romantic）一詞的字根最早來自哪裡？', options: ['羅馬（Roman / Roma）', '希臘（Greece）', '倫敦（London）'], ans: 0, exp: '字根源自羅馬（Roman / Roma），原本指羅馬或羅曼語系民族。' },
                     { q: '音樂史上的「浪漫樂派」大約是哪一段時期？', options: ['1600–1750 年', '1820–1900 年', '1950–2000 年'], ans: 1, exp: '音樂界浪漫主義在 1820–1900 年（廣義可至 1918 年）。' },
@@ -911,13 +857,6 @@
                 audioIntro: '先聽古典版，再聽浪漫版：同一段開頭，感覺差在哪裡？',
                 audio: ['moz', 'rom'],
                 comicTitle: '🎬 第 2 話情境記憶四格漫畫：《衝破紙箱大變身！》',
-                comicImg: 'images/comic_ch2.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（立正坐好📏）', lines: [['🎻 古典樂手', '一二三四、對稱整齊！巴洛克和古典時期最重『形式與結構』！'], ['👦 小樂', '大家坐在格子裡好像穿制服排隊喔！']] },
-                    { num: '第 2 格【承】（碰！衝啊🎢）', lines: [['🎺 浪漫樂手', '不管格子了！我們要重『感情與形象』，寫有故事的『標題音樂』！'], ['🧚 咪咪', '受非現實文學影響，音樂直接變童話遊樂園！']] },
-                    { num: '第 3 格【轉】（轉調魔法✨）', lines: [['🎹 咪咪', '看招！狂灑『轉調』跟『半音』升降記號，再變出即興曲、隨想曲！'], ['👦 小樂', '哇！短小自由的『小型曲式』超好聽！']] },
-                    { num: '第 4 格【合】（世界開花🌍）', lines: [['🚩 各國大師', '法國白遼士、義大利羅西尼、波蘭蕭邦、匈牙利李斯特、俄國柴可夫斯基報到！'], ['🧚 咪咪', '到馬勒與布拉姆斯時式微，晚期還開出西貝流士、史麥塔納等『民族樂派』！']] }
-                ],
                 quizzes: [
                     { q: '和巴洛克、古典時期相比，浪漫樂派比較注重什麼？', options: ['嚴格的形式與對稱', '感情與形象', '完全不用樂器'], ans: 1, exp: '浪漫派輕形式與結構，非常重視「感情」與「形象」。' },
                     { q: '浪漫樂派受「非現實文學」影響，大量出現哪一種有故事劇情的音樂？', options: ['標題音樂', '軍隊進行曲', '無聲音樂'], ans: 0, exp: '標題音樂就是帶有故事、畫面或文學標題的音樂。' },
@@ -950,13 +889,6 @@
                 audioIntro: '3 首雙聲部賞析：命運、合唱、田園。',
                 audio: ['b5', 'b9', 'b6'],
                 comicTitle: '🎬 第 3 話情境記憶四格漫畫：《聽不見的閃電樂聖！》',
-                comicImg: 'images/comic_ch3.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（跨時代🌈）', lines: [['😤 貝多芬', '我左腳踩著古典傳統，右腳踢開浪漫彩虹大門！'], ['👦 小樂', '漢字文化圈都尊稱您為『樂聖』！']] },
-                    { num: '第 2 格【承】（耳鳴危機🔇）', lines: [['😤 貝多芬', '什麼？！我的耳朵竟然聽不見聲音了……'], ['😤 貝多芬（握拳）', '但命運別想打倒我，我用內心照樣聽得見！']] },
-                    { num: '第 3 格【轉】（震動共鳴🎹）', lines: [['😤 貝多芬（耳貼鋼琴）', '靠木板震動，我寫了 9 部交響曲、36 首鋼琴奏鳴曲！'], ['🧚 咪咪', '其中 32 首有編號、1 首未完成，外加 16 弦樂四重奏與《莊嚴彌撒》！']] },
-                    { num: '第 4 格【合】（3・5・6・9⚡）', lines: [['⚡ 四道閃電', '必考交響曲密碼：3 英雄、5 命運、6 田園、9 合唱！'], ['👦 小樂', '3、5、6、9 四道閃電劈進腦袋，絕對不會忘！']] }
-                ],
                 quizzes: [
                     { q: '貝多芬是哪一個地方的作曲家與鋼琴演奏家？', options: ['德意志', '義大利', '法國'], ans: 0, exp: '貝多芬是德意志作曲家、鋼琴演奏家。' },
                     { q: '漢字文化圈尊稱貝多芬為什麼？', options: ['歌神', '樂聖', '鋼琴詩人'], ans: 1, exp: '漢字文化圈尊稱貝多芬為「樂聖」。' },
@@ -994,13 +926,6 @@
                 audioIntro: '森林號角與魔法號角：聽聽韋伯的德國浪漫味。',
                 audio: ['frei', 'ober'],
                 comicTitle: '🎬 第 4 話情境記憶四格漫畫：《馬車小子的魔彈森林！》',
-                comicImg: 'images/comic_ch4.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（喀噠喀噠🐴）', lines: [['🧒 小韋伯', '媽媽是歌手、爸爸是劇團經理，坐馬車巡迴聽遍民間音樂真好玩！'], ['👦 小樂', '難怪他的音樂充滿民間童話味！']] },
-                    { num: '第 2 格【承】（10歲拜師✍️）', lines: [['👨‍🏫 米夏埃爾', '我是海頓的弟弟，韋伯才 10 歲就跟我學會作曲啦！'], ['🏹 韋伯', '長大我還去布雷斯勞、布拉格、德雷斯頓當大指揮！']] },
-                    { num: '第 3 格【轉】（百發百中🏹）', lines: [['🏹 韋伯', '1820 年我取材阿培爾小說寫出《魔彈射手》（作品77）！'], ['🦉 貓頭鷹', '咕咕！這可是『德國第一部浪漫主義歌劇』喔！']] },
-                    { num: '第 4 格【合】（魔法號角📯）', lines: [['🏹 韋伯', '我還有無口白的《歐瑟安特》、三部單簧管協奏曲和鋼琴《邀舞》！'], ['🧚 咪咪', '1824 寫《奧伯龍》，兩年後抱病去倫敦首演客死異鄉，太感人了！']] }
-                ],
                 quizzes: [
                     { q: '卡爾·馮·韋伯是哪一國的作曲家？', options: ['德國', '義大利', '奧地利'], ans: 0, exp: '韋伯是德國作曲家。' },
                     { q: '韋伯的爸爸和媽媽分別從事什麼工作，讓他從小接觸大量民間音樂？', options: ['母親是歌手、父親是巡迴劇團經理', '都是農夫', '都是國王大臣'], ans: 0, exp: '他從小跟著劇團到處旅行，聽了大量民間音樂。' },
@@ -1036,13 +961,6 @@
                 audioIntro: '左邊射蘋果、右邊拿剪刀：兩首必考序曲。',
                 audio: ['tell', 'barb'],
                 comicTitle: '🎬 第 5 話情境記憶四格漫畫：《四年一壽的歌劇大廚！》',
-                comicImg: 'images/comic_ch5.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（2月29日🎂）', lines: [['👨‍🍳 羅西尼（流汗）', '1792 年 2 月 29 日出生……什麼！我四年才能吃一次生日蛋糕？！'], ['👦 小樂', '閏年壽星太好記了吧！']] },
-                    { num: '第 2 格【承】（右手狂飆🍝）', lines: [['👨‍🍳 羅西尼', '沒關係！那我每天左手煮義大利麵、右手飆速寫歌劇補回來！'], ['🧚 咪咪', '煮一鍋麵的時間他就寫好一首序曲了！']] },
-                    { num: '第 3 格【轉】（39部高塔📚）', lines: [['👨‍🍳 羅西尼（插腰）', '鏘鏘！我總共寫了 39 部歌劇，外加宗教音樂跟室內樂！'], ['👦 小樂', '書堆得比人還要高啦！']] },
-                    { num: '第 4 格【合】（咻！喀嚓✂️）', lines: [['🏹 威廉泰爾', '左邊看我《威廉泰爾》神箭射蘋果！'], ['💈 理髮師', '右邊看我《塞爾維亞的理髮師》快嘴剪刀手！兩部必考！']] }
-                ],
                 quizzes: [
                     { q: '喬奇諾·安東尼奧·羅西尼是哪一國的作曲家？', options: ['義大利', '德國', '奧地利'], ans: 0, exp: '羅西尼是義大利作曲家。' },
                     { q: '羅西尼的出生日期有什麼超級特別的地方？', options: ['1792 年 2 月 29 日（四年才過一次生日）', '1 月 1 日', '12 月 25 日'], ans: 0, exp: '他在閏年的 2 月 29 日出生，四年才過一次生日。' },
@@ -1080,13 +998,6 @@
                 audioIntro: '歌曲之王的三首歌：先聽鱒魚，再聽兩首大家都會哼的藝術歌曲。',
                 audio: ['trout', 'rose', 'lull'],
                 comicTitle: '🎬 第 6 話情境記憶四格漫畫：《咖啡館裡的歌曲之王！》',
-                comicImg: 'images/comic_ch6.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（好友請客☕）', lines: [['👓 舒伯特', '辭掉爸爸學校的老師工作後沒錢租房，還好朋友請我喝咖啡吃麵包！'], ['🧑‍🤝‍🧑 好友們', '你負責寫好聽的歌，飯錢交給我們！']] },
-                    { num: '第 2 格【承】（噗通600+🐟）', lines: [['👓 舒伯特', '看到小溪《鱒魚》跳起來，靈感像泉水噴發，寫了 600 多首藝術歌曲！'], ['🧚 咪咪', '既是古典最後巨匠，更是浪漫派的【歌曲之王】！']] },
-                    { num: '第 3 格【轉】（感動落淚😭）', lines: [['👓 舒伯特', '第 8 號交響曲只寫兩樂章，怎麼連音符精靈都聽到哭了？'], ['🧚 咪咪', '因為《未完成交響曲》加上《磨坊少女》《冬之旅》《天鵝之歌》太美了！']] },
-                    { num: '第 4 格【合】（31歲長眠💐）', lines: [['👦 小樂', '他只活了 31 歲，但死後葬在最崇拜的偶像貝多芬旁邊耶！'], ['🧚 咪咪', '兩位大音樂家在天堂一定天天一起合奏！']] }
-                ],
                 quizzes: [
                     { q: '法蘭茲·舒伯特是哪一國的作曲家？', options: ['奧地利', '義大利', '法國'], ans: 0, exp: '舒伯特是奧地利作曲家。' },
                     { q: '舒伯特在音樂史上有什麼雙重定位？', options: ['早期浪漫代表＆古典主義最後一位巨匠', '巴洛克開山祖', '現代電子先驅'], ans: 0, exp: '他是早期浪漫主義代表，也被認為是古典主義最後一位巨匠。' },
@@ -1133,13 +1044,6 @@
                 audioIntro: '四大天王點唱機：每人一首代表作，複習一下！',
                 audio: ['b5', 'frei', 'tell', 'trout'],
                 comicTitle: '🎬 第 7 話情境記憶四格漫畫：《早期四大天王口訣總點名！》',
-                comicImg: 'images/comic_ch7.jpg',
-                comicPanels: [
-                    { num: '第 1 格【起】（樂聖乾杯☕）', lines: [['😤 貝多芬', '德意志樂聖！9 交響、36 鋼奏，必考 3・5・6・9！'], ['👦 小樂', '承古典、啟浪漫的第一人！']] },
-                    { num: '第 2 格【承】（魔彈眨眼🦉）', lines: [['🏹 韋伯', '德國歌劇魔法師！1820《魔彈射手》第一部，還有《歐瑟安特》《奧伯龍》《邀舞》！'], ['🦉 貓頭鷹', '10 歲跟海頓弟弟學作曲也別忘記！']] },
-                    { num: '第 3 格【轉】（拋麵大廚🍝）', lines: [['👨‍🍳 羅西尼', '義大利 2/29 壽星！39 部歌劇，《威廉泰爾》配《理髮師》！'], ['🧚 咪咪', '看到蘋果跟剪刀就選羅西尼！']] },
-                    { num: '第 4 格【合】（嘟嘟出發🚂）', lines: [['👓 舒伯特', '奧地利歌曲之王！31 歲 600 首歌，《未完成》加《鱒魚》！'], ['👦 小樂', '早期四大天王滿分過關！搭火車前往下一站【前期】囉！']] }
-                ],
                 quizzes: [
                     { q: '早期四大音樂天王裡，哪兩位來自德國／德意志地區？', options: ['貝多芬、韋伯', '羅西尼、舒伯特', '舒伯特、韋伯'], ans: 0, exp: '貝多芬（德意志）和韋伯（德國）；羅西尼是義大利人，舒伯特是奧地利人。' },
                     { q: '早期四大天王中，誰的壽命最短（只有 31 歲）卻寫最多藝術歌曲？', options: ['舒伯特', '羅西尼', '貝多芬'], ans: 0, exp: '舒伯特 31 歲就過世，卻寫了 600 多首藝術歌曲。' },
@@ -1160,11 +1064,10 @@
                 heroImg: null,
                 content: `
                     <div class="intro-dialog">
-                        <p><span class="spk">🧚 咪咪：</span>「最後一站！前 12 題是全冊重點，最後 4 題是<strong>🎧 聽音辨曲</strong>：先按『播放題目音樂』聽一聽，再選答案喔！」</p>
+                        <p><span class="spk">🐈‍⬛ 黑貓老師：</span>「最後一站！前 12 題是全冊重點，最後 4 題是<strong>🎧 聽音辨曲</strong>：先按『播放題目音樂』聽一聽，再選答案喔！」</p>
                     </div>`,
                 mnemonic: null,
                 audio: [],
-                comicPanels: null,
                 quizzes: [
                     { q: '「浪漫」（Romantic）這個詞最早的字根是從哪裡來的？', options: ['羅馬（Roman / Roma）', '希臘（Greece）', '倫敦（London）'], ans: 0, exp: '字根源自羅馬，後來演變成追求夢想的情懷。' },
                     { q: '浪漫樂派的音樂時期大約是哪一段時間？（廣義可到 1918 年）', options: ['1600–1750 年', '1820–1900 年', '1950–2000 年'], ans: 1, exp: '音樂界浪漫主義在 1820–1900 年。' },
@@ -1186,174 +1089,947 @@
             }
         ];
 
-        // ===== 作答紀錄 =====
-        const answers = chaptersData.map(ch => ch.quizzes.map(() => null));
+        // ===== 新版：黑貓老師翻頁電子書 =====
+        const $ = s => document.querySelector(s);
+        const pick = a => a[Math.floor(Math.random() * a.length)];
+        const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const LETTERS = ['A', 'B', 'C', 'D'];
+        const ACCENTS = ['#FF7AA2', '#4CC9F0', '#FF9F43', '#2ED3A0', '#FFD23F', '#6EA8FF', '#B18CFF', '#FF6B6B'];
+        const SHORT = ['浪漫的定義', '風格特徵', '貝多芬', '韋伯', '羅西尼', '舒伯特', '早期總整理', '總複習'];
+        const BM = ['浪漫', '風格', '貝多芬', '韋伯', '羅西尼', '舒伯特', '總整理', '總複習'];
+        const STICKERS = [['👑', '浪漫皇冠'], ['🎢', '風格雲霄飛車'], ['⚡', '命運閃電'], ['🦉', '魔彈貓頭鷹'], ['🍝', '大廚義大利麵'], ['🐟', '跳跳鱒魚'], ['🚂', '天王列車'], ['🏆', '浪漫大師獎盃']];
+        const RANKS = [[0, '🐣', '見習小樂手'], [100, '🎒', '音符探險家'], [300, '🪄', '旋律魔法師'], [500, '🎻', '浪漫小達人'], [700, '👑', '浪漫大師']];
+        const PANEL_TAGS = ['起', '承', '轉', '合'];
+        const AV = { '小樂': '👦', '咪咪': '🧚', '霍夫曼': '🎩', '貝多芬': '😤', '古典樂手': '🎻', '浪漫樂手': '🎺', '各國大師': '🚩', '四道閃電': '⚡', '小韋伯': '🧒', '米夏埃爾': '👴', '韋伯': '🏹', '貓頭鷹': '🦉', '羅西尼': '👨‍🍳', '威廉泰爾': '🍎', '理髮師': '💈', '舒伯特': '👓', '好友們': '🧑‍🤝‍🧑', '音符精靈們': '🎵' };
 
-        function quizItemsHtml(ci) {
-            return chaptersData[ci].quizzes.map((q, qi) => `
-                <div class="quiz-item" id="q-${ci}-${qi}">
-                    <div class="quiz-q"><span class="qn">${qi + 1}.</span>${q.q}</div>
-                    ${q.listen ? `<button class="play-btn listen-btn" data-track="${q.listen}" data-label="🎧 播放題目音樂" onclick="Synth.toggle('${q.listen}', this)">🎧 播放題目音樂（${Math.round(TRACKS[q.listen].dur)} 秒）</button>` : ''}
-                    <div class="quiz-options">
-                        ${q.options.map((opt, oi) => `<button class="option-btn" onclick="checkAnswer(${ci}, ${qi}, ${oi})">(${LETTERS[oi]}) ${opt}</button>`).join('')}
-                    </div>
-                    <div class="quiz-explanation" id="exp-${ci}-${qi}"></div>
-                </div>`).join('');
+        // ===== 四格漫畫：簡單搞笑對話 =====
+        const COMICS = [
+            [
+                { sfx: '噗通💕', lines: [['小樂', '浪漫樂派＝教大家寫情書？'], ['黑貓老師', '同學，口水擦一下喵。']] },
+                { sfx: 'NO！🎈', lines: [['咪咪', 'NO～浪漫的字根是「羅馬」！'], ['小樂', '原來是追夢想，不是戀愛腦！']] },
+                { sfx: '叮咚👑', lines: [['霍夫曼', '1810 年：莫札特、海頓、貝多芬都超浪漫！'], ['黑貓老師', '後來前兩位被請回古典隊了喵～']] },
+                { sfx: '轟隆⚡', lines: [['貝多芬', '1820，浪漫大門我先衝！'], ['小樂', '開山王好帥……門要賠嗎？']] }
+            ],
+            [
+                { sfx: '立正📏', lines: [['古典樂手', '形式！結構！一格都不准歪！'], ['小樂', '好像全班穿制服排隊……']] },
+                { sfx: '碰！🎢', lines: [['浪漫樂手', '拆箱！我們要感情跟故事！'], ['黑貓老師', '有故事的音樂叫「標題音樂」喵！']] },
+                { sfx: '咻咻✨', lines: [['咪咪', '灑點轉調、加點半音～'], ['小樂', '情緒坐上雲霄飛車了啦！']] },
+                { sfx: '世界開花🌍', lines: [['各國大師', '法、義、波、匈、俄，報到！'], ['黑貓老師', '晚期還長出「民族樂派」喵！']] }
+            ],
+            [
+                { sfx: '跨時代🌈', lines: [['貝多芬', '左腳古典，右腳浪漫！'], ['小樂', '腳好長……難怪叫「樂聖」！']] },
+                { sfx: '嗡——🔇', lines: [['貝多芬', '什麼？我……聽不見了？！'], ['貝多芬', '沒關係，我用心聽！']] },
+                { sfx: '咚咚🎹', lines: [['貝多芬', '耳朵貼鋼琴，震動就是音樂！'], ['黑貓老師', '9 部交響曲、36 首鋼琴奏鳴曲，猛喵！']] },
+                { sfx: '3‧5‧6‧9⚡', lines: [['四道閃電', '英雄！命運！田園！合唱！'], ['小樂', '3、5、6、9 劈進腦袋了！']] }
+            ],
+            [
+                { sfx: '喀噠喀噠🐴', lines: [['小韋伯', '媽媽唱歌，爸爸開劇團！'], ['小樂', '坐馬車聽遍民間音樂，好羨慕！']] },
+                { sfx: '10 歲拜師✍️', lines: [['米夏埃爾', '我是海頓的弟弟，上課囉！'], ['小韋伯', '我才 10 歲耶……好啦我寫！']] },
+                { sfx: '咻——🎯', lines: [['韋伯', '1820《魔彈射手》，百發百中！'], ['貓頭鷹', '咕咕！德國第一部浪漫歌劇！']] },
+                { sfx: '嘟嘟～📯', lines: [['韋伯', '還有《奧伯龍》跟《邀舞》！'], ['黑貓老師', '號角一吹，精靈全出來喵～']] }
+            ],
+            [
+                { sfx: '2/29😱', lines: [['羅西尼', '我四年才過一次生日？！'], ['小樂', '2 月 29 日，超好記！']] },
+                { sfx: '滋滋🍝', lines: [['羅西尼', '左手煮麵，右手寫歌劇！'], ['黑貓老師', '麵還沒好，序曲先寫好了喵。']] },
+                { sfx: '鏘鏘📚', lines: [['羅西尼', '39 部歌劇，疊起來比我高！'], ['小樂', '再疊下去要變 101 了啦！']] },
+                { sfx: '咻！喀嚓✂️', lines: [['威廉泰爾', '看箭！《威廉泰爾》射蘋果！'], ['理髮師', '喀嚓！《塞爾維亞的理髮師》！']] }
+            ],
+            [
+                { sfx: '叮～☕', lines: [['舒伯特', '辭掉老師工作，錢包空空……'], ['好友們', '你負責寫歌，咖啡我們請！']] },
+                { sfx: '噗通🐟', lines: [['舒伯特', '鱒魚一跳，靈感就來！'], ['黑貓老師', '一生寫了 600 多首歌，歌曲之王喵！']] },
+                { sfx: '嗚嗚😭', lines: [['音符精靈們', '第 8 號只有兩個樂章……好美！'], ['舒伯特', '所以叫《未完成交響曲》啦～']] },
+                { sfx: '💐', lines: [['小樂', '他只活 31 歲，葬在偶像貝多芬旁邊。'], ['黑貓老師', '追星追到最後一站，好感動喵。']] }
+            ],
+            [
+                { sfx: '乾杯☕', lines: [['貝多芬', '德意志樂聖，3‧5‧6‧9 記好！'], ['小樂', '承古典、啟浪漫第一人！']] },
+                { sfx: '眨眼😉', lines: [['韋伯', '1820《魔彈射手》，德國第一！'], ['貓頭鷹', '咕咕，他 10 歲拜海頓弟弟為師！']] },
+                { sfx: '拋麵🍝', lines: [['羅西尼', '2/29 壽星，39 部歌劇！'], ['黑貓老師', '看到蘋果＋剪刀，就選羅西尼喵！']] },
+                { sfx: '嘟嘟🚂', lines: [['舒伯特', '歌曲之王，31 歲 600 首歌！'], ['小樂', '下一站：浪漫【前期】，出發！']] }
+            ]
+        ];
+
+        // ===== 黑貓老師台詞 =====
+        const CAT = {
+            cover: '喵～我是黑貓老師！今天帶你搭上音符時光機，闖過 8 關浪漫樂派大冒險。按「開始冒險」出發吧！',
+            comicStart: '漫畫時間！按「打開下一格」，起、承、轉、合一格一格看，每格的 🔊 可以聽我念喵～',
+            thinking: ['慢慢想，答案藏在剛剛的漫畫裡喵～', '這題你一定會，相信自己喵！', '想一想再按，不要被我的尾巴分心喵～', '嗯……有點難，加油喵！'],
+            cheers: ['答對了喵！🎉', '太神啦，送你一個肉球！🐾', '喵喵喵～答得好！', '你的腦袋超靈光喵！', '完全正確，浪漫指數上升！'],
+            oops: ['喵嗚……差一點點！', '沒關係，貓也會踩空喵～', '再記一次就不會錯了喵！'],
+            pokes: ['喵？要摸摸頭嗎？', '我是黑貓老師，不是黑輪老師喵！', '播音樂的時候，我會跟著跳舞喔～', '肉球按一下，知識加一百！', '喵～翻到下一頁繼續冒險吧！'],
+            result: ['喵……這次沒拿到星星，看看答錯的題目，再挑戰一次吧！', '拿到 1 顆星！回去看看漫畫再來挑戰，一定更好喵～', '2 顆星，很棒喵！再挑戰一次就有機會拿 3 顆星！', '3 顆星！你是浪漫小天才，貼紙送你喵～🎉'],
+            quizStart(ci) {
+                const n = chaptersData[ci].quizzes.length;
+                const need = Math.ceil(n * 0.9);
+                return ci === 7
+                    ? `最後大魔王！前 12 題是全冊重點，最後 4 題要先按「播放題目音樂」聽一聽再作答。答對 ${need} 題以上拿 3 顆星喵！`
+                    : `闖關開始！共 ${n} 題，答對 ${need} 題以上拿 3 顆星喵！`;
+            },
+            map() {
+                const s = totalStars(), c = totalCoins(), rk = rankOf(c), nx = RANKS.find(r => r[0] > c);
+                if (s === 0 && c === 0) return '選一關開始吧！每關闖關拿星星，集滿 24 顆星就能當上浪漫大師喵！';
+                return nx ? `目前 ${s} 顆星，稱號是「${rk[2]}」！再 ${nx[0] - c} 枚音符幣就能升級成「${nx[2]}」喵～`
+                          : `${s} 顆星！你已經是「浪漫大師」了，把每關都拿滿 3 顆星吧喵！`;
+            },
+            end(stars) {
+                return stars >= 20
+                    ? `${stars} 顆星！你已經是浪漫大師了！下一站：浪漫【前期】——孟德爾頌、蕭邦、舒曼、李斯特，我們下集見喵！`
+                    : `目前拿到 ${stars} 顆星！還沒拿滿的關卡可以回地圖再挑戰喵～下一站是浪漫【前期】！`;
+            },
+            chapters: [
+                { intro: '喵～第 1 關！「浪漫」是談戀愛的意思嗎？答案可能跟你想的不一樣喔！', tips: ['先記住兩組年份：文學浪漫 1830–1850 年，音樂浪漫 1820–1900 年喵！', '霍夫曼先幫浪漫取名，後來音樂史確定貝多芬是開山王喵！'], comicDone: '重點複習：浪漫的字根是「羅馬」，1820 年貝多芬打開浪漫大門喵！' },
+                { intro: '古典是穿制服排隊，浪漫是去遊樂園說故事！一起破解風格密碼喵～', tips: ['浪漫派重感情、重故事，有故事的音樂叫「標題音樂」喵！', '9 種小型曲式，先挑 3 個最喜歡的記起來喵～', '先驅貝多芬、歌劇華格納、鋼琴李斯特，這三位是王者喵！'], comicDone: '重點複習：古典重形式，浪漫重感情跟故事，晚期還有民族樂派喵！' },
+                { intro: '這位頭髮亂亂的大叔，耳朵聽不見還寫出 9 部交響曲！他就是樂聖貝多芬喵！', tips: ['必考密碼：交響曲 3、5、6、9，英雄、命運、田園、合唱喵！'], comicDone: '重點複習：樂聖貝多芬，承古典、啟浪漫，交響曲 3、5、6、9 喵！' },
+                { intro: '走進魔法森林！小心貓頭鷹……還有百發百中的魔彈喵！', tips: ['《魔彈射手》是德國第一部浪漫主義歌劇，超常考喵！'], comicDone: '重點複習：1820《魔彈射手》，德國第一部浪漫主義歌劇喵！' },
+                { intro: '肚子餓了嗎？這位大廚一邊煮義大利麵，一邊寫歌劇喵！', tips: ['左邊射蘋果《威廉泰爾》，右邊拿剪刀《塞爾維亞的理髮師》喵！'], comicDone: '重點複習：2 月 29 日出生的羅西尼，39 部歌劇，蘋果和剪刀喵！' },
+                { intro: '戴圓眼鏡的舒伯特，31 年寫了 600 多首歌！準備好一起聽歌了嗎喵？', tips: ['三大聯篇歌曲集：《美麗的磨坊少女》、《冬之旅》、《天鵝之歌》喵！'], comicDone: '重點複習：歌曲之王舒伯特，《未完成交響曲》和《鱒魚》喵！' },
+                { intro: '四大天王在咖啡館聚會！把前面學的一次整理起來喵～', tips: ['表格可以左右滑動！國籍、綽號、代表作要一一對好喵。', '早期四大天王攻略完成，下一站是浪漫【前期】喵！'], comicDone: '四大天王全員到齊！下一頁闖關見真章喵！' },
+                { intro: '最後一關！前 12 題是全冊重點，最後 4 題要用耳朵聽喔！準備好了嗎喵？', tips: [], comicDone: '' }
+            ]
+        };
+
+        // ===== 黑貓老師 SVG =====
+        function catSvg() {
+            return `<svg viewBox="0 0 200 240" aria-hidden="true">
+<g class="tail"><path d="M136 204 C 182 210, 196 160, 180 130 C 173 117, 159 122, 164 133 C 175 157, 166 184, 134 188 Z" fill="#2B2340" stroke="#15101F" stroke-width="5" stroke-linejoin="round"/></g>
+<g class="body">
+<path d="M58 224 C 46 176, 66 138, 100 138 C 134 138, 154 176, 142 224 Z" fill="#2B2340" stroke="#15101F" stroke-width="5" stroke-linejoin="round"/>
+<ellipse cx="100" cy="192" rx="23" ry="22" fill="#3D3458"/>
+<circle cx="76" cy="200" r="11" fill="#2B2340" stroke="#15101F" stroke-width="4"/>
+<ellipse cx="80" cy="226" rx="16" ry="9" fill="#2B2340" stroke="#15101F" stroke-width="5"/>
+<ellipse cx="120" cy="226" rx="16" ry="9" fill="#2B2340" stroke="#15101F" stroke-width="5"/>
+</g>
+<g class="arm">
+<line x1="150" y1="150" x2="178" y2="98" stroke="#15101F" stroke-width="8" stroke-linecap="round"/>
+<line x1="150" y1="150" x2="178" y2="98" stroke="#FFFDF7" stroke-width="4" stroke-linecap="round"/>
+<circle cx="179" cy="96" r="5" fill="#FFD23F" stroke="#15101F" stroke-width="2.5"/>
+<line x1="124" y1="172" x2="146" y2="156" stroke="#15101F" stroke-width="24" stroke-linecap="round"/>
+<line x1="124" y1="172" x2="146" y2="156" stroke="#2B2340" stroke-width="15" stroke-linecap="round"/>
+<circle cx="149" cy="153" r="11" fill="#2B2340" stroke="#15101F" stroke-width="4"/>
+</g>
+<g class="bow">
+<path d="M100 140 L78 128 L78 152 Z M100 140 L122 128 L122 152 Z" fill="#FF4D6D" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="100" cy="140" r="6.5" fill="#FF4D6D" stroke="#15101F" stroke-width="4"/>
+<circle cx="85" cy="135" r="2" fill="#fff"/><circle cx="86" cy="146" r="2" fill="#fff"/><circle cx="115" cy="135" r="2" fill="#fff"/><circle cx="114" cy="146" r="2" fill="#fff"/>
+</g>
+<g class="head">
+<path d="M46 80 L38 16 L94 50 Z M154 80 L162 16 L106 50 Z" fill="#2B2340" stroke="#15101F" stroke-width="5" stroke-linejoin="round"/>
+<path d="M53 64 L47 30 L80 52 Z M147 64 L153 30 L120 52 Z" fill="#FF8FAB"/>
+<ellipse cx="100" cy="90" rx="66" ry="54" fill="#2B2340" stroke="#15101F" stroke-width="5"/>
+<g transform="rotate(-10 100 40)">
+<path d="M78 40 L78 52 Q100 60 122 52 L122 40 Z" fill="#6A4BE0" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
+<path d="M60 36 L100 22 L140 36 L100 50 Z" fill="#8B6CFF" stroke="#15101F" stroke-width="4" stroke-linejoin="round"/>
+<path d="M100 36 L132 40 L134 60" fill="none" stroke="#FFD23F" stroke-width="3" stroke-linecap="round"/>
+<circle cx="134" cy="62" r="4.5" fill="#FFD23F" stroke="#15101F" stroke-width="2"/>
+</g>
+<ellipse cx="56" cy="112" rx="9" ry="5" fill="#FF8FAB" opacity=".75"/>
+<ellipse cx="144" cy="112" rx="9" ry="5" fill="#FF8FAB" opacity=".75"/>
+<g class="eyes-open">
+<ellipse cx="74" cy="92" rx="16" ry="18" fill="#FFE066" stroke="#15101F" stroke-width="3"/>
+<ellipse cx="126" cy="92" rx="16" ry="18" fill="#FFE066" stroke="#15101F" stroke-width="3"/>
+<g class="pupil"><ellipse cx="76" cy="95" rx="7" ry="11" fill="#15101F"/><ellipse cx="128" cy="95" rx="7" ry="11" fill="#15101F"/><circle cx="72" cy="87" r="4" fill="#fff"/><circle cx="124" cy="87" r="4" fill="#fff"/></g>
+</g>
+<g class="eyes-happy" fill="none" stroke="#FFE066" stroke-width="7" stroke-linecap="round"><path d="M58 98 Q74 78 90 98"/><path d="M110 98 Q126 78 142 98"/></g>
+<g class="sad-bits"><path d="M58 70 L88 78 M142 70 L112 78" stroke="#EDE7FF" stroke-width="4" stroke-linecap="round"/><path d="M146 104 Q139 117 146 121 Q153 117 146 104 Z" fill="#7DD3FC" stroke="#15101F" stroke-width="1.5"/></g>
+<path d="M94 106 L106 106 L100 113 Z" fill="#FF8FAB" stroke="#15101F" stroke-width="1.5" stroke-linejoin="round"/>
+<path class="mouth-closed" d="M88 115 Q94 122 100 115 Q106 122 112 115" fill="none" stroke="#FFB3C7" stroke-width="3" stroke-linecap="round"/>
+<path class="mouth-open" d="M89 115 Q100 138 111 115 Z" fill="#FF5C8A" stroke="#FFB3C7" stroke-width="2.5" stroke-linejoin="round"/>
+<g stroke="#EDE7FF" stroke-width="2.5" stroke-linecap="round" opacity=".85"><path d="M50 104 L18 97 M50 113 L16 116 M150 104 L182 97 M150 113 L184 116"/></g>
+</g>
+<text class="think-q" x="166" y="44">?</text>
+<g class="sparkle" fill="#FFD23F" stroke="#15101F" stroke-width="2" stroke-linejoin="round"><path d="M22 34 L26 46 L38 50 L26 54 L22 66 L18 54 L6 50 L18 46 Z"/><path d="M182 58 L185 66 L193 69 L185 72 L182 80 L179 72 L171 69 L179 66 Z"/></g>
+</svg>`;
+        }
+        const catHead = () => '<svg class="av-cat" viewBox="26 10 148 144" aria-hidden="true"><use href="#catHead"/></svg>';
+        const avatar = name => name === '黑貓老師' ? catHead() : (AV[name] || '💬');
+
+        function catBox(text, opts = {}) {
+            return `<div class="catbox${opts.cls ? ' ' + opts.cls : ''}" data-say="${esc(text)}" data-mood="${opts.mood || 'normal'}">
+                <div class="cat pop" data-mood="${opts.mood || 'normal'}" onclick="Cat.poke(this)" role="img" aria-label="黑貓老師">${catSvg()}</div>
+                <div class="bubble" onclick="Cat.skip(this)">
+                    <div class="bubble-name">🐾 黑貓老師</div>
+                    <div class="bubble-text"></div>
+                    <button class="say-btn" onclick="event.stopPropagation(); Cat.speak(this)">🔊 念給我聽</button>
+                </div>
+            </div>`;
         }
 
-        function scoreText(ci) {
-            const list = answers[ci];
-            const done = list.filter(a => a !== null).length;
-            const right = list.filter(a => a === true).length;
-            return `已作答 ${done}／${list.length}・答對 ${right} 題`;
+        // ===== 朗讀（瀏覽器內建語音） =====
+        let VOICE = null;
+        function pickVoice() {
+            if (VOICE) return VOICE;
+            const vs = window.speechSynthesis.getVoices();
+            VOICE = vs.find(v => /zh[-_]TW/i.test(v.lang)) || vs.find(v => /zh[-_](Hant|HK)/i.test(v.lang)) || vs.find(v => /^zh/i.test(v.lang)) || null;
+            return VOICE;
         }
-
-        function renderChapters() {
-            const nav = document.getElementById('navTabs');
-            nav.innerHTML = chaptersData.map((ch, idx) =>
-                `<button class="tab-btn${idx === 0 ? ' active' : ''}" onclick="switchChapter(${idx})">${ch.tab}</button>`
-            ).join('');
-
-            const container = document.getElementById('chaptersContainer');
-            container.innerHTML = '';
-
-            chaptersData.forEach((ch, idx) => {
-                const card = document.createElement('article');
-                card.className = `chapter-card${idx === 0 ? ' active' : ''}`;
-                card.id = `chapter-${idx}`;
-
-                const heroHtml = ch.heroImg ? `
-                    <figure class="hero-img-container">
-                        <img src="${ch.heroImg}" width="1200" height="896" loading="lazy" alt="${ch.heroCap.replace('▲ ', '')}" class="hero-img">
-                        <figcaption class="caption">${ch.heroCap}</figcaption>
-                    </figure>` : '';
-
-                const mnemonicHtml = ch.mnemonic ? `<div class="mnemonic">💡 第 ${idx + 1} 話記憶口訣：${ch.mnemonic}</div>` : '';
-
-                const audioHtml = ch.audio.length ? `
-                    <section class="audio-section">
-                        <h3>🎧 示範音樂</h3>
-                        <p class="audio-note">${ch.audioIntro}（主旋律＋低音的電子示範，非原曲錄音）</p>
-                        ${ch.audio.map(playerHtml).join('')}
-                    </section>` : '';
-
-                const comicHtml = ch.comicPanels ? `
-                    <section class="comic-section">
-                        <div class="comic-title">${ch.comicTitle}</div>
-                        <div class="comic-img-container">
-                            <img src="${ch.comicImg}" width="1024" height="1024" loading="lazy" alt="${ch.comicTitle.replace('🎬 ', '')}" class="hero-img">
-                        </div>
-                        <div class="comic-grid">
-                            ${ch.comicPanels.map(p => `
-                                <div class="comic-panel">
-                                    <span class="panel-num">${p.num}</span>
-                                    ${p.lines.map(l => `<div class="dialogue-line"><span class="dialogue-speaker">${l[0]}：</span>「${l[1]}」</div>`).join('')}
-                                </div>`).join('')}
-                        </div>
-                    </section>` : '';
-
-                const isLast = idx === chaptersData.length - 1;
-                const nextHtml = isLast ? '' : `
-                    <div class="next-wrap">
-                        <button class="next-btn" onclick="switchChapter(${idx + 1})">下一站：${chaptersData[idx + 1].tab} →</button>
-                    </div>`;
-
-                const totalHtml = isLast ? `<div class="total-box" id="totalScore"></div>` : '';
-
-                card.innerHTML = `
-                    <div class="chapter-header">
-                        <span class="chapter-kicker">${ch.kicker}</span>
-                        <h2 class="chapter-title">${ch.title}</h2>
-                    </div>
-                    ${heroHtml}
-                    <div class="story">${ch.content}</div>
-                    ${mnemonicHtml}
-                    ${audioHtml}
-                    ${comicHtml}
-                    <section class="quiz-section">
-                        <div class="quiz-head">
-                            <div class="quiz-title">📝 第 ${idx + 1} 話隨堂考（${ch.quizzes.length} 題）</div>
-                            <div class="score" id="score-${idx}">${scoreText(idx)}</div>
-                        </div>
-                        <div id="quizItems-${idx}">${quizItemsHtml(idx)}</div>
-                        <div class="quiz-actions">
-                            <button class="reset-btn" onclick="resetQuiz(${idx})">↺ 重新作答</button>
-                            <span class="finish-msg" id="finish-${idx}"></span>
-                        </div>
-                    </section>
-                    ${totalHtml}
-                    ${nextHtml}
-                `;
-
-                container.appendChild(card);
-            });
-            updateTotal();
+        function cleanTTS(s) {
+            return String(s).replace(/\p{Extended_Pictographic}|️|‍/gu, '')
+                .replace(/2\/29/g, '2月29日').replace(/[–—]{1,2}/g, '到').replace(/‧/g, '、').replace(/[【】～]/g, '');
         }
-
-        function switchChapter(index) {
-            Synth.stop();
-            document.querySelectorAll('.tab-btn').forEach((tab, i) => tab.classList.toggle('active', i === index));
-            document.querySelectorAll('.chapter-card').forEach((card, i) => card.classList.toggle('active', i === index));
-            const nav = document.getElementById('navTabs');
-            const activeTab = nav.querySelectorAll('.tab-btn')[index];
-            if (activeTab) nav.scrollLeft = activeTab.offsetLeft - (nav.clientWidth - activeTab.offsetWidth) / 2;
-            nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (history.replaceState) history.replaceState(null, '', '#ch' + (index + 1));
-        }
-
-        function checkAnswer(ci, qi, oi) {
-            if (answers[ci][qi] !== null) return;
-            const quiz = chaptersData[ci].quizzes[qi];
-            const ok = oi === quiz.ans;
-            answers[ci][qi] = ok;
-            const item = document.getElementById(`q-${ci}-${qi}`);
-            item.querySelectorAll('.option-btn').forEach((btn, i) => {
-                btn.disabled = true;
-                if (i === quiz.ans) btn.classList.add('correct');
-                else if (i === oi) btn.classList.add('wrong');
-            });
-            const exp = document.getElementById(`exp-${ci}-${qi}`);
-            exp.className = 'quiz-explanation ' + (ok ? 'ok' : 'ng');
-            exp.textContent = (ok ? '✔ 答對了！' : `✘ 正解是 (${LETTERS[quiz.ans]})。`) + '解析：' + quiz.exp;
-            exp.style.display = 'block';
-            updateScore(ci);
-        }
-
-        function updateScore(ci) {
-            document.getElementById(`score-${ci}`).textContent = scoreText(ci);
-            const list = answers[ci];
-            const finish = document.getElementById(`finish-${ci}`);
-            if (list.every(a => a !== null)) {
-                const right = list.filter(a => a).length;
-                finish.textContent = right === list.length ? `🎉 全對！${right}／${list.length} 滿分過關！` : `🎉 完成！答對 ${right}／${list.length} 題，按「重新作答」再挑戰一次吧！`;
-            } else {
-                finish.textContent = '';
+        const TTS = {
+            ok: 'speechSynthesis' in window,
+            cur: null,
+            speak(text, cat, btn) {
+                if (!this.ok) { toast('這個瀏覽器不支援朗讀功能'); return; }
+                this.stop();
+                Synth.stop();
+                const u = new SpeechSynthesisUtterance(cleanTTS(text));
+                u.lang = 'zh-TW';
+                const v = pickVoice();
+                if (v) u.voice = v;
+                u.rate = 1;
+                u.pitch = 1.3;
+                const st = { cat, btn, label: btn ? btn.innerHTML : '' };
+                st.end = () => {
+                    const mine = this.cur === st;
+                    if (mine) this.cur = null;
+                    if (btn) { btn.classList.remove('on'); btn.innerHTML = st.label; }
+                    const box = cat && cat.closest('.catbox');
+                    if (cat && (mine || !this.cur || this.cur.cat !== cat) && !(box && box._t)) cat.classList.remove('talking');
+                };
+                u.onend = st.end;
+                u.onerror = st.end;
+                this.cur = st;
+                if (cat) cat.classList.add('talking');
+                if (btn) { btn.classList.add('on'); btn.innerHTML = '⏹ 停止'; }
+                window.speechSynthesis.speak(u);
+            },
+            stop() {
+                if (!this.ok) return;
+                const c = this.cur;
+                window.speechSynthesis.cancel();
+                if (c) c.end();
+            },
+            toggle(text, cat, btn) {
+                if (this.cur && this.cur.btn === btn) { this.stop(); return; }
+                this.speak(text, cat, btn);
             }
-            updateTotal();
+        };
+        if (TTS.ok) window.speechSynthesis.onvoiceschanged = () => { VOICE = null; };
+
+        // ===== 黑貓老師動畫解說 =====
+        const Cat = {
+            say(box, text, mood) {
+                if (!box) return;
+                if (text != null) box.dataset.say = text;
+                text = box.dataset.say || '';
+                const cat = box.querySelector('.cat');
+                const out = box.querySelector('.bubble-text');
+                clearTimeout(box._t);
+                box._t = null;
+                clearTimeout(box._back);
+                box._poking = false;
+                cat.classList.remove('pop');
+                cat.dataset.mood = mood || 'normal';
+                const svg = cat.querySelector('svg');
+                svg.style.animation = 'none';
+                void svg.getBoundingClientRect();
+                svg.style.animation = '';
+                const chars = Array.from(text);
+                if (REDUCED || !chars.length) { out.textContent = text; return; }
+                out.textContent = '';
+                cat.classList.add('talking');
+                const caret = document.createElement('span');
+                caret.className = 'caret';
+                let i = 0;
+                const step = () => {
+                    i += 1;
+                    out.textContent = chars.slice(0, i).join('');
+                    if (i >= chars.length) { this.finish(box); return; }
+                    out.appendChild(caret);
+                    box._t = setTimeout(step, /[，。！？、～…：]/.test(chars[i - 1]) ? 170 : 45);
+                };
+                box._t = setTimeout(step, 140);
+            },
+            finish(box) {
+                clearTimeout(box._t);
+                box._t = null;
+                const out = box.querySelector('.bubble-text');
+                out.textContent = box.dataset.say || '';
+                const cat = box.querySelector('.cat');
+                if (!(TTS.cur && TTS.cur.cat === cat)) cat.classList.remove('talking');
+            },
+            skip(bubble) {
+                const box = bubble.closest('.catbox');
+                if (box && box._t) this.finish(box);
+            },
+            speak(btn) {
+                const box = btn.closest('.catbox');
+                TTS.toggle(box.dataset.say, box.querySelector('.cat'), btn);
+            },
+            poke(cat) {
+                const box = cat.closest('.catbox');
+                if (!box) return;
+                const orig = box._poking ? box._orig : { text: box.dataset.say, mood: cat.dataset.mood };
+                Sfx.pop();
+                this.say(box, pick(CAT.pokes), 'happy');
+                box._poking = true;
+                box._orig = orig;
+                box._back = setTimeout(() => {
+                    if (box.isConnected && box._poking) this.say(box, orig.text, orig.mood === 'happy' ? 'normal' : orig.mood);
+                }, 3800);
+            }
+        };
+
+        // ===== 音效 =====
+        const Sfx = {
+            tone(freqs, type, dur, gap, vol) {
+                if (!Store.data.sfx) return;
+                try {
+                    Synth.init();
+                    const ctx = Synth.ctx;
+                    const t0 = ctx.currentTime + 0.01;
+                    freqs.forEach((f, i) => {
+                        const o = ctx.createOscillator();
+                        const g = ctx.createGain();
+                        o.type = type;
+                        o.frequency.value = f;
+                        o.connect(g);
+                        g.connect(Synth.master);
+                        const s = t0 + i * gap;
+                        g.gain.setValueAtTime(0.0001, s);
+                        g.gain.exponentialRampToValueAtTime(vol, s + 0.012);
+                        g.gain.exponentialRampToValueAtTime(0.0001, s + dur);
+                        o.start(s);
+                        o.stop(s + dur + 0.05);
+                    });
+                } catch (e) { /* 不支援音效時略過 */ }
+            },
+            ok() { this.tone([784, 1175], 'triangle', 0.18, 0.09, 0.22); },
+            bad() { this.tone([220, 175], 'square', 0.2, 0.13, 0.06); },
+            win() { this.tone([523, 659, 784, 1047], 'triangle', 0.24, 0.11, 0.2); },
+            pop() { this.tone([1046], 'sine', 0.09, 0, 0.14); },
+            flip() {
+                if (!Store.data.sfx) return;
+                try {
+                    Synth.init();
+                    const ctx = Synth.ctx;
+                    const len = Math.floor(ctx.sampleRate * 0.22);
+                    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+                    const d = buf.getChannelData(0);
+                    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+                    const src = ctx.createBufferSource();
+                    src.buffer = buf;
+                    const f = ctx.createBiquadFilter();
+                    f.type = 'bandpass';
+                    f.frequency.value = 1800;
+                    f.Q.value = 0.8;
+                    const g = ctx.createGain();
+                    g.gain.value = 0.22;
+                    src.connect(f);
+                    f.connect(g);
+                    g.connect(Synth.master);
+                    src.start();
+                } catch (e) { /* 不支援音效時略過 */ }
+            }
+        };
+
+        // 播放示範音樂時，黑貓老師跟著搖擺
+        const synthPlay = Synth.play.bind(Synth);
+        const synthStop = Synth.stop.bind(Synth);
+        Synth.play = function (id, btn) { TTS.stop(); synthPlay(id, btn); document.body.classList.add('music-on'); };
+        Synth.stop = function () { synthStop(); document.body.classList.remove('music-on'); };
+
+        // ===== 進度存檔（只存在這台裝置） =====
+        const Store = {
+            key: 'romanticEbook.v2',
+            data: { best: Array(8).fill(null), page: 0, sfx: true },
+            load() {
+                try {
+                    const s = JSON.parse(localStorage.getItem(this.key) || 'null');
+                    if (s && typeof s === 'object') {
+                        if (Array.isArray(s.best) && s.best.length === 8) this.data.best = s.best.map(v => (typeof v === 'number' ? v : null));
+                        if (typeof s.page === 'number') this.data.page = s.page;
+                        if (typeof s.sfx === 'boolean') this.data.sfx = s.sfx;
+                    }
+                } catch (e) { /* 無法讀取時用預設值 */ }
+            },
+            save() {
+                try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch (e) { /* 無法存檔時略過 */ }
+            }
+        };
+
+        // ===== 成績計算 =====
+        const QS = chaptersData.map(() => null);
+        const starsFor = (right, total) => { const r = right / total; return r >= 0.9 ? 3 : r >= 0.7 ? 2 : r >= 0.5 ? 1 : 0; };
+        const starStr = n => '★'.repeat(n) + '☆'.repeat(3 - n);
+        function chapterStars(ci) { const b = Store.data.best[ci]; return b == null ? 0 : starsFor(b, chaptersData[ci].quizzes.length); }
+        function bestRight(ci) { return Math.max(Store.data.best[ci] || 0, QS[ci] ? QS[ci].right : 0); }
+        function totalCoins() { return chaptersData.reduce((s, _, i) => s + bestRight(i) * 10, 0); }
+        function totalStars() { return chaptersData.reduce((s, _, i) => s + chapterStars(i), 0); }
+        function rankOf(c) { let r = RANKS[0]; RANKS.forEach(x => { if (c >= x[0]) r = x; }); return r; }
+
+        // ===== 頁面清單 =====
+        const PAGES = [];
+        const CH_START = [];
+        function splitContent(html) {
+            const parts = html.split(/(?=<h3>)/).map(s => s.trim()).filter(s => s.replace(/<[^>]+>/g, '').trim());
+            const pages = [];
+            let cur = '', len = 0;
+            parts.forEach(p => {
+                const l = p.replace(/<[^>]+>/g, '').replace(/\s+/g, '').length;
+                if (cur && len + l > 260) { pages.push(cur); cur = ''; len = 0; }
+                cur += p;
+                len += l;
+            });
+            if (cur) pages.push(cur);
+            return pages;
+        }
+        function buildPages() {
+            PAGES.push({ type: 'cover' }, { type: 'map' });
+            chaptersData.forEach((ch, ci) => {
+                CH_START[ci] = PAGES.length;
+                PAGES.push({ type: 'title', ci });
+                if (ci < 7) splitContent(ch.content).forEach((html, k, arr) => PAGES.push({ type: 'know', ci, html, k, n: arr.length }));
+                if (ch.audio.length || ch.mnemonic) PAGES.push({ type: 'music', ci });
+                if (COMICS[ci]) PAGES.push({ type: 'comic', ci });
+                PAGES.push({ type: 'quiz', ci });
+            });
+            PAGES.push({ type: 'end' });
         }
 
-        function resetQuiz(ci) {
-            Synth.stop();
-            answers[ci] = answers[ci].map(() => null);
-            document.getElementById(`quizItems-${ci}`).innerHTML = quizItemsHtml(ci);
-            updateScore(ci);
+        // ===== 各種頁面 =====
+        const headHtml = (ci, label) => `<div class="page-head"><span class="chip">STAGE ${ci + 1}・${SHORT[ci]}</span><span class="ph-r">${label}</span></div>`;
+        const RENDER = {
+            cover() {
+                const r = App.resume;
+                return `<div class="cover-top"><span class="tag">🎵 國小音樂課</span><span class="tag">📖 互動漫畫電子書</span></div>
+                    <h1 class="cover-h"><span class="l1">穿越音符時光機！</span><span class="l2">浪漫樂派大冒險</span><span class="l3">初期 ＆ 早期篇</span></h1>
+                    <figure class="frame tilt"><img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：小樂站在古典鋼琴前，穿過 1820 年的金色音符大門，就是充滿故事與色彩的浪漫世界"></figure>
+                    ${catBox(CAT.cover)}
+                    <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🎧 12 首示範音樂', '📝 86 題闖關', '⭐ 集星星換稱號', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
+                    <div class="cta"><button class="big-btn" onclick="Book.goType('map')">🚀 開始冒險</button>${r > 1 && r < PAGES.length ? `<button class="ghost-btn" onclick="Book.go(${r})">📖 從第 ${r + 1} 頁繼續</button>` : ''}</div>
+                    <p class="tip">👆 翻頁：按下方 ◀ ▶、手機左右滑、鍵盤方向鍵都可以。<br>🔈 iPhone／iPad 請先關閉「靜音模式」，才聽得到音樂和朗讀。</p>`;
+            },
+            map() {
+                const coins = totalCoins(), stars = totalStars(), rk = rankOf(coins), nx = RANKS.find(r => r[0] > coins);
+                const pct = nx ? Math.round((coins - rk[0]) / (nx[0] - rk[0]) * 100) : 100;
+                return `<div class="page-head"><span class="chip">🗺️ 冒險地圖</span><span class="ph-r">選一關出發！</span></div>
+                    <div class="rank-card"><div class="rank-ico">${rk[1]}</div><div class="rank-main">
+                        <div class="rank-name">目前稱號：<b>${rk[2]}</b></div>
+                        <div class="rank-meta">🪙 ${coins} 枚音符幣・⭐ ${stars} / 24 顆星</div>
+                        <div class="rank-bar"><i style="width:${pct}%"></i></div>
+                        <div class="rank-next">${nx ? `再 ${nx[0] - coins} 枚升級成「${nx[2]}」` : '已經是最高稱號了！'}</div>
+                    </div></div>
+                    <ol class="levels">${chaptersData.map((c, ci) => {
+                        const s = chapterStars(ci);
+                        return `<li class="lv ${ci % 2 ? 'r' : 'l'}"><button class="lv-btn" style="--c:${ACCENTS[ci]}" onclick="Book.goChapter(${ci})"><span class="lv-num">${ci + 1}</span><span class="lv-txt"><b>${SHORT[ci]}</b><small>${starStr(s)}</small></span><span class="lv-stk">${s > 0 ? STICKERS[ci][0] : '🎁'}</span></button></li>`;
+                    }).join('')}</ol>
+                    ${catBox(CAT.map())}
+                    <div class="sticker-book"><h3>🌟 我的貼紙簿</h3><div class="stk-grid">${STICKERS.map((s, ci) => {
+                        const ok = chapterStars(ci) > 0;
+                        return `<div class="stk-slot${ok ? ' got' : ''}"><span>${ok ? s[0] : '？'}</span><small>${ok ? s[1] : '第 ' + (ci + 1) + ' 關'}</small></div>`;
+                    }).join('')}</div></div>
+                    <div class="center"><button class="ghost-btn small" onclick="App.resetAll()">🧹 清除這台裝置的闖關紀錄</button></div>`;
+            },
+            title(p) {
+                const ci = p.ci, ch = chaptersData[ci];
+                const stage = (ch.kicker.match(/【[^】]+】/) || [''])[0];
+                const knowN = PAGES.filter(x => x.ci === ci && x.type === 'know').length;
+                const steps = [];
+                if (knowN) steps.push(`📖 讀 ${knowN} 頁`);
+                if (ch.audio.length) steps.push(`🎧 聽 ${ch.audio.length} 首`);
+                if (COMICS[ci]) steps.push('🎬 看漫畫');
+                steps.push(`📝 闖關 ${ch.quizzes.length} 題`);
+                const hero = ch.heroImg
+                    ? `<figure class="frame"><img src="${ch.heroImg}" width="1200" height="896" alt="${esc(ch.heroCap.replace('▲ ', ''))}"><figcaption>${ch.heroCap}</figcaption></figure>`
+                    : `<div class="boss"><div class="trophy">🏆</div><b>最終關卡：16 題大魔王</b><span>📖 全冊重點 12 題 ＋ 🎧 聽音辨曲 4 題</span></div>`;
+                return `<div class="stage-banner"><span class="st-l">STAGE</span><span class="st-n">${ci + 1}</span>${stage ? `<span class="st-tag">${stage}</span>` : ''}<span class="st-stars">${starStr(chapterStars(ci))}</span></div>
+                    <h2 class="ch-title">${ch.title}</h2>
+                    ${hero}
+                    ${catBox(CAT.chapters[ci].intro)}
+                    <div class="mission"><b>本關任務</b>${steps.map(s => `<span>${s}</span>`).join('<i>➜</i>')}</div>`;
+            },
+            know(p) {
+                const tips = CAT.chapters[p.ci].tips;
+                const hint = p.html.includes('table-wrap') ? '<p class="swipe-hint">👉 表格可以左右滑動看完整內容</p>' : '';
+                return `${headHtml(p.ci, `📖 知識頁 ${p.k + 1} / ${p.n}`)}
+                    <div class="story">${p.html}</div>${hint}
+                    ${catBox(tips[p.k] || tips[tips.length - 1] || '')}`;
+            },
+            music(p) {
+                const ch = chaptersData[p.ci];
+                const line = ch.mnemonic ? '跟著我念一次：' + ch.mnemonic.replace(/[「」]/g, '') : ch.audioIntro;
+                return `${headHtml(p.ci, '🎵 口訣＋音樂')}
+                    ${ch.mnemonic ? `<div class="mn-card"><div class="mn-label">💡 記憶口訣</div><p>${ch.mnemonic}</p></div>` : ''}
+                    ${catBox(line)}
+                    ${ch.audio.length ? `<div class="audio-box"><h3>🎧 示範音樂</h3><p class="audio-note">${ch.audioIntro}<br><small>主旋律＋低音的電子示範，非原曲錄音。播放時黑貓老師會跟著搖擺喔！</small></p>${ch.audio.map(playerHtml).join('')}</div>` : ''}`;
+            },
+            comic(p) {
+                const ci = p.ci, ch = chaptersData[ci];
+                const name = (ch.comicTitle.match(/《.+》/) || [ch.comicTitle])[0];
+                return `${headHtml(ci, '🎬 四格漫畫')}
+                    <h2 class="comic-name">${name}</h2>
+                    ${catBox(CAT.comicStart, { cls: 'compact' })}
+                    <div class="comic-grid">${COMICS[ci].map((pn, k) => `
+                        <figure class="panel covered" data-k="${k}">
+                            <div class="panel-img" onclick="Comic.tap(this)">
+                                <img src="images/comic_ch${ci + 1}_${k + 1}.jpg" width="500" height="500" alt="第 ${ci + 1} 話四格漫畫第 ${k + 1} 格">
+                                <span class="panel-tag">${PANEL_TAGS[k]}</span>
+                                <span class="sfx">${pn.sfx}</span>
+                                <div class="panel-cover"><span class="pc-q">?</span><b>${PANEL_TAGS[k]}</b><small>點我打開</small></div>
+                            </div>
+                            <figcaption class="panel-talk">
+                                ${pn.lines.map((l, j) => `<div class="talk ${j % 2 ? 'r' : 'l'}"><span class="av">${avatar(l[0])}</span><div class="tb"><b>${l[0]}</b><span class="t" data-text="${esc(l[1])}"></span></div></div>`).join('')}
+                                <button class="panel-say" onclick="Comic.read(this)" aria-label="朗讀這一格">🔊</button>
+                            </figcaption>
+                        </figure>`).join('')}</div>
+                    <div class="comic-ctrl"><button class="big-btn comic-next" onclick="Comic.next(this)">👉 打開下一格</button><button class="ghost-btn comic-all" onclick="Comic.all(this)">一次全部打開</button></div>`;
+            },
+            quiz(p) {
+                return `${headHtml(p.ci, '📝 闖關測驗')}
+                    ${catBox('', { cls: 'compact', mood: 'think' })}
+                    <div class="quiz-hud"><div class="q-count"></div><div class="combo"></div><div class="q-dots"></div></div>
+                    <div class="q-area"></div>`;
+            },
+            end() {
+                const coins = totalCoins(), stars = totalStars(), rk = rankOf(coins);
+                return `<div class="cert"><div class="cert-in">
+                        <div class="cert-ribbon">🏅 結業證書</div>
+                        <h2>浪漫樂派大冒險<small>初期 ＆ 早期篇</small></h2>
+                        <p class="cert-name">冒險家：<span class="line"></span></p>
+                        <p>完成了貝多芬、韋伯、羅西尼、舒伯特的<br>早期四大天王冒險！</p>
+                        <div class="cert-stats"><div><b>⭐ ${stars}</b><small>/ 24 顆星</small></div><div><b>🪙 ${coins}</b><small>/ 860 音符幣</small></div><div><b>${rk[1]}</b><small>${rk[2]}</small></div></div>
+                        <div class="stk-row">${STICKERS.map((s, ci) => { const ok = chapterStars(ci) > 0; return `<span class="${ok ? 'got' : ''}" title="${s[1]}">${ok ? s[0] : '？'}</span>`; }).join('')}</div>
+                        <p class="cert-sign">頒發人：🐾 黑貓老師</p>
+                    </div></div>
+                    ${catBox(CAT.end(stars))}
+                    <div class="res-btns"><button class="big-btn" onclick="window.print()">🖨️ 列印證書</button><button class="ghost-btn" onclick="Book.goType('map')">🗺️ 回地圖</button></div>`;
+            }
+        };
+
+        // 知識頁的對話改成聊天泡泡
+        function enhanceDialogs(el) {
+            el.querySelectorAll('.intro-dialog p').forEach(pp => {
+                const spk = pp.querySelector('.spk');
+                if (!spk) return;
+                const name = spk.textContent.replace(/[：:]\s*$/, '').trim();
+                spk.remove();
+                const isCat = /黑貓/.test(name);
+                const row = document.createElement('div');
+                row.className = 'chat-row ' + (isCat ? 'right' : 'left');
+                row.innerHTML = `<span class="av">${isCat ? catHead() : esc(Array.from(name)[0])}</span><div class="chat-b"><b>${esc(name.replace(/^\S+\s/, ''))}</b><div>${pp.innerHTML}</div></div>`;
+                pp.replaceWith(row);
+            });
         }
 
-        function updateTotal() {
-            const box = document.getElementById('totalScore');
-            if (!box) return;
-            const all = answers.flat();
-            const done = all.filter(a => a !== null).length;
-            const right = all.filter(a => a === true).length;
-            box.textContent = `🏆 全冊成績：已作答 ${done}／${all.length} 題，答對 ${right} 題` + (done === all.length ? `　🎉 恭喜完成全部 ${all.length} 題！` : '');
+        function renderPage(i) {
+            const p = PAGES[i];
+            const el = document.createElement('section');
+            el.className = 'page page-' + p.type;
+            if (p.ci != null) el.dataset.ci = p.ci;
+            el.style.setProperty('--accent', p.ci != null ? ACCENTS[p.ci] : '#FF7AA2');
+            el.innerHTML = RENDER[p.type](p) + `<div class="page-no">— ${i + 1} —</div><i class="shade"></i>`;
+            if (p.type === 'know') enhanceDialogs(el);
+            return el;
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderChapters();
-            const m = /^#ch([1-8])$/.exec(location.hash);
-            if (m) switchChapter(Number(m[1]) - 1);
-        });
+        function onEnter(p, el) {
+            if (!el.isConnected) return;
+            if (p.type === 'quiz') { Quiz.mount(p.ci, el); return; }
+            const box = el.querySelector('.catbox');
+            if (box) Cat.say(box, null, box.dataset.mood || 'normal');
+        }
+
+        function prefetch(i) {
+            const p = PAGES[i];
+            if (!p) return;
+            const srcs = [];
+            if (p.type === 'title' && chaptersData[p.ci].heroImg) srcs.push(chaptersData[p.ci].heroImg);
+            if (p.type === 'comic') for (let k = 1; k <= 4; k++) srcs.push(`images/comic_ch${p.ci + 1}_${k}.jpg`);
+            srcs.forEach(s => { const im = new Image(); im.src = s; });
+        }
+
+        // ===== 翻頁 =====
+        const Book = {
+            cur: -1,
+            go(i, opts = {}) {
+                i = Math.max(0, Math.min(PAGES.length - 1, i));
+                if (i === this.cur && !opts.force) return;
+                const dir = opts.dir != null ? opts.dir : (this.cur < 0 ? 0 : Math.sign(i - this.cur));
+                Synth.stop();
+                TTS.stop();
+                const stage = $('#stage');
+                stage.querySelectorAll('.page.leaving').forEach(p => p.remove());
+                const old = stage.querySelector('.page.current');
+                if (old) old.querySelectorAll('.catbox').forEach(b => { clearTimeout(b._t); clearTimeout(b._back); });
+                const el = renderPage(i);
+                el.classList.add('current');
+                this.cur = i;
+                if (!old || dir === 0 || REDUCED) {
+                    if (old) old.remove();
+                    stage.appendChild(el);
+                } else if (dir > 0) {
+                    old.classList.remove('current');
+                    old.classList.add('leaving', 'turn-out');
+                    stage.insertBefore(el, old);
+                    const done = () => old.remove();
+                    old.addEventListener('animationend', e => { if (e.target === old) done(); });
+                    setTimeout(done, 900);
+                } else {
+                    old.classList.remove('current');
+                    old.classList.add('leaving', 'under');
+                    el.classList.add('turn-in');
+                    stage.appendChild(el);
+                    const done = () => { el.classList.remove('turn-in'); old.remove(); };
+                    el.addEventListener('animationend', e => { if (e.target === el) done(); });
+                    setTimeout(done, 900);
+                }
+                if (dir !== 0) {
+                    Sfx.flip();
+                    if (window.scrollY > 10) window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
+                }
+                Store.data.page = i;
+                Store.save();
+                setHash(i);
+                updateChrome();
+                setTimeout(() => onEnter(PAGES[i], el), dir === 0 ? 120 : 420);
+                prefetch(i + 1);
+            },
+            next() { this.go(this.cur + 1); },
+            prev() { this.go(this.cur - 1); },
+            goChapter(ci) { this.go(CH_START[ci]); },
+            goType(t) { this.go(PAGES.findIndex(p => p.type === t)); }
+        };
+
+        function hashFor(i) {
+            const p = PAGES[i];
+            if (p.type === 'cover') return '';
+            if (p.type === 'map') return '#map';
+            if (p.type === 'end') return '#end';
+            const k = i - CH_START[p.ci];
+            return '#ch' + (p.ci + 1) + (k ? '-' + (k + 1) : '');
+        }
+        function setHash(i) {
+            const h = hashFor(i);
+            if (location.hash === h || (!h && !location.hash)) return;
+            try { history.replaceState(null, '', h || location.pathname + location.search); } catch (e) { /* 忽略 */ }
+        }
+        function pageFromHash() {
+            const h = location.hash;
+            if (h === '#map') return 1;
+            if (h === '#end') return PAGES.length - 1;
+            const m = /^#ch([1-8])(?:-(\d+))?$/.exec(h);
+            if (!m) return null;
+            const ci = +m[1] - 1;
+            const last = ci < 7 ? CH_START[ci + 1] - 1 : PAGES.length - 2;
+            return Math.min(CH_START[ci] + (m[2] ? +m[2] - 1 : 0), last);
+        }
+
+        function labelFor(p, i) {
+            const n = `${i + 1}/${PAGES.length}`;
+            if (p.type === 'cover') return '📕 封面　' + n;
+            if (p.type === 'map') return '🗺️ 冒險地圖　' + n;
+            if (p.type === 'end') return '🏅 結業證書　' + n;
+            const names = { title: '關卡開場', know: '知識頁', music: '口訣＋音樂', comic: '四格漫畫', quiz: '闖關測驗' };
+            return `第 ${p.ci + 1} 關・${names[p.type]}　${n}`;
+        }
+
+        function renderBookmarks() {
+            $('#bookmarks').innerHTML = `<button class="bm" data-ci="map" style="--c:var(--lemon)" onclick="Book.goType('map')"><b>🗺️ 地圖</b><small>&nbsp;</small></button>` +
+                chaptersData.map((c, ci) => `<button class="bm" data-ci="${ci}" style="--c:${ACCENTS[ci]}" onclick="Book.goChapter(${ci})"><b>${ci + 1} ${BM[ci]}</b><small>${starStr(chapterStars(ci))}</small></button>`).join('');
+        }
+
+        function updateChrome() {
+            const p = PAGES[Book.cur];
+            $('#prevBtn').disabled = Book.cur === 0;
+            $('#nextBtn').disabled = Book.cur === PAGES.length - 1;
+            $('#pgLabel').textContent = labelFor(p, Book.cur);
+            $('#pgBar').style.width = ((Book.cur + 1) / PAGES.length * 100).toFixed(1) + '%';
+            document.querySelectorAll('.bm').forEach(b => {
+                const t = b.dataset.ci;
+                const on = p.ci != null ? String(p.ci) === t : (t === 'map' && p.type === 'map');
+                b.classList.toggle('active', on);
+            });
+            const a = document.querySelector('.bm.active');
+            const nav = $('#bookmarks');
+            if (a) nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: REDUCED ? 'auto' : 'smooth' });
+            updateHud();
+        }
+
+        function bump(el) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+        function updateHud() {
+            const c = String(totalCoins()), s = String(totalStars());
+            const ce = $('#hudCoins'), se = $('#hudStars');
+            if (ce.textContent !== c) { const first = ce.textContent === ''; ce.textContent = c; if (!first) bump(ce.parentElement); }
+            if (se.textContent !== s) { const first = se.textContent === ''; se.textContent = s; if (!first) bump(se.parentElement); }
+        }
+
+        function toast(msg) {
+            const t = $('#toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._h);
+            t._h = setTimeout(() => t.classList.remove('show'), 1800);
+        }
+
+        function confetti(anchor, count) {
+            if (REDUCED) return;
+            const fx = $('#fx');
+            const r = anchor ? anchor.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 3, width: 0, height: 0 };
+            const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+            const em = ['🎵', '⭐', '🎉', '✨', '🎶', '🐾'];
+            const n = count || 22;
+            for (let k = 0; k < n; k++) {
+                const s = document.createElement('span');
+                s.className = 'cf';
+                s.textContent = em[k % em.length];
+                const ang = Math.random() * Math.PI * 2;
+                const dist = 60 + Math.random() * (anchor ? 130 : 280);
+                s.style.left = cx + 'px';
+                s.style.top = cy + 'px';
+                s.style.setProperty('--dx', (Math.cos(ang) * dist).toFixed(0) + 'px');
+                s.style.setProperty('--dy', (Math.sin(ang) * dist - 40).toFixed(0) + 'px');
+                s.style.setProperty('--rot', (Math.random() * 720 - 360).toFixed(0) + 'deg');
+                s.style.animationDelay = (Math.random() * 0.12).toFixed(2) + 's';
+                fx.appendChild(s);
+                setTimeout(() => s.remove(), 1500);
+            }
+        }
+
+        // ===== 四格漫畫 =====
+        const Comic = {
+            tap(imgBox) {
+                const panel = imgBox.closest('.panel');
+                if (panel.classList.contains('covered')) this.reveal(panel);
+            },
+            next(btn) {
+                const page = btn.closest('.page');
+                const left = page.querySelector('.panel.covered');
+                if (!left) { Book.next(); return; }
+                this.reveal(left);
+            },
+            all(btn) {
+                const page = btn.closest('.page');
+                [...page.querySelectorAll('.panel.covered')].forEach((p, k) => setTimeout(() => this.reveal(p, true), k * 260));
+            },
+            reveal(panel, quiet) {
+                if (!panel.classList.contains('covered')) return;
+                panel.classList.remove('covered');
+                panel.classList.add('revealed');
+                Sfx.pop();
+                this.typeTalk(panel);
+                if (!quiet) panel.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
+                this.check(panel.closest('.page'));
+            },
+            typeTalk(panel) {
+                const talks = [...panel.querySelectorAll('.talk')];
+                let delay = 300;
+                talks.forEach(tk => {
+                    const t = tk.querySelector('.t');
+                    const chars = Array.from(t.dataset.text);
+                    setTimeout(() => {
+                        tk.classList.add('show');
+                        if (REDUCED) { t.textContent = t.dataset.text; return; }
+                        chars.forEach((_, i) => setTimeout(() => { t.textContent = chars.slice(0, i + 1).join(''); }, i * 45));
+                    }, delay);
+                    delay += 350 + chars.length * 45;
+                });
+            },
+            check(page) {
+                const left = page.querySelectorAll('.panel.covered').length;
+                const btn = page.querySelector('.comic-next');
+                if (left === 0) {
+                    btn.innerHTML = '📝 去闖關 ▶';
+                    const all = page.querySelector('.comic-all');
+                    if (all) all.remove();
+                    const ci = +page.dataset.ci;
+                    setTimeout(() => { if (page.isConnected) Cat.say(page.querySelector('.catbox'), CAT.chapters[ci].comicDone, 'happy'); }, 900);
+                } else {
+                    btn.innerHTML = `👉 打開下一格（還有 ${left} 格）`;
+                }
+            },
+            read(btn) {
+                const panel = btn.closest('.panel');
+                const text = [...panel.querySelectorAll('.talk')].map(tk => tk.querySelector('b').textContent + '說：' + tk.querySelector('.t').dataset.text).join('。');
+                const page = panel.closest('.page');
+                TTS.toggle(text, page.querySelector('.cat'), btn);
+            }
+        };
+
+        // ===== 闖關測驗 =====
+        function listenHtml(id) {
+            return `<div class="player listen-player"><button class="play-btn" data-track="${id}" data-label="🎧 播放題目音樂" onclick="Synth.toggle('${id}', this)">🎧 播放題目音樂（${Math.round(TRACKS[id].dur)} 秒）</button><div class="prog"><i></i></div></div>`;
+        }
+        const Quiz = {
+            state(ci) {
+                if (!QS[ci]) QS[ci] = { i: 0, right: 0, combo: 0, ans: [], done: false };
+                return QS[ci];
+            },
+            mount(ci, page) {
+                const st = this.state(ci);
+                if (st.done) this.showResult(ci, page, false);
+                else this.showQ(ci, page, true);
+            },
+            hud(ci, page) {
+                const st = this.state(ci), qs = chaptersData[ci].quizzes;
+                page.querySelector('.q-count').innerHTML = st.done ? '🏁 成績單' : `第 <b>${st.i + 1}</b> / ${qs.length} 題`;
+                page.querySelector('.q-dots').innerHTML = qs.map((q, k) => {
+                    const a = st.ans[k];
+                    const cls = a == null ? (k === st.i && !st.done ? 'now' : '') : (a === q.ans ? 'ok' : 'no');
+                    return `<i class="${cls}"></i>`;
+                }).join('');
+                page.querySelector('.combo').textContent = !st.done && st.combo >= 2 ? `🔥 連對 ${st.combo} 題` : '';
+            },
+            showQ(ci, page, entering) {
+                const st = this.state(ci), q = chaptersData[ci].quizzes[st.i], n = chaptersData[ci].quizzes.length;
+                this.hud(ci, page);
+                page.querySelector('.q-area').innerHTML = `<div class="q-card">
+                        <div class="q-text"><span class="q-no">Q${st.i + 1}</span>${q.q}</div>
+                        ${q.listen ? listenHtml(q.listen) : ''}
+                        <div class="opts">${q.options.map((o, oi) => `<button class="opt opt-${oi}" onclick="Quiz.answer(${ci}, ${oi}, this)"><span class="opt-l">${LETTERS[oi]}</span><span class="opt-t">${o}</span></button>`).join('')}</div>
+                        <div class="q-fb" hidden></div>
+                        <div class="q-next-row" hidden><button class="big-btn q-next" onclick="Quiz.next(${ci}, this)">${st.i < n - 1 ? '下一題 ▶' : '看成績 🏁'}</button></div>
+                    </div>`;
+                const box = page.querySelector('.catbox');
+                if (st.ans[st.i] != null) { this.paint(ci, page, st.ans[st.i], false); return; }
+                const line = st.i === 0 && entering ? CAT.quizStart(ci) : (q.listen ? '先按「播放題目音樂」聽一聽，再選答案喵！' : pick(CAT.thinking));
+                Cat.say(box, line, 'think');
+            },
+            answer(ci, oi, btn) {
+                const st = this.state(ci);
+                if (st.done || st.ans[st.i] != null) return;
+                const q = chaptersData[ci].quizzes[st.i];
+                st.ans[st.i] = oi;
+                if (oi === q.ans) { st.right += 1; st.combo += 1; } else st.combo = 0;
+                Synth.stop();
+                TTS.stop();
+                this.paint(ci, btn.closest('.page'), oi, true);
+                updateHud();
+            },
+            paint(ci, page, oi, fresh) {
+                const st = this.state(ci), q = chaptersData[ci].quizzes[st.i], ok = oi === q.ans;
+                page.querySelectorAll('.opt').forEach((b, k) => {
+                    b.disabled = true;
+                    if (k === q.ans) { b.classList.add('right'); b.querySelector('.opt-l').textContent = '✔'; }
+                    if (k === oi && !ok) { b.classList.add('wrong'); b.querySelector('.opt-l').textContent = '✘'; }
+                });
+                const fb = page.querySelector('.q-fb');
+                fb.hidden = false;
+                fb.className = 'q-fb ' + (ok ? 'ok' : 'no');
+                fb.innerHTML = `<span class="av">${catHead()}</span><div class="fb-txt"><b>${ok ? '✅ 答對了！' : `❌ 正確答案是 ${LETTERS[q.ans]}`}</b><span>${q.exp}</span></div>`;
+                const row = page.querySelector('.q-next-row');
+                row.hidden = false;
+                this.hud(ci, page);
+                if (!fresh) return;
+                const box = page.querySelector('.catbox');
+                if (ok) {
+                    Sfx.ok();
+                    confetti(page.querySelector('.opt.right'));
+                    const pre = st.combo >= 3 ? `連續答對 ${st.combo} 題！🔥 ` : '';
+                    Cat.say(box, pre + pick(CAT.cheers) + ' ' + q.exp, 'happy');
+                } else {
+                    Sfx.bad();
+                    Cat.say(box, `${pick(CAT.oops)} 答案是 ${LETTERS[q.ans]}：${q.exp}`, 'sad');
+                }
+                row.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
+            },
+            next(ci, btn) {
+                const st = this.state(ci), n = chaptersData[ci].quizzes.length;
+                const page = btn.closest('.page');
+                if (st.i < n - 1) {
+                    st.i += 1;
+                    this.showQ(ci, page, false);
+                    const hud = page.querySelector('.quiz-hud');
+                    if (hud.getBoundingClientRect().top < 70) hud.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
+                } else {
+                    this.finish(ci, page);
+                }
+            },
+            finish(ci, page) {
+                const st = this.state(ci);
+                st.done = true;
+                const prev = Store.data.best[ci];
+                if (prev == null || st.right > prev) { Store.data.best[ci] = st.right; Store.save(); }
+                renderBookmarks();
+                updateChrome();
+                this.showResult(ci, page, true);
+                const hud = page.querySelector('.quiz-hud');
+                if (hud.getBoundingClientRect().top < 70) hud.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
+            },
+            showResult(ci, page, fresh) {
+                const st = this.state(ci), qs = chaptersData[ci].quizzes, n = qs.length;
+                const stars = starsFor(st.right, n), bestStars = chapterStars(ci);
+                const wrong = qs.map((q, k) => ({ q, a: st.ans[k] })).filter(x => x.a !== x.q.ans);
+                const [stk, stkName] = STICKERS[ci];
+                this.hud(ci, page);
+                page.querySelector('.q-area').innerHTML = `<div class="result">
+                        <div class="res-stars">${[0, 1, 2].map(k => `<span class="rs${k < stars ? ' on' : ''}" style="animation-delay:${(0.2 + k * 0.25).toFixed(2)}s">★</span>`).join('')}</div>
+                        <div class="res-score">答對 <b>${st.right}</b> / ${n} 題</div>
+                        <div class="res-sub">本關最佳：${Store.data.best[ci]} 題・${starStr(bestStars)}</div>
+                        ${bestStars > 0 ? `<div class="sticker-get"><span class="stk">${stk}</span><span>獲得貼紙：<b>${stkName}</b></span></div>` : '<div class="sticker-get dim"><span class="stk">🎁</span><span>拿到 1 顆星就能得到貼紙喔！</span></div>'}
+                        ${wrong.length ? `<details class="review"><summary>📋 看看答錯的 ${wrong.length} 題</summary><ol>${wrong.map(x => `<li><p>${x.q.q}</p><p class="ans">✅ ${LETTERS[x.q.ans]}. ${x.q.options[x.q.ans]}</p><p class="exp">${x.q.exp}</p></li>`).join('')}</ol></details>` : '<p class="perfect">💯 全部答對，太厲害了！</p>'}
+                        <div class="res-btns">
+                            <button class="ghost-btn" onclick="Quiz.retry(${ci}, this)">🔁 再挑戰一次</button>
+                            ${ci < 7 ? `<button class="big-btn" onclick="Book.goChapter(${ci + 1})">下一關：${SHORT[ci + 1]} ▶</button>` : `<button class="big-btn" onclick="Book.goType('end')">🏅 領取結業證書 ▶</button>`}
+                            <button class="ghost-btn" onclick="Book.goType('map')">🗺️ 回地圖</button>
+                        </div>
+                    </div>`;
+                Cat.say(page.querySelector('.catbox'), CAT.result[stars], stars >= 1 ? 'happy' : 'sad');
+                if (fresh) {
+                    if (stars >= 1) { Sfx.win(); confetti(null, 60); } else Sfx.bad();
+                }
+            },
+            retry(ci, btn) {
+                QS[ci] = null;
+                const page = btn.closest('.page');
+                this.mount(ci, page);
+                updateHud();
+                const hud = page.querySelector('.quiz-hud');
+                if (hud.getBoundingClientRect().top < 70) hud.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
+            }
+        };
+
+        // ===== 啟動 =====
+        const App = {
+            resume: 0,
+            sfxIcon() { $('#sfxBtn').textContent = Store.data.sfx ? '🔔' : '🔕'; },
+            toggleSfx() {
+                Store.data.sfx = !Store.data.sfx;
+                Store.save();
+                this.sfxIcon();
+                toast(Store.data.sfx ? '🔔 音效開啟' : '🔕 音效關閉');
+            },
+            resetAll() {
+                if (!window.confirm('要清除這台裝置上的星星、音符幣和貼紙紀錄嗎？')) return;
+                Store.data.best = Array(8).fill(null);
+                Store.save();
+                for (let k = 0; k < QS.length; k++) QS[k] = null;
+                renderBookmarks();
+                Book.go(Book.cur, { force: true, dir: 0 });
+                toast('已清除闖關紀錄');
+            },
+            init() {
+                Store.load();
+                this.resume = Store.data.page;
+                buildPages();
+                renderBookmarks();
+                this.sfxIcon();
+                const h = pageFromHash();
+                Book.go(h != null ? h : 0, { dir: 0 });
+                window.addEventListener('hashchange', () => { const i = pageFromHash(); if (i != null && i !== Book.cur) Book.go(i); });
+                document.addEventListener('keydown', e => {
+                    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+                    if (/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+                    if (e.key === 'ArrowRight') Book.next();
+                    else if (e.key === 'ArrowLeft') Book.prev();
+                });
+                const stage = $('#stage');
+                let tx = null;
+                stage.addEventListener('touchstart', e => {
+                    if (e.touches.length !== 1 || e.target.closest('.table-wrap, .no-swipe')) { tx = null; return; }
+                    tx = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+                }, { passive: true });
+                stage.addEventListener('touchend', e => {
+                    if (!tx) return;
+                    const t = e.changedTouches[0];
+                    const dx = t.clientX - tx.x, dy = t.clientY - tx.y, dt = Date.now() - tx.t;
+                    tx = null;
+                    if (dt < 800 && Math.abs(dx) > 60 && Math.abs(dy) < Math.abs(dx) * 0.6) { if (dx < 0) Book.next(); else Book.prev(); }
+                }, { passive: true });
+            }
+        };
+        App.init();
     </script>
 </body>
 </html>
