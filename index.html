@@ -331,19 +331,12 @@
         .comic-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 10px; }
         @media (min-width: 700px) { .comic-grid { grid-template-columns: 1fr 1fr; } }
         .panel { margin: 0; background: #fff; border: var(--bd); border-radius: 18px; box-shadow: 4px 4px 0 var(--ink); overflow: hidden; scroll-margin: 80px 0 110px; }
-        .panel-img { position: relative; aspect-ratio: 1 / 1; background: #F3EEFA; cursor: pointer; overflow: hidden; }
+        .panel-img { position: relative; aspect-ratio: 1 / 1; background: #F3EEFA; overflow: hidden; }
+        .panel .sfx { animation: sfxPop .5s cubic-bezier(.2,1.6,.4,1) .3s both; }
         .panel-img img { width: 100%; height: 100%; object-fit: cover; }
         .panel-tag { position: absolute; left: 8px; top: 8px; background: var(--accent); border: 2.5px solid var(--ink); border-radius: 10px; font-family: 'Huninn', sans-serif; font-size: 1.1rem; padding: 0 10px; box-shadow: 2px 2px 0 var(--ink); }
         .sfx { position: absolute; right: 10px; top: 10px; font-family: 'Huninn', sans-serif; font-size: 1.35rem; color: var(--lemon); text-shadow: var(--outline), 4px 4px 0 var(--ink); transform: rotate(-8deg); white-space: nowrap; }
-        .panel-cover { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background-color: var(--accent); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.35) 0 14px, transparent 14px 28px); }
-        .panel.covered .panel-cover { display: flex; }
-        .panel.covered .panel-talk, .panel.covered .sfx { display: none; }
-        .pc-q { width: 86px; height: 86px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; box-shadow: 4px 4px 0 var(--ink); font-family: 'Huninn', sans-serif; font-size: 3.2rem; line-height: 1; animation: bob 1.1s ease-in-out infinite alternate; }
-        .panel-cover b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.6rem; }
-        .panel-cover small { font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 0 10px; }
-        .panel.revealed .panel-img { animation: reveal .5s ease; }
-        .panel.revealed .sfx { animation: sfxPop .5s cubic-bezier(.2,1.6,.4,1) .25s both; }
-        @keyframes reveal { from { transform: rotateY(90deg); } to { transform: none; } }
+        .pc-q-unused { width: 86px; height: 86px; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; box-shadow: 4px 4px 0 var(--ink); font-family: 'Huninn', sans-serif; font-size: 3.2rem; line-height: 1; animation: bob 1.1s ease-in-out infinite alternate; }
         @keyframes sfxPop { from { transform: rotate(-8deg) scale(0); } to { transform: rotate(-8deg) scale(1); } }
         .panel-talk { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 12px 10px 12px; background: #FFFDF7; border-top: 3px solid var(--ink); }
         .talk { display: flex; gap: 8px; align-items: flex-start; opacity: 0; transform: scale(.7); transform-origin: left top; transition: opacity .25s, transform .3s cubic-bezier(.2,1.5,.4,1); }
@@ -443,6 +436,84 @@
             .page { border: none; box-shadow: none; }
             .page::before, .page::after { display: none; }
         }
+
+        /* ===== 撞色卡片風（覆寫） ===== */
+        .feat li { color: var(--ink); }
+        .feat li:nth-child(1) { background: var(--pink); } .feat li:nth-child(2) { background: var(--sky); } .feat li:nth-child(3) { background: var(--lemon); }
+        .feat li:nth-child(4) { background: var(--mint); } .feat li:nth-child(5) { background: var(--orange); } .feat li:nth-child(6) { background: var(--grape); }
+        .feat li:nth-child(odd) { transform: rotate(-1.2deg); } .feat li:nth-child(even) { transform: rotate(1.2deg); }
+        .bubble-name { margin: -10px -14px 7px; padding: 3px 14px; background: var(--accent); color: var(--ink); border-bottom: 3px solid var(--ink); border-radius: 17px 17px 0 0; }
+        .story > ul > li { border-width: 3px; box-shadow: 4px 4px 0 var(--ink); background: var(--cb, #fff); }
+        .story > ul > li:nth-child(6n+1) { --cb: #FFD9D2; } .story > ul > li:nth-child(6n+2) { --cb: #CFEBFA; } .story > ul > li:nth-child(6n+3) { --cb: #FFF0A8; }
+        .story > ul > li:nth-child(6n+4) { --cb: #D3F0CB; } .story > ul > li:nth-child(6n+5) { --cb: #FFDDB0; } .story > ul > li:nth-child(6n) { --cb: #DCDDFC; }
+        .story > ul > li::before { background: var(--ink); color: var(--lemon); border-color: var(--ink); }
+        .story > ul > li:nth-child(odd) { transform: rotate(-.4deg); } .story > ul > li:nth-child(even) { transform: rotate(.4deg); }
+        .story strong { background: #fff; border: 2px solid var(--ink); border-radius: 6px; padding: 0 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+        .chat-b { background: var(--sky); border-width: 3px; }
+        .chat-row.right .chat-b { background: var(--lemon); }
+        .chat-b > b { color: var(--ink); }
+        .frame figcaption { background: var(--lemon); font-weight: 700; }
+        .mission { background: var(--lemon); border: var(--bd); box-shadow: 4px 4px 0 var(--ink); }
+        .mission span { background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 0 10px; }
+        .st-tag { background: var(--sky); }
+        .rank-card { background: var(--sky); }
+        .rank-ico { background: var(--lemon); }
+        .rank-next, .rank-meta { color: var(--ink); }
+        .lv-btn { background: var(--c); }
+        .lv-num { background: #fff; }
+        .lv-txt small { color: #fff; }
+        .sticker-book { background: var(--mint); }
+        .stk-slot { background: rgba(255,255,255,.55); border-color: var(--ink); color: var(--ink); }
+        .stk-slot.got { background: var(--lemon); }
+        .player { border-width: 3px; box-shadow: 5px 5px 0 var(--ink); }
+        .audio-box .player:nth-of-type(6n+1) { background: var(--lemon); } .audio-box .player:nth-of-type(6n+2) { background: var(--sky); } .audio-box .player:nth-of-type(6n+3) { background: var(--mint); }
+        .audio-box .player:nth-of-type(6n+4) { background: var(--orange); } .audio-box .player:nth-of-type(6n+5) { background: var(--pink); } .audio-box .player:nth-of-type(6n) { background: var(--grape); }
+        .audio-desc { color: var(--ink); }
+        .play-btn { background: #fff; }
+        .play-btn.playing { background: var(--ink); color: var(--lemon); }
+        .prog { background: #fff; }
+        .prog i { background: repeating-linear-gradient(45deg, var(--ink) 0 8px, #555 8px 16px); }
+        .listen-player { background: var(--sky); }
+        .panel-talk { background: var(--accent); }
+        .comic-sum { margin-top: 18px; transform: rotate(.6deg); }
+        .q-card { background: var(--paper); border-top: 14px solid var(--accent); }
+        .opt-0 { --o: var(--pink); } .opt-1 { --o: var(--sky); } .opt-2 { --o: var(--lemon); } .opt-3 { --o: var(--orange); }
+        .opt.right { background: var(--mint); }
+        .opt.wrong { background: var(--ink); color: #fff; }
+        .opt.wrong .opt-l { color: var(--ink); }
+        .result { border-top: 14px solid var(--accent); }
+        .sticker-get { background: var(--lemon); }
+        .q-fb.ok { background: #D3F0CB; } .q-fb.no { background: #FFD9D2; }
+        .q-fb { border-style: solid; box-shadow: 3px 3px 0 var(--ink); }
+        .table-wrap { box-shadow: 4px 4px 0 var(--ink); }
+        .summary tbody tr:nth-child(odd) td { background: #FFF6D0; }
+
+        /* ===== 記憶翻牌 ===== */
+        .mem-hud { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 6px 0 12px; }
+        .mem-hud span { background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 12px; font-weight: 700; font-size: .92rem; box-shadow: 2px 2px 0 var(--ink); }
+        .mem-hud b { font-size: 1.1rem; }
+        .mem-card { aspect-ratio: 4 / 5; padding: 0; border-radius: 16px; -webkit-tap-highlight-color: transparent; }
+        .mem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; perspective: 900px; }
+        @media (min-width: 640px) { .mem-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; } .mem-card { aspect-ratio: 1 / 1; } }
+        .mc-in { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.3,1.4,.5,1); }
+        .mem-card.open .mc-in, .mem-card.done .mc-in { transform: rotateY(180deg); }
+        .mc-back, .mc-face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: var(--bd); border-radius: 16px; box-shadow: 4px 4px 0 var(--ink); backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 6px; text-align: center; }
+        .mc-back { background-color: var(--ink); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.08) 0 10px, transparent 10px 20px); color: #fff; }
+        .mc-back b { background: var(--accent) !important; }
+        .mc-back b { width: 2.1em; height: 2.1em; border-radius: 50%; background: #fff; border: var(--bd); display: grid; place-items: center; font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.6rem; line-height: 1; }
+        .mc-back small { font-size: .9rem; }
+        .mem-card:hover:not(.open):not(.done) .mc-back { transform: translateY(-3px); }
+        .mc-face { transform: rotateY(180deg); background: var(--lemon); }
+        .mem-card.a .mc-face { background: var(--sky); }
+        .mc-face small { font-size: .7rem; font-weight: 900; background: var(--ink); color: #fff; border-radius: 999px; padding: 0 8px; line-height: 1.6; }
+        .mc-face b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: clamp(.92rem, 3.6vw, 1.15rem); line-height: 1.35; word-break: break-word; }
+        .mem-card.done .mc-face { background: var(--pc, var(--mint)); }
+        .mem-card.done { animation: boing .5s ease; }
+        .mem-card.done .mc-face small { background: #fff; color: var(--ink); }
+        .mem-card.done .mc-face small::before { content: "✓ "; }
+        .mem-win { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 16px; background: var(--lemon); border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); padding: 10px 14px; animation: popIn .45s ease both; }
+        .mem-win b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.5rem; }
+        .mem-win span { font-weight: 700; }
     </style>
 </head>
 <body>
@@ -654,13 +725,84 @@
                     { wave: 'sine', vib: true, vol: 0.3, seq: 'B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 G4:0.25 F#4:0.25 G4:0.25 A4:1 D4:1 | B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 B4:0.25 C5:0.25 A4:0.25 G4:1 r:1 | A4:1.5 A4:0.5 B4:0.75 A4:0.25 G4:1 | D5:1 C5:0.5 B4:0.5 A4:1 D4:1 | B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 B4:0.25 C5:0.25 A4:0.25 G4:2' },
                     { wave: 'triangle', vol: 0.15, seq: 'G2:1 D3:1 D2:1 C3:1 | G2:1 D3:1 D2:1 C3:1 | G2:1 D3:1 D2:1 C3:1 | G2:1 D2:1 G2:2 | D2:1 C3:1 G2:1 D3:1 | B2:1 D3:0.5 G2:0.5 D2:2 | G2:1 D3:1 D2:1 C3:1 | G2:1 D2:1 G2+D3:2' }
                 ]
+            },
+            twinkle: {
+                title: '莫札特《小星星變奏曲》主題',
+                desc: '霍夫曼點名的「浪漫作曲家」之一莫札特，把法國兒歌〈小星星〉寫成 12 段變奏，這是主題。',
+                bpm: 132,
+                voices: [
+                    { vol: 0.26, seq: 'C5:1 C5:1 G5:1 G5:1 | A5:1 A5:1 G5:2 | F5:1 F5:1 E5:1 E5:1 | D5:1 D5:1 C5:2 | G5:1 G5:1 F5:1 F5:1 | E5:1 E5:1 D5:2 | G5:1 G5:1 F5:1 F5:1 | E5:1 E5:1 D5:2 | C5:1 C5:1 G5:1 G5:1 | A5:1 A5:1 G5:2 | F5:1 F5:1 E5:1 E5:1 | D5:1 D5:1 C5:2' },
+                    { vol: 0.2, seq: 'C3:2 E3:2 | F3:2 E3:2 | D3:2 C3:2 | G2:2 C3:2 | E3:2 D3:2 | C3:2 G2:2 | E3:2 D3:2 | C3:2 G2:2 | C3:2 E3:2 | F3:2 E3:2 | D3:2 C3:2 | G2:2 C3:2' }
+                ]
+            },
+            haydn: {
+                title: '海頓《驚愕交響曲》第二樂章',
+                desc: '輕輕柔柔的旋律重複兩次……最後突然「砰！」一聲大和弦，把打瞌睡的聽眾嚇醒！',
+                bpm: 88,
+                voices: [
+                    { vol: 0.2, seq: 'C4:0.5 C4:0.5 E4:0.5 E4:0.5 | G4:0.5 G4:0.5 E4:1 | F4:0.5 F4:0.5 D4:0.5 D4:0.5 | B3:0.5 B3:0.5 G3:1 | C4:0.5 C4:0.5 E4:0.5 E4:0.5 | G4:0.5 G4:0.5 E4:1 | C5:0.5 C5:0.5 F#4:0.5 F#4:0.5 | G4:1 G3:0.5 r:0.5 | C4:0.5 C4:0.5 E4:0.5 E4:0.5 | G4:0.5 G4:0.5 E4:1 | F4:0.5 F4:0.5 D4:0.5 D4:0.5 | B3:0.5 B3:0.5 G3:1 | C4:0.5 C4:0.5 E4:0.5 E4:0.5 | G4:0.5 G4:0.5 E4:1 | C5:0.5 C5:0.5 F#4:0.5 F#4:0.5 | G4:0.5 r:1.5' },
+                    { vol: 0.16, seq: 'C3:0.5 r:0.5 C3:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | G2:0.5 r:0.5 G2:0.5 r:0.5 | G2:0.5 r:0.5 G2:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | D3:0.5 r:0.5 D3:0.5 r:0.5 | G2:0.5 r:0.5 G2:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | G2:0.5 r:0.5 G2:0.5 r:0.5 | G2:0.5 r:0.5 G2:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | C3:0.5 r:0.5 C3:0.5 r:0.5 | D3:0.5 r:0.5 D3:0.5 r:0.5 | G2:0.5 r:1.5' },
+                    { kind: 'bell', oct: 0, vol: 0.5, seq: 'r:31 G3+D4+B4+G5:1' }
+                ]
+            },
+            b3: {
+                title: '貝多芬《第三交響曲・英雄》開頭',
+                desc: '先「碰！碰！」兩聲大和弦，再由大提琴唱出英雄主題（必考交響曲 3 號）。',
+                bpm: 120,
+                voices: [
+                    { oct: 1, vol: 0.24, seq: 'Eb4+G4+Bb4:1 r:2 | Eb4+G4+Bb4:1 r:2 | Eb3:2 G3:1 | Eb3:2 Bb2:1 | Eb3:1 G3:1 Bb3:1 | Eb3:2 D3:1 | C#3:3 | C#3:3' },
+                    { vol: 0.22, seq: 'Eb2+Bb2+G3:1 r:2 | Eb2+Bb2+G3:1 r:2 | Eb2:3 | Eb2:3 | Eb2:3 | Eb2:3 | r:6' }
+                ]
+            },
+            elise: {
+                title: '貝多芬〈給愛麗絲〉',
+                desc: '鋼琴小品〈給愛麗絲〉的開頭，臺灣的垃圾車常常播這首喔！',
+                bpm: 70,
+                voices: [
+                    { vol: 0.24, seq: 'E5:0.25 D#5:0.25 | E5:0.25 D#5:0.25 E5:0.25 B4:0.25 D5:0.25 C5:0.25 | A4:0.5 r:0.25 C4:0.25 E4:0.25 A4:0.25 | B4:0.5 r:0.25 E4:0.25 G#4:0.25 B4:0.25 | C5:0.5 r:0.25 E4:0.25 E5:0.25 D#5:0.25 | E5:0.25 D#5:0.25 E5:0.25 B4:0.25 D5:0.25 C5:0.25 | A4:0.5 r:0.25 C4:0.25 E4:0.25 A4:0.25 | B4:0.5 r:0.25 E4:0.25 C5:0.25 B4:0.25 | A4:0.5 r:0.5 E5:0.25 D#5:0.25 | E5:0.25 D#5:0.25 E5:0.25 B4:0.25 D5:0.25 C5:0.25 | A4:0.5 r:0.25 C4:0.25 E4:0.25 A4:0.25 | B4:0.5 r:0.25 E4:0.25 G#4:0.25 B4:0.25 | C5:0.5 r:0.25 E4:0.25 E5:0.25 D#5:0.25 | E5:0.25 D#5:0.25 E5:0.25 B4:0.25 D5:0.25 C5:0.25 | A4:0.5 r:0.25 C4:0.25 E4:0.25 A4:0.25 | B4:0.5 r:0.25 E4:0.25 C5:0.25 B4:0.25 | A4:1.5' },
+                    { vol: 0.16, seq: 'r:0.5 | r:1.5 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | E2:0.25 E3:0.25 G#3:0.25 r:0.75 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | r:1.5 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | E2:0.25 E3:0.25 G#3:0.25 r:0.75 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | r:1.5 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | E2:0.25 E3:0.25 G#3:0.25 r:0.75 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | r:1.5 | A2:0.25 E3:0.25 A3:0.25 r:0.75 | E2:0.25 E3:0.25 G#3:0.25 r:0.75 | A2+E3+A3:1.5' }
+                ]
+            },
+            moon: {
+                title: '貝多芬《月光奏鳴曲》第一樂章',
+                desc: '像月光灑在湖面上的三連音分解和弦，安靜又帶一點憂傷。',
+                bpm: 56,
+                voices: [
+                    { vol: 0.2, seq: rip('G#3 C#4 E4', 8) + ' ' + rip('A3 C#4 E4', 2) + ' ' + rip('A3 D4 F#4', 2) + ' ' + rip('G#3 B#3 F#4', 1) + ' ' + rip('G#3 C#4 E4', 1) + ' ' + rip('G#3 C#4 D#4', 1) + ' ' + rip('F#3 B#3 D#4', 1) + ' ' + rip('G#3 C#4 E4', 2) + ' C#4+E4+G#4:2' },
+                    { vol: 0.22, seq: 'C#2+C#3:4 | B1+B2:4 | A1+A2:2 F#1+F#2:2 | G#1+G#2:4 | C#2+C#3:4' }
+                ]
+            },
+            unfin: {
+                title: '舒伯特《未完成交響曲》第一樂章第二主題',
+                desc: '大提琴唱出溫柔搖擺的旋律，是《未完成交響曲》裡最有名的一段。',
+                bpm: 96,
+                voices: [
+                    { oct: 2, vol: 0.24, seq: 'G3:1 D3:1.5 G3:0.5 | F#3:0.75 G3:0.25 A3:1.5 G3:0.5 | F#3:0.75 G3:0.25 A3:0.5 D3:0.5 E3:0.5 F#3:0.5 | G3:1 D3:2 | G3:1 D3:1.5 G3:0.5 | G#3:0.75 A3:0.25 B3:1.5 A3:0.5 | G#3:0.75 A3:0.25 B3:0.5 E3:0.5 F#3:0.5 G#3:0.5 | A3:1 E3:1.5 G#3:0.5 | A3:1 D3:1 E3:0.5 F#3:0.5 | G3:3' },
+                    { vol: 0.2, seq: 'G2:3 | D2:3 | D2:3 | G2:3 | G2:3 | E2:3 | E2:3 | A2:3 | D2:3 | G2:3' }
+                ]
+            },
+            linden: {
+                title: '舒伯特《冬之旅》〈菩提樹〉',
+                desc: '聯篇歌曲集《冬之旅》裡最有名的一首：「井邊大門前面，有一棵菩提樹」。',
+                bpm: 90,
+                voices: [
+                    { oct: 1, vol: 0.24, seq: 'B4:0.5 | B4:1.5 G#4:0.5 G#4:0.5 G#4:0.5 | G#4:1 E4:1 r:0.5 E4:0.5 | F#4:1.5 G#4:0.5 A4:0.333333 G#4:0.333333 F#4:0.333334 | E4:2 r:0.5 B4:0.5 | B4:1.5 G#4:0.5 G#4:0.5 G#4:0.5 | G#4:1 E4:1 r:0.5 E4:0.5 | F#4:1.5 G#4:0.5 A4:0.333333 G#4:0.333333 F#4:0.333334 | E4:3' },
+                    { vol: 0.2, seq: 'r:0.5 | E3:3 | E3:3 | B2:3 | E3:3 | E3:3 | E3:3 | B2:3 | E3:3' }
+                ]
             }
         };
 
         Object.values(TRACKS).forEach(tr => {
             let len = 0;
             tr.voices.forEach(v => { v.parsed = parseSeq(v.seq); len = Math.max(len, v.parsed.len); });
-            tr.dur = len * 60 / tr.bpm + 0.3;
+            tr.dur = len * 60 / tr.bpm + 0.8;
+            tr.voices.forEach((v, vi) => {
+                v.kind = v.kind || (vi === 0 ? 'bell' : 'mallet');
+                const fs = v.parsed.notes.map(n => n.f).sort((a, b) => a - b);
+                const med = fs.length ? fs[Math.floor(fs.length / 2)] : 440;
+                const oct = v.oct != null ? v.oct : (v.kind === 'bell' ? (med < 400 ? 1 : 0) : (med < 130 ? 1 : 0));
+                v.mul = Math.pow(2, oct);
+            });
         });
 
         const Synth = {
@@ -700,40 +842,54 @@
                     v.parsed.notes.forEach(n => {
                         const s = t0 + n.t * spb;
                         const d = n.d * spb;
-                        const a = v.att || 0.012;
-                        const e = s + Math.max(d * (v.leg || 0.9), a + 0.04);
-                        const o = ctx.createOscillator();
-                        o.type = v.wave;
-                        o.frequency.value = n.f;
-                        const g = ctx.createGain();
-                        let src = o;
-                        if (v.lp) {
-                            const flt = ctx.createBiquadFilter();
-                            flt.type = 'lowpass';
-                            flt.frequency.value = v.lp;
-                            o.connect(flt);
-                            src = flt;
+                        const f = n.f * v.mul;
+                        if (v.kind === 'bell') {
+                            // 可愛鐘琴：FM 合成（金屬感泛音快速消失）＋高八度的亮點
+                            const tau = Math.min(0.9, Math.max(0.22, 0.16 + d * 0.45));
+                            const car = ctx.createOscillator();
+                            car.type = 'sine';
+                            car.frequency.value = f;
+                            const mod = ctx.createOscillator();
+                            mod.type = 'sine';
+                            mod.frequency.value = f * 3.5;
+                            const mg = ctx.createGain();
+                            mg.gain.setValueAtTime(f * 1.6, s);
+                            mg.gain.setTargetAtTime(f * 0.08, s, 0.09);
+                            mod.connect(mg);
+                            mg.connect(car.frequency);
+                            const g = ctx.createGain();
+                            g.gain.setValueAtTime(0.0001, s);
+                            g.gain.linearRampToValueAtTime(v.vol, s + 0.004);
+                            g.gain.setTargetAtTime(0.0001, s + 0.004, tau);
+                            car.connect(g);
+                            g.connect(bus);
+                            const sp = ctx.createOscillator();
+                            sp.type = 'sine';
+                            sp.frequency.value = f * 2;
+                            const sg = ctx.createGain();
+                            sg.gain.setValueAtTime(0.0001, s);
+                            sg.gain.linearRampToValueAtTime(v.vol * 0.22, s + 0.003);
+                            sg.gain.setTargetAtTime(0.0001, s + 0.003, tau * 0.35);
+                            sp.connect(sg);
+                            sg.connect(bus);
+                            const end = s + tau * 6;
+                            [car, mod, sp].forEach(o => { o.start(s); o.stop(end); nodes.push(o); });
+                        } else {
+                            // 木琴般圓潤的低音
+                            const tau = Math.min(0.6, Math.max(0.15, 0.12 + d * 0.3));
+                            const o = ctx.createOscillator();
+                            o.type = 'triangle';
+                            o.frequency.value = f;
+                            const g = ctx.createGain();
+                            g.gain.setValueAtTime(0.0001, s);
+                            g.gain.linearRampToValueAtTime(v.vol * 1.25, s + 0.006);
+                            g.gain.setTargetAtTime(0.0001, s + 0.006, tau);
+                            o.connect(g);
+                            g.connect(bus);
+                            o.start(s);
+                            o.stop(s + tau * 6);
+                            nodes.push(o);
                         }
-                        src.connect(g);
-                        g.connect(bus);
-                        g.gain.setValueAtTime(0.0001, s);
-                        g.gain.linearRampToValueAtTime(v.vol, s + a);
-                        g.gain.setTargetAtTime(v.vol * 0.65, s + a, Math.max(0.06, d * 0.5));
-                        g.gain.setTargetAtTime(0.0001, e, 0.035);
-                        if (v.vib) {
-                            const lfo = ctx.createOscillator();
-                            const lg = ctx.createGain();
-                            lfo.frequency.value = 5.5;
-                            lg.gain.value = n.f * 0.006;
-                            lfo.connect(lg);
-                            lg.connect(o.frequency);
-                            lfo.start(s);
-                            lfo.stop(e + 0.3);
-                            nodes.push(lfo);
-                        }
-                        o.start(s);
-                        o.stop(e + 0.3);
-                        nodes.push(o);
                     });
                 });
                 const total = tr.dur;
@@ -810,8 +966,8 @@
                         <li><strong>歷史定案</strong>：後來音樂學家把莫札特、海頓歸回古典時期，確立貝多芬是浪漫主義的開端！</li>
                     </ul>`,
                 mnemonic: '「1820 音樂門，字根『羅馬』追夢想！霍夫曼先取名字，『貝多芬』是開山王！」',
-                audioIntro: '霍夫曼和史伯爾都稱讚的貝多芬《第五交響曲》，先來聽聽它的開頭。',
-                audio: ['b5'],
+                audioIntro: '霍夫曼點名的三位「浪漫作曲家」：貝多芬、莫札特、海頓，各聽一段！',
+                audio: ['b5', 'twinkle', 'haydn'],
                 comicTitle: '🎬 第 1 話情境記憶四格漫畫：《浪漫不是談戀愛？！》',
                 quizzes: [
                     { q: '「浪漫」（Romantic）一詞的字根最早來自哪裡？', options: ['羅馬（Roman / Roma）', '希臘（Greece）', '倫敦（London）'], ans: 0, exp: '字根源自羅馬（Roman / Roma），原本指羅馬或羅曼語系民族。' },
@@ -894,8 +1050,8 @@
                         <li><strong>必考代表作</strong>：32 首鋼琴奏鳴曲、第 3、5、6、9 號交響曲（英雄、命運、田園、合唱）與<strong>《莊嚴彌撒》</strong>！</li>
                     </ul>`,
                 mnemonic: '「樂聖貝多芬，承古典啟浪漫；聽不見照樣寫，交響 3、5、6、9 最震撼！」',
-                audioIntro: '3 首雙聲部賞析：命運、合唱、田園。',
-                audio: ['b5', 'b9', 'b6'],
+                audioIntro: '6 首鐘琴版賞析：命運、英雄、田園、合唱，再加上大家都聽過的〈給愛麗絲〉和〈月光〉。',
+                audio: ['b5', 'b3', 'b6', 'b9', 'elise', 'moon'],
                 comicTitle: '🎬 第 3 話情境記憶四格漫畫：《聽不見的閃電樂聖！》',
                 quizzes: [
                     { q: '貝多芬是哪一個地方的作曲家與鋼琴演奏家？', options: ['德意志', '義大利', '法國'], ans: 0, exp: '貝多芬是德意志作曲家、鋼琴演奏家。' },
@@ -1003,8 +1159,8 @@
                         <li><strong>感人結局</strong>：死後安葬在他生前極為崇拜卻只見過幾面的貝多芬墳墓旁。</li>
                     </ul>`,
                 mnemonic: '「歌曲之王舒伯特，31 歲寫 600 歌；《未完成》加《鱒魚》游，磨坊冬旅天鵝飛！」',
-                audioIntro: '歌曲之王的三首歌：先聽鱒魚，再聽兩首大家都會哼的藝術歌曲。',
-                audio: ['trout', 'rose', 'lull'],
+                audioIntro: '歌曲之王的五首作品：〈鱒魚〉、〈野玫瑰〉、〈搖籃曲〉，再加上《未完成交響曲》和《冬之旅》〈菩提樹〉。',
+                audio: ['trout', 'rose', 'lull', 'unfin', 'linden'],
                 comicTitle: '🎬 第 6 話情境記憶四格漫畫：《咖啡館裡的歌曲之王！》',
                 quizzes: [
                     { q: '法蘭茲·舒伯特是哪一國的作曲家？', options: ['奧地利', '義大利', '法國'], ans: 0, exp: '舒伯特是奧地利作曲家。' },
@@ -1050,7 +1206,7 @@
                     </ul>`,
                 mnemonic: null,
                 audioIntro: '四大天王點唱機：每人一首代表作，複習一下！',
-                audio: ['b5', 'frei', 'tell', 'trout'],
+                audio: ['b5', 'elise', 'frei', 'tell', 'trout', 'linden'],
                 comicTitle: '🎬 第 7 話情境記憶四格漫畫：《早期四大天王口訣總點名！》',
                 quizzes: [
                     { q: '早期四大音樂天王裡，哪兩位來自德國／德意志地區？', options: ['貝多芬、韋伯', '羅西尼、舒伯特', '舒伯特、韋伯'], ans: 0, exp: '貝多芬（德意志）和韋伯（德國）；羅西尼是義大利人，舒伯特是奧地利人。' },
@@ -1160,7 +1316,7 @@
         // ===== 黑貓老師台詞 =====
         const CAT = {
             cover: '喵～我是黑貓老師！今天帶你搭上音符時光機，闖過 8 關浪漫樂派大冒險。按「開始冒險」出發吧！',
-            comicStart: '漫畫時間！按「打開下一格」，起、承、轉、合一格一格看，每格的 🔊 可以聽我念喵～',
+            comicStart: '漫畫時間！起、承、轉、合四格一次看完，每格的 🔊 可以聽我念喵～',
             thinking: ['慢慢想，答案藏在剛剛的漫畫裡喵～', '這題你一定會，相信自己喵！', '想一想再按，不要被我的尾巴分心喵～', '嗯……有點難，加油喵！'],
             cheers: ['答對了喵！🎉', '太神啦，送你一個肉球！🐾', '喵喵喵～答得好！', '你的腦袋超靈光喵！', '完全正確，浪漫指數上升！'],
             oops: ['喵嗚……差一點點！', '沒關係，貓也會踩空喵～', '再記一次就不會錯了喵！'],
@@ -1408,26 +1564,43 @@
             win() { this.tone([523, 659, 784, 1047], 'triangle', 0.24, 0.11, 0.2); },
             pop() { this.tone([1046], 'sine', 0.09, 0, 0.14); },
             flip() {
+                // 翻紙聲：紙張摩擦的沙沙聲（帶通濾波掃頻＋細碎的紙纖維聲）＋落下的輕拍
                 if (!Store.data.sfx) return;
                 try {
                     Synth.init();
                     const ctx = Synth.ctx;
-                    const len = Math.floor(ctx.sampleRate * 0.22);
-                    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+                    const sr = ctx.sampleRate;
+                    const now = ctx.currentTime + 0.01;
+                    const len = Math.floor(sr * 0.42);
+                    const buf = ctx.createBuffer(1, len, sr);
                     const d = buf.getChannelData(0);
-                    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+                    let crackle = 0;
+                    for (let i = 0; i < len; i++) {
+                        const t = i / sr;
+                        const env = t < 0.3 ? Math.pow(Math.sin(Math.PI * t / 0.3), 1.4) : 0;
+                        if (Math.random() < 0.004) crackle = 1;
+                        crackle *= 0.93;
+                        d[i] = (Math.random() * 2 - 1) * (env * 0.8 + crackle * 0.9 * (env + 0.15));
+                        if (t > 0.3 && t < 0.36) d[i] += (Math.random() * 2 - 1) * Math.pow(1 - (t - 0.3) / 0.06, 3) * 0.9;
+                    }
                     const src = ctx.createBufferSource();
                     src.buffer = buf;
-                    const f = ctx.createBiquadFilter();
-                    f.type = 'bandpass';
-                    f.frequency.value = 1800;
-                    f.Q.value = 0.8;
+                    const hp = ctx.createBiquadFilter();
+                    hp.type = 'highpass';
+                    hp.frequency.value = 450;
+                    const bp = ctx.createBiquadFilter();
+                    bp.type = 'bandpass';
+                    bp.Q.value = 0.6;
+                    bp.frequency.setValueAtTime(1100, now);
+                    bp.frequency.exponentialRampToValueAtTime(4200, now + 0.26);
+                    bp.frequency.exponentialRampToValueAtTime(1500, now + 0.36);
                     const g = ctx.createGain();
-                    g.gain.value = 0.22;
-                    src.connect(f);
-                    f.connect(g);
+                    g.gain.value = 0.55;
+                    src.connect(hp);
+                    hp.connect(bp);
+                    bp.connect(g);
                     g.connect(Synth.master);
-                    src.start();
+                    src.start(now);
                 } catch (e) { /* 不支援音效時略過 */ }
             }
         };
@@ -1491,6 +1664,7 @@
                 if (ci < 7) splitContent(ch.content).forEach((html, k, arr) => PAGES.push({ type: 'know', ci, html, k, n: arr.length }));
                 if (ch.audio.length || ch.mnemonic) PAGES.push({ type: 'music', ci });
                 if (COMICS[ci]) PAGES.push({ type: 'comic', ci });
+                if (MEM[ci]) PAGES.push({ type: 'game', ci });
                 PAGES.push({ type: 'quiz', ci });
             });
             PAGES.push({ type: 'end' });
@@ -1505,7 +1679,7 @@
                     <h1 class="cover-h"><span class="l1">穿越音符時光機！</span><span class="l2">${'浪漫樂派大冒險'.split('').map(c => `<b class="tile">${c}</b>`).join('')}</span><span class="l3">初期 ＆ 早期篇</span></h1>
                     <figure class="frame tilt"><img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：小樂站在古典鋼琴前，穿過 1820 年的金色音符大門，就是充滿故事與色彩的浪漫世界"></figure>
                     ${catBox(CAT.cover)}
-                    <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🎧 12 首示範音樂', '📝 86 題闖關', '⭐ 集星星換稱號', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
+                    <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🔔 19 首鐘琴示範曲', '📝 86 題闖關', '🧠 7 關記憶翻牌', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
                     <div class="cta"><button class="big-btn" onclick="Book.goType('map')">🚀 開始冒險</button>${r > 1 && r < PAGES.length ? `<button class="ghost-btn" onclick="Book.go(${r})">📖 從第 ${r + 1} 頁繼續</button>` : ''}</div>
                     <p class="tip">👆 翻頁：按下方 ◀ ▶、手機左右滑、鍵盤方向鍵都可以。<br>🔈 iPhone／iPad 請先關閉「靜音模式」，才聽得到音樂和朗讀。</p>`;
             },
@@ -1538,6 +1712,7 @@
                 if (knowN) steps.push(`📖 讀 ${knowN} 頁`);
                 if (ch.audio.length) steps.push(`🎧 聽 ${ch.audio.length} 首`);
                 if (COMICS[ci]) steps.push('🎬 看漫畫');
+                if (MEM[ci]) steps.push('🧠 翻牌');
                 steps.push(`📝 闖關 ${ch.quizzes.length} 題`);
                 const hero = ch.heroImg
                     ? `<figure class="frame"><img src="${ch.heroImg}" width="1200" height="896" alt="${esc(ch.heroCap.replace('▲ ', ''))}"><figcaption>${ch.heroCap}</figcaption></figure>`
@@ -1561,7 +1736,7 @@
                 return `${headHtml(p.ci, '🎵 口訣＋音樂')}
                     ${ch.mnemonic ? `<div class="mn-card"><div class="mn-label">💡 記憶口訣</div><p>${ch.mnemonic}</p></div>` : ''}
                     ${catBox(line)}
-                    ${ch.audio.length ? `<div class="audio-box"><h3>🎧 示範音樂</h3><p class="audio-note">${ch.audioIntro}<br><small>主旋律＋低音的電子示範，非原曲錄音。播放時黑貓老師會跟著搖擺喔！</small></p>${ch.audio.map(playerHtml).join('')}</div>` : ''}`;
+                    ${ch.audio.length ? `<div class="audio-box"><h3>🎧 示範音樂</h3><p class="audio-note">${ch.audioIntro}<br><small>可愛鐘琴音色的簡化示範，非原曲錄音。播放時黑貓老師會跟著搖擺喔！</small></p>${ch.audio.map(playerHtml).join('')}</div>` : ''}`;
             },
             comic(p) {
                 const ci = p.ci, ch = chaptersData[ci];
@@ -1570,19 +1745,28 @@
                     <h2 class="comic-name">${name}</h2>
                     ${catBox(CAT.comicStart, { cls: 'compact' })}
                     <div class="comic-grid">${COMICS[ci].map((pn, k) => `
-                        <figure class="panel covered" data-k="${k}">
-                            <div class="panel-img" onclick="Comic.tap(this)">
+                        <figure class="panel" data-k="${k}">
+                            <div class="panel-img">
                                 <img src="images/comic_ch${ci + 1}_${k + 1}.jpg" width="500" height="500" alt="第 ${ci + 1} 話四格漫畫第 ${k + 1} 格">
                                 <span class="panel-tag">${PANEL_TAGS[k]}</span>
                                 <span class="sfx">${pn.sfx}</span>
-                                <div class="panel-cover"><span class="pc-q">?</span><b>${PANEL_TAGS[k]}</b><small>點我打開</small></div>
                             </div>
                             <figcaption class="panel-talk">
-                                ${pn.lines.map((l, j) => `<div class="talk ${j % 2 ? 'r' : 'l'}"><span class="av">${avatar(l[0])}</span><div class="tb"><b>${l[0]}</b><span class="t" data-text="${esc(l[1])}"></span></div></div>`).join('')}
+                                ${pn.lines.map((l, j) => `<div class="talk show ${j % 2 ? 'r' : 'l'}"><span class="av">${avatar(l[0])}</span><div class="tb"><b>${l[0]}</b><span class="t" data-text="${esc(l[1])}">${l[1]}</span></div></div>`).join('')}
                                 <button class="panel-say" onclick="Comic.read(this)" aria-label="朗讀這一格">🔊</button>
                             </figcaption>
                         </figure>`).join('')}</div>
-                    <div class="comic-ctrl"><button class="big-btn comic-next" onclick="Comic.next(this)">👉 打開下一格</button><button class="ghost-btn comic-all" onclick="Comic.all(this)">一次全部打開</button></div>`;
+                    <div class="mn-card comic-sum"><div class="mn-label">💡 漫畫重點</div><p>${CAT.chapters[ci].comicDone.replace(/^重點複習：/, '').replace(/喵！?$/, '')}</p></div>
+                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">🧠 下一頁：記憶翻牌遊戲 ▶</button></div>`;
+            },
+            game(p) {
+                return `${headHtml(p.ci, '🧠 記憶翻牌遊戲')}
+                    <h2 class="comic-name">記憶翻牌大挑戰</h2>
+                    ${catBox('翻兩張牌，一張黃色「題目」配一張藍色「答案」，配對成功就會亮起來！全部 6 對找出來喵～', { cls: 'compact' })}
+                    <div class="mem-hud"></div>
+                    <div class="mem-grid"></div>
+                    <div class="mem-end"></div>
+                    <div class="center"><button class="ghost-btn small" onclick="Mem.mount(${p.ci}, this.closest('.page'))">🔀 重新洗牌</button></div>`;
             },
             quiz(p) {
                 return `${headHtml(p.ci, '📝 闖關測驗')}
@@ -1635,6 +1819,7 @@
         function onEnter(p, el) {
             if (!el.isConnected) return;
             if (p.type === 'quiz') { Quiz.mount(p.ci, el); return; }
+            if (p.type === 'game' && !el.querySelector('.mem-card')) Mem.mount(p.ci, el);
             const box = el.querySelector('.catbox');
             if (box) Cat.say(box, null, box.dataset.mood || 'normal');
         }
@@ -1729,7 +1914,7 @@
             if (p.type === 'cover') return '📕 封面　' + n;
             if (p.type === 'map') return '🗺️ 冒險地圖　' + n;
             if (p.type === 'end') return '🏅 結業證書　' + n;
-            const names = { title: '關卡開場', know: '知識頁', music: '口訣＋音樂', comic: '四格漫畫', quiz: '闖關測驗' };
+            const names = { title: '關卡開場', know: '知識頁', music: '口訣＋音樂', comic: '四格漫畫', game: '記憶翻牌', quiz: '闖關測驗' };
             return `第 ${p.ci + 1} 關・${names[p.type]}　${n}`;
         }
 
@@ -1797,61 +1982,91 @@
 
         // ===== 四格漫畫 =====
         const Comic = {
-            tap(imgBox) {
-                const panel = imgBox.closest('.panel');
-                if (panel.classList.contains('covered')) this.reveal(panel);
-            },
-            next(btn) {
-                const page = btn.closest('.page');
-                const left = page.querySelector('.panel.covered');
-                if (!left) { Book.next(); return; }
-                this.reveal(left);
-            },
-            all(btn) {
-                const page = btn.closest('.page');
-                [...page.querySelectorAll('.panel.covered')].forEach((p, k) => setTimeout(() => this.reveal(p, true), k * 260));
-            },
-            reveal(panel, quiet) {
-                if (!panel.classList.contains('covered')) return;
-                panel.classList.remove('covered');
-                panel.classList.add('revealed');
-                Sfx.pop();
-                this.typeTalk(panel);
-                if (!quiet) panel.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
-                this.check(panel.closest('.page'));
-            },
-            typeTalk(panel) {
-                const talks = [...panel.querySelectorAll('.talk')];
-                let delay = 300;
-                talks.forEach(tk => {
-                    const t = tk.querySelector('.t');
-                    const chars = Array.from(t.dataset.text);
-                    setTimeout(() => {
-                        tk.classList.add('show');
-                        if (REDUCED) { t.textContent = t.dataset.text; return; }
-                        chars.forEach((_, i) => setTimeout(() => { t.textContent = chars.slice(0, i + 1).join(''); }, i * 45));
-                    }, delay);
-                    delay += 350 + chars.length * 45;
-                });
-            },
-            check(page) {
-                const left = page.querySelectorAll('.panel.covered').length;
-                const btn = page.querySelector('.comic-next');
-                if (left === 0) {
-                    btn.innerHTML = '📝 去闖關 ▶';
-                    const all = page.querySelector('.comic-all');
-                    if (all) all.remove();
-                    const ci = +page.dataset.ci;
-                    setTimeout(() => { if (page.isConnected) Cat.say(page.querySelector('.catbox'), CAT.chapters[ci].comicDone, 'happy'); }, 900);
-                } else {
-                    btn.innerHTML = `👉 打開下一格（還有 ${left} 格）`;
-                }
-            },
             read(btn) {
                 const panel = btn.closest('.panel');
                 const text = [...panel.querySelectorAll('.talk')].map(tk => tk.querySelector('b').textContent + '說：' + tk.querySelector('.t').dataset.text).join('。');
                 const page = panel.closest('.page');
                 TTS.toggle(text, page.querySelector('.cat'), btn);
+            }
+        };
+
+
+        // ===== 記憶翻牌遊戲：每關 6 對（左：題目卡、右：答案卡）=====
+        const MEM = [
+            [['浪漫的字根', '羅馬'], ['音樂浪漫', '1820–1900 年'], ['文學浪漫', '1830–1850 年'], ['幫「浪漫」取名', '霍夫曼'], ['浪漫開山王', '貝多芬'], ['莫札特後來歸回', '古典時期']],
+            [['浪漫樂派重視', '感情與形象'], ['有故事的音樂', '標題音樂'], ['製造驚喜的和聲', '轉調與半音'], ['浪漫先驅', '貝多芬'], ['歌劇王者', '華格納'], ['鋼琴王者', '李斯特']],
+            [['第 3 號交響曲', '英雄'], ['第 5 號交響曲', '命運'], ['第 6 號交響曲', '田園'], ['第 9 號交響曲', '合唱'], ['鋼琴奏鳴曲', '36 首'], ['宗教合唱名作', '《莊嚴彌撒》']],
+            [['德國第一部浪漫歌劇', '《魔彈射手》'], ['1824 年英國邀請', '《奧伯龍》'], ['鋼琴名曲', '《邀舞》'], ['10 歲的作曲老師', '海頓的弟弟'], ['韋伯的媽媽', '歌手'], ['韋伯的爸爸', '巡迴劇團經理']],
+            [['羅西尼的生日', '2 月 29 日'], ['國籍', '義大利'], ['一生寫了', '39 部歌劇'], ['射蘋果的英雄', '《威廉泰爾》'], ['拿剪刀的喜歌劇', '《塞爾維亞的理髮師》'], ['私下的興趣', '美食料理']],
+            [['舒伯特的稱號', '歌曲之王'], ['只活了', '31 歲'], ['藝術歌曲', '600 多首'], ['第 8 號交響曲', '《未完成》'], ['小溪裡跳的魚', '《鱒魚》'], ['最崇拜的大師', '貝多芬']],
+            [['貝多芬', '樂聖'], ['韋伯', '《魔彈射手》'], ['羅西尼', '歌劇大廚'], ['舒伯特', '歌曲之王'], ['「早期」的下一站', '前期'], ['馬勒、理查·史特勞斯', '後期']]
+        ];
+        const Mem = {
+            mount(ci, page) {
+                const pairs = MEM[ci];
+                const cards = [];
+                pairs.forEach((pr, k) => { cards.push({ k, side: 'q', t: pr[0] }); cards.push({ k, side: 'a', t: pr[1] }); });
+                for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [cards[i], cards[j]] = [cards[j], cards[i]]; }
+                clearInterval((page._mem || {}).timer);
+                const st = page._mem = { ci, cards, open: [], lock: false, moves: 0, found: 0, t0: 0, sec: 0, timer: null, page };
+                page.querySelector('.mem-grid').innerHTML = cards.map((c, i) => `<button class="mem-card ${c.side}" data-i="${i}" onclick="Mem.flip(this)" aria-label="翻開第 ${i + 1} 張牌"><span class="mc-in"><span class="mc-back"><b>?</b><small>🐾</small></span><span class="mc-face"><small>${c.side === 'q' ? '題目' : '答案'}</small><b>${c.t}</b></span></span></button>`).join('');
+                page.querySelector('.mem-end').innerHTML = '';
+                this.hud(st);
+            },
+            hud(st) {
+                const ci = st.ci;
+                const m = st.page.querySelector('.mem-hud');
+                m.innerHTML = `<span>👆 翻牌 <b>${st.moves}</b> 次</span><span>🧩 配對 <b>${st.found}</b> / ${MEM[ci].length}</span><span>⏱️ <b>${st.sec}</b> 秒</span>`;
+            },
+            flip(el) {
+                const st = el.closest('.page')._mem;
+                if (!st || st.lock) return;
+                const ci = st.ci, i = +el.dataset.i;
+                if (el.classList.contains('open') || el.classList.contains('done')) return;
+                if (!st.t0) {
+                    st.t0 = Date.now();
+                    st.timer = setInterval(() => {
+                        if (!st.page.isConnected) { clearInterval(st.timer); return; }
+                        st.sec = Math.round((Date.now() - st.t0) / 1000);
+                        this.hud(st);
+                    }, 1000);
+                }
+                el.classList.add('open');
+                Sfx.pop();
+                st.open.push(i);
+                if (st.open.length < 2) return;
+                st.moves++;
+                const [a, b] = st.open.map(x => st.cards[x]);
+                const els = st.open.map(x => st.page.querySelector(`.mem-card[data-i="${x}"]`));
+                st.open = [];
+                const box = st.page.querySelector('.catbox');
+                if (a.k === b.k && a.side !== b.side) {
+                    st.found++;
+                    els.forEach(e => { e.classList.add('done'); e.style.setProperty('--pc', ACCENTS[a.k % ACCENTS.length]); });
+                    Sfx.ok();
+                    const pr = MEM[ci][a.k];
+                    if (st.found < MEM[ci].length) Cat.say(box, `${pick(['配對成功喵！', '答對了！', '好記性喵～', '肉球給你！🐾'])}「${pr[0]}」就是「${pr[1].replace(/[《》]/g, '')}」！`, 'happy');
+                    else this.win(st);
+                } else {
+                    st.lock = true;
+                    Sfx.bad();
+                    setTimeout(() => { els.forEach(e => e.classList.remove('open')); st.lock = false; }, 950);
+                    if (st.moves % 3 === 0) Cat.say(box, pick(['再翻翻看，記住剛剛看到的位置喵！', '沒關係，貓也會記錯喵～', '題目卡是黃色、答案卡是藍色，要一黃一藍才配得起來喵！']), 'think');
+                }
+                this.hud(st);
+            },
+            win(st) {
+                const ci = st.ci;
+                clearInterval(st.timer);
+                st.sec = Math.round((Date.now() - st.t0) / 1000);
+                this.hud(st);
+                const n = MEM[ci].length;
+                const grade = st.moves <= n + 2 ? '⭐⭐⭐ 記憶大師' : st.moves <= n * 2 ? '⭐⭐ 記性很好' : '⭐ 全部配對完成';
+                Sfx.win();
+                confetti(st.page.querySelector('.mem-grid'), 40);
+                Cat.say(st.page.querySelector('.catbox'), `全部配對完成！翻了 ${st.moves} 次、${st.sec} 秒，${grade.replace(/⭐+ /, '')}！現在去闖關一定沒問題喵！`, 'happy');
+                st.page.querySelector('.mem-end').innerHTML = `<div class="mem-win"><b>${grade}</b><span>翻牌 ${st.moves} 次・${st.sec} 秒</span></div>
+                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">📝 去闖關 ▶</button><button class="ghost-btn" onclick="Mem.mount(${ci}, this.closest('.page'))">🔁 再玩一次</button></div>`;
             }
         };
 
