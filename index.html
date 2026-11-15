@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪漫樂派大冒險｜穿越音符時光機（初期 ＆ 早期篇）</title>
+    <meta name="description" content="國小音樂課圖文漫畫電子書：8 幅章節大插圖、7 組情境記憶四格漫畫、12 首雙聲部示範音樂、86 題隨堂大挑戰。">
+    <meta property="og:title" content="穿越音符時光機！浪漫樂派大冒險（初期 ＆ 早期篇）">
+    <meta property="og:description" content="貝多芬、韋伯、羅西尼、舒伯特：用四格漫畫、示範音樂和 86 題隨堂考，輕鬆認識浪漫樂派。">
+    <meta property="og:image" content="https://laierin615.github.io/romantic-music-ebook/images/hero_cover.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent-color: #f59e0b;
+            --bg-slate: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --error-color: #ef4444;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-slate);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        header h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.6rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        header p { font-size: 1.05rem; opacity: 0.92; }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        /* 封面區 */
+        .cover-section {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .cover-img { width: 100%; height: auto; display: block; }
+
+        .cover-content { padding: 1.5rem 2rem; }
+        .cover-content h2 { font-family: 'Noto Serif TC', serif; margin-bottom: 0.5rem; }
+        .cover-content p { margin-bottom: 0.5rem; }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            background: #eef2ff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            font-weight: 700;
+            color: #3730a3;
+        }
+
+        .tip {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            padding: 0.6rem 1rem;
+            background: #f8fafc;
+        }
+
+        /* 導覽按鈕列 */
+        .nav-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.6rem 0;
+            margin-bottom: 1.5rem;
+            background: var(--bg-slate);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            padding: 0.55rem 1.1rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover { background-color: #f1f5f9; color: var(--primary-color); }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 章節內容區 */
+        .chapter-card {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 4.5rem;
+        }
+
+        .chapter-card.active { display: block; }
+
+        .chapter-header {
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        .chapter-kicker {
+            display: inline-block;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .chapter-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.35rem, 3.6vw, 1.8rem);
+            color: var(--text-main);
+            line-height: 1.45;
+        }
+
+        .hero-img-container {
+            margin: 1.25rem 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-img { width: 100%; height: auto; display: block; }
+
+        .story p, .story li { margin-bottom: 0.4rem; }
+        .story h3 {
+            font-size: 1.15rem;
+            margin: 1.25rem 0 0.5rem;
+            color: #312e81;
+        }
+        .story ul { padding-left: 1.4rem; }
+        .story ul ul { margin-top: 0.3rem; }
+
+        .intro-dialog {
+            background: #f5f3ff;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-dialog p { margin-bottom: 0.4rem; }
+
+        .spk { font-weight: 700; color: #581c87; }
+
+        .mnemonic {
+            background: #fffbeb;
+            border: 2px solid #fcd34d;
+            border-radius: 0.75rem;
+            padding: 0.9rem 1.2rem;
+            margin: 1.5rem 0;
+            font-weight: 700;
+            color: #92400e;
+        }
+
+        .table-wrap { overflow-x: auto; margin: 1rem 0; }
+
+        table.summary {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 620px;
+            font-size: 0.95rem;
+        }
+
+        table.summary th, table.summary td {
+            border: 1px solid var(--border-color);
+            padding: 0.55rem 0.7rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table.summary th { background: #eef2ff; color: #3730a3; }
+        table.summary tr:nth-child(even) td { background: #f8fafc; }
+
+        /* 音樂播放器 */
+        .audio-section { margin: 1.75rem 0; }
+        .audio-section > h3 { font-size: 1.15rem; margin-bottom: 0.25rem; color: #312e81; }
+        .audio-note { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 0.5rem; }
+
+        .player {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-color);
+            padding: 0.9rem 1.25rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 0.75rem 0;
+        }
+
+        .player-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .audio-info { flex: 1; min-width: 220px; }
+        .audio-title { font-weight: 700; color: var(--text-main); }
+        .audio-desc { font-size: 0.875rem; color: var(--text-sub); }
+
+        .play-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .play-btn:hover { background-color: var(--primary-hover); }
+        .play-btn.playing { background-color: #dc2626; }
+        .play-btn.playing:hover { background-color: #b91c1c; }
+
+        .prog {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-top: 0.6rem;
+            overflow: hidden;
+        }
+
+        .prog i {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--primary-color);
+            transition: width 0.2s linear;
+        }
+
+        /* 四格漫畫區 */
+        .comic-section {
+            background-color: #faf5ff;
+            border: 2px dashed #c084fc;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .comic-title {
+            font-family: 'Noto Serif TC', serif;
+            color: #6b21a8;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .comic-img-container {
+            max-width: 560px;
+            margin: 0 auto 1rem;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e9d5ff;
+            background: white;
+        }
+
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+        }
+
+        .comic-panel {
+            background: white;
+            border: 1px solid #e9d5ff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .panel-num {
+            display: inline-block;
+            background: #9333ea;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.1rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dialogue-line { margin-bottom: 0.4rem; font-size: 0.92rem; }
+        .dialogue-speaker { font-weight: 700; color: #581c87; }
+
+        /* 測驗區 */
+        .quiz-section {
+            margin-top: 2.5rem;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .quiz-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-title { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+
+        .score {
+            font-weight: 700;
+            color: #3730a3;
+            background: #eef2ff;
+            border-radius: 999px;
+            padding: 0.25rem 0.9rem;
+            font-size: 0.9rem;
+        }
+
+        .quiz-item {
+            background: white;
+            padding: 1rem 1.25rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .quiz-q { font-weight: 700; margin-bottom: 0.75rem; }
+        .quiz-q .qn { color: var(--primary-color); margin-right: 0.25rem; }
+
+        .listen-btn {
+            display: inline-block;
+            margin: 0 0 0.75rem;
+            background: #0ea5e9;
+        }
+
+        .listen-btn:hover { background: #0284c7; }
+
+        .quiz-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+
+        @media (max-width: 720px) {
+            .quiz-options { grid-template-columns: 1fr; }
+            .chapter-card { padding: 1.25rem; }
+            .cover-content { padding: 1.25rem; }
+            .comic-section { padding: 1rem; }
+            .quiz-section { padding: 1rem; }
+        }
+
+        .option-btn {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            padding: 0.55rem 0.75rem;
+            border-radius: 0.375rem;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.92rem;
+            color: var(--text-main);
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) { background: #e2e8f0; }
+        .option-btn:disabled { cursor: default; }
+
+        .option-btn.correct {
+            background-color: #d1fae5 !important;
+            border-color: var(--success-color) !important;
+            color: #065f46;
+            font-weight: 700;
+        }
+
+        .option-btn.wrong {
+            background-color: #fee2e2 !important;
+            border-color: var(--error-color) !important;
+            color: #991b1b;
+        }
+
+        .quiz-explanation {
+            margin-top: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            display: none;
+            padding: 0.5rem 0.7rem;
+            background: #f8fafc;
+            border-radius: 0.25rem;
+        }
+
+        .quiz-explanation.ok { border-left: 3px solid var(--success-color); }
+        .quiz-explanation.ng { border-left: 3px solid var(--error-color); }
+
+        .quiz-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+        .reset-btn, .next-btn {
+            font-family: inherit;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .reset-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-sub);
+            padding: 0.45rem 1rem;
+        }
+
+        .reset-btn:hover { background: #f1f5f9; }
+
+        .finish-msg { font-weight: 700; color: #065f46; }
+
+        .next-wrap { text-align: right; margin-top: 1.5rem; }
+
+        .next-btn {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 0.65rem 1.3rem;
+        }
+
+        .next-btn:hover { background: #d97706; }
+
+        .total-box {
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+            border: 2px solid #c7d2fe;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            font-weight: 700;
+            color: #312e81;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎼 穿越音符時光機！<br>浪漫樂派大冒險（初期 ＆ 早期篇）</h1>
+        <p>國小音樂課超好懂圖文漫畫電子書</p>
+    </header>
+
+    <div class="container">
+        <section class="cover-section">
+            <img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：左邊是整齊規矩的古典鋼琴，穿過 1820 年的金色音符大門後，是充滿故事與色彩的浪漫樂派世界" class="cover-img">
+            <div class="caption">▲ 封面插圖：左邊是整齊規矩的古典鋼琴，穿過 1820 年的金色音符大門後，是充滿故事與色彩的浪漫樂派世界！</div>
+            <div class="cover-content">
+                <h2>歡迎來到浪漫樂派的黃金年代！</h2>
+                <p>跟著小樂和音符精靈咪咪，從「浪漫」這個詞的由來出發，認識早期浪漫樂派的四大天王：貝多芬、韋伯、羅西尼、舒伯特。</p>
+                <ul class="feature-list">
+                    <li>🖼️ 8 幅章節大插圖</li>
+                    <li>🎬 7 組情境記憶四格漫畫</li>
+                    <li>🎧 12 首雙聲部示範音樂</li>
+                    <li>📝 86 題隨堂大挑戰</li>
+                </ul>
+                <p class="tip">🔈 示範音樂由瀏覽器即時合成，不用下載音檔。iPhone／iPad 請先關閉「靜音模式」才聽得到聲音。</p>
+            </div>
+        </section>
+
+        <nav class="nav-tabs" id="navTabs" aria-label="章節"></nav>
+
+        <div id="chaptersContainer"></div>
+    </div>
+
+    <footer>
+        <p>穿越音符時光機！浪漫樂派大冒險（初期 ＆ 早期篇）｜國小音樂課互動電子書 © 2026</p>
+    </footer>
+
+    <script>
+        // ===== Web Audio 合成器：雙聲部示範音樂 =====
+        const NOTE_BASE = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+
+        function midiOf(name) {
+            const m = /^([A-G])(#|b)?(-?\d)$/.exec(name);
+            if (!m) throw new Error('音名格式錯誤：' + name);
+            return 12 * (Number(m[3]) + 1) + NOTE_BASE[m[1]] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0);
+        }
+
+        // 記譜格式：「音名:拍數」，r 為休止，A3+C4 為和弦，| 只是小節線方便閱讀
+        function parseSeq(text) {
+            let t = 0;
+            const notes = [];
+            text.trim().split(/\s+/).forEach(tok => {
+                if (!tok || tok === '|') return;
+                const i = tok.lastIndexOf(':');
+                const pitch = tok.slice(0, i);
+                const dur = parseFloat(tok.slice(i + 1));
+                if (pitch !== 'r') {
+                    pitch.split('+').forEach(n => {
+                        notes.push({ f: 440 * Math.pow(2, (midiOf(n) - 69) / 12), t, d: dur });
+                    });
+                }
+                t += dur;
+            });
+            return { notes, len: t };
+        }
+
+        // 三連音分解和弦（像流水一樣的伴奏）
+        function rip(chord, beats) {
+            const ns = chord.split(' ');
+            const out = [];
+            const n = Math.round(beats * 3);
+            for (let i = 0; i < n; i++) out.push(ns[i % ns.length] + ':0.333333');
+            return out.join(' ');
+        }
+
+        function rep(seq, times) {
+            return Array(times).fill(seq).join(' ');
+        }
+
+        const TRACKS = {
+            b5: {
+                title: '貝多芬《第五交響曲・命運》開頭',
+                desc: '開頭著名的「短-短-短-長（Sol-Sol-Sol-Mi♭）」四音敲門動機，象徵命運來敲門！',
+                bpm: 176,
+                voices: [
+                    { wave: 'sawtooth', lp: 2200, vol: 0.2, seq: 'r:0.5 G4:0.5 G4:0.5 G4:0.5 Eb4:6 r:1 | r:0.5 F4:0.5 F4:0.5 F4:0.5 D4:7.5 r:1.5 | r:0.5 G4:0.5 G4:0.5 G4:0.5 Eb4:2 | r:0.5 Ab4:0.5 Ab4:0.5 Ab4:0.5 G4:2 | r:0.5 Eb5:0.5 Eb5:0.5 Eb5:0.5 C5:2 | r:0.5 G4:0.5 G4:0.5 G4:0.5 Eb4:3 | r:0.5 F4:0.5 F4:0.5 F4:0.5 D4:4 | r:0.5 C4+Eb4+G4:4.5' },
+                    { wave: 'triangle', vol: 0.22, seq: 'r:0.5 G2:0.5 G2:0.5 G2:0.5 Eb2:6 r:1 | r:0.5 F2:0.5 F2:0.5 F2:0.5 D2:7.5 r:1.5 | C3:12 | r:0.5 G2:0.5 G2:0.5 G2:0.5 Eb2:3 | r:0.5 F2:0.5 F2:0.5 F2:0.5 D2:4 | r:0.5 C2+G2+C3:4.5' }
+                ]
+            },
+            b9: {
+                title: '貝多芬《第九交響曲・合唱》〈歡樂頌〉',
+                desc: '第四樂章加入人聲合唱席勒詩作《歡樂頌》，溫暖宏偉。',
+                bpm: 176,
+                voices: [
+                    { wave: 'triangle', vol: 0.28, seq: 'F#4:1 F#4:1 G4:1 A4:1 | A4:1 G4:1 F#4:1 E4:1 | D4:1 D4:1 E4:1 F#4:1 | F#4:1.5 E4:0.5 E4:2 | F#4:1 F#4:1 G4:1 A4:1 | A4:1 G4:1 F#4:1 E4:1 | D4:1 D4:1 E4:1 F#4:1 | E4:1.5 D4:0.5 D4:2 | E4:1 E4:1 F#4:1 D4:1 | E4:1 F#4:0.5 G4:0.5 F#4:1 D4:1 | E4:1 F#4:0.5 G4:0.5 F#4:1 E4:1 | D4:1 E4:1 A3:2 | F#4:1 F#4:1 G4:1 A4:1 | A4:1 G4:1 F#4:1 E4:1 | D4:1 D4:1 E4:1 F#4:1 | E4:1.5 D4:0.5 D4:2' },
+                    { wave: 'triangle', vol: 0.16, seq: 'D3:2 A2:2 | D3:2 A2:2 | D3:2 D3:2 | D3:2 A2:2 | D3:2 A2:2 | D3:2 A2:2 | D3:2 D3:2 | A2:2 D3:2 | A2:2 D3:2 | A2:2 D3:2 | A2:2 D3:2 | G2:2 A2:2 | D3:2 A2:2 | D3:2 A2:2 | D3:2 D3:2 | A2:2 D2+A2+D3:2' }
+                ]
+            },
+            b6: {
+                title: '貝多芬《第六交響曲・田園》溪邊的鳥叫聲',
+                desc: '第二樂章〈溪邊景色〉尾聲：長笛扮夜鶯、雙簧管扮鵪鶉、單簧管扮杜鵑，下面是潺潺的溪水。',
+                bpm: 60,
+                voices: [
+                    { wave: 'triangle', vol: 0.14, leg: 0.95, seq: rip('Bb2 D3 F3', 4) + ' ' + rip('F2 A2 Eb3', 2) + ' ' + rip('Bb2 D3 F3', 4) + ' ' + rip('F2 A2 Eb3', 2) + ' ' + rip('Bb2 D3 F3', 3) + ' Bb2+F3+D4:3' },
+                    { wave: 'sine', vib: true, vol: 0.16, seq: 'r:1 ' + rep('D6:0.0625 Eb6:0.0625', 16) + ' D6:0.5 r:6.5 ' + rep('D6:0.0625 Eb6:0.0625', 12) + ' D6:0.5 r:6' },
+                    { wave: 'triangle', vol: 0.2, seq: 'r:4 F5:0.15 F5:0.1 F5:0.5 r:0.25 F5:0.15 F5:0.1 F5:0.5 r:0.25 r:6 F5:0.15 F5:0.1 F5:0.5 r:0.25 r:5' },
+                    { wave: 'sine', vol: 0.24, seq: 'r:6 D5:0.5 Bb4:1 r:0.5 D5:0.5 Bb4:1 r:0.5 r:3 D5:0.5 Bb4:1.5 r:3' }
+                ]
+            },
+            moz: {
+                title: '古典的整齊：莫札特《小夜曲》開頭',
+                desc: '古典時期重視「形式與結構」：一問一答、左右對稱的樂句，第二次加上規律的分解和弦伴奏。',
+                bpm: 120,
+                voices: [
+                    { wave: 'triangle', vol: 0.26, seq: rep('G4:1 r:0.5 D4:0.5 G4:1 r:0.5 D4:0.5 | G4:0.5 D4:0.5 G4:0.5 B4:0.5 D5:2 | C5:1 r:0.5 A4:0.5 C5:1 r:0.5 A4:0.5 | C5:0.5 A4:0.5 F#4:0.5 A4:0.5 D4:2', 2) + ' | G4+B4+D5:3' },
+                    { wave: 'triangle', vol: 0.16, seq: 'G2:1 r:0.5 D2:0.5 G2:1 r:0.5 D2:0.5 | G2:0.5 D2:0.5 G2:0.5 B2:0.5 D3:2 | C3:1 r:0.5 A2:0.5 C3:1 r:0.5 A2:0.5 | C3:0.5 A2:0.5 F#2:0.5 A2:0.5 D2:2 | ' + rep('G2:0.5 D3:0.5 B2:0.5 D3:0.5', 4) + ' | ' + rep('D2:0.5 C3:0.5 F#2:0.5 C3:0.5', 2) + ' | D2:0.5 C3:0.5 F#2:0.5 A2:0.5 D2:2 | G2+D3:3' }
+                ]
+            },
+            rom: {
+                title: '浪漫的魔法：把《小夜曲》開頭變浪漫（示範改編）',
+                desc: '同一段開頭改成小調、加上半音下行，再「轉調」到遙遠的降 E 大調，最後回到明亮的 G 大調——這就是浪漫派愛用的轉調與半音！',
+                bpm: 96,
+                voices: [
+                    { wave: 'sine', vib: true, vol: 0.3, leg: 0.95, seq: 'G4:1 r:0.5 D4:0.5 G4:1 r:0.5 D4:0.5 | G4:0.5 D4:0.5 G4:0.5 Bb4:0.5 D5:2 | C5:0.5 B4:0.5 Bb4:0.5 A4:0.5 Ab4:1 G4:1 | F#4:0.5 G4:0.5 A4:0.5 Bb4:0.5 D4:2 | Eb4:1 r:0.5 Bb3:0.5 Eb4:1 r:0.5 Bb3:0.5 | Eb4:0.5 Bb3:0.5 Eb4:0.5 G4:0.5 Bb4:2 | C5:0.5 Bb4:0.5 Ab4:0.5 G4:0.5 F#4:1 A4:1 | G4:4' },
+                    { wave: 'triangle', vol: 0.17, leg: 0.97, seq: 'G2:2 D2:2 | G2:2 Bb2:2 | C3:1 G2:1 F2:1 Eb2:1 | D2:4 | Eb2:2 Bb2:2 | Eb2:2 G2:2 | Ab2:2 D2:2 | G2+D3+B3:4' }
+                ]
+            },
+            frei: {
+                title: '韋伯《魔彈射手》〈獵人合唱〉',
+                desc: '第三幕的〈獵人合唱〉：號角般的旋律，充滿德國森林與民間的味道。',
+                bpm: 112,
+                voices: [
+                    { wave: 'sawtooth', lp: 1600, vol: 0.17, seq: 'A4:0.5 | D5:0.5 A4:0.5 D5:0.25 E5:0.25 F#5:0.25 G5:0.25 | A5:1 F#5:1 | E5:0.5 A5:0.5 E5:0.5 A5:0.5 | F#5:0.25 G5:0.25 F#5:0.25 E5:0.25 D5:0.5 A4:0.5 | D5:0.5 A4:0.5 D5:0.25 E5:0.25 F#5:0.25 G5:0.25 | A5:1 G5:1 | F#5:0.25 E5:0.25 D5:0.25 E5:0.25 F#5:0.5 E5:0.5 | D5:1.5 E5:0.5 | F#5:0.75 F#5:0.25 F#5:0.5 E5:0.5 | D5:1 E5:0.5 F#5:0.5 | G5:0.75 G5:0.25 G5:0.5 F#5:0.5 | E5:0.5 C#5:0.5 B4:0.5 A4:0.5 | F#5:0.5 F#5:0.25 E5:0.25 D5:0.25 E5:0.25 F#5:0.25 G5:0.25 | A5:1 G5:1 | F#5:0.25 E5:0.25 D5:0.25 E5:0.25 F#5:0.5 E5:0.5 | D5:2' },
+                    { wave: 'triangle', vol: 0.17, seq: 'r:0.5 | D3:1 A2:1 | D3:1 A2:1 | A2:1 E3:1 | D3:1 A2:1 | D3:1 A2:1 | G2:1 D3:1 | D3:1 A2:1 | D3:2 | D3:1 A2:1 | B2:1 F#2:1 | E2:1 B2:1 | A2:1 E2:1 | D3:1 A2:1 | G2:1 D3:1 | D3:1 A2:1 | D2+A2+D3:2' }
+                ]
+            },
+            ober: {
+                title: '韋伯《奧伯龍》序曲的魔法號角',
+                desc: '序曲一開頭，法國號吹出悠長神祕的三音號角，呼喚精靈王奧伯龍（後面的精靈音型為示意）。',
+                bpm: 60,
+                voices: [
+                    { wave: 'sawtooth', lp: 900, att: 0.25, vol: 0.24, leg: 0.97, seq: 'D4:2.5 E4:0.75 F#4:3.25 r:3 D4:2 E4:0.6 F#4:3.4 r:0.5' },
+                    { wave: 'sine', vib: true, vol: 0.13, seq: 'r:6.6 A5:0.15 F#5:0.15 D5:0.15 A4:0.15 B5:0.15 G5:0.15 E5:0.15 B4:0.15 A5:0.8 r:5.6 F#6:0.15 D6:0.15 A5:0.15 F#5:0.15 D5:1.4' },
+                    { wave: 'triangle', att: 0.4, vol: 0.12, leg: 0.98, seq: 'D3+A3:6.5 A2+E3:3 D3+F#3:6.5' }
+                ]
+            },
+            tell: {
+                title: '羅西尼《威廉泰爾》序曲終段',
+                desc: '序曲最後一段〈瑞士軍隊進行曲〉：像萬馬奔騰一樣熱血，運動會最愛播！',
+                bpm: 152,
+                voices: [
+                    { wave: 'sawtooth', lp: 2400, vol: 0.15, seq: 'B4:0.25 B4:0.25 | ' +
+                        rep('B4:0.5 B4:0.25 B4:0.25 B4:0.5 B4:0.25 B4:0.25 | E5:0.5 F#5:0.5 G#5:0.5 B4:0.25 B4:0.25 | B4:0.5 B4:0.25 B4:0.25 E5:0.5 G#5:0.5 | F#5:0.5 D#5:0.5 B4:0.5 B4:0.25 B4:0.25 | B4:0.5 B4:0.25 B4:0.25 B4:0.5 B4:0.25 B4:0.25 | E5:0.5 F#5:0.5 G#5:0.5 E5:0.375 G#5:0.125 | B5:0.75 B5:0.25 B5:0.25 A5:0.25 G#5:0.25 F#5:0.25', 1) +
+                        ' | E5:0.5 G#5:0.5 E5:0.5 G#5:0.25 G#5:0.25 | G#5:0.5 G#5:0.25 G#5:0.25 G#5:0.5 G#5:0.25 G#5:0.25 | G#5:0.5 C#6:0.5 G#5:0.5 C#6:0.5 | G#5:0.5 C#6:0.5 G#5:0.5 F#5:0.5 | E5:0.25 F#5:0.25 D#5:0.25 E5:0.25 C#5:0.5 G#5:0.25 G#5:0.25 | G#5:0.5 G#5:0.25 G#5:0.25 G#5:0.5 G#5:0.25 G#5:0.25 | G#5:0.5 C#6:0.5 G#5:0.5 C#6:0.5 | G#5:0.5 C#6:0.5 B5:0.5 A#5:0.5 | B5:0.5 A#5:0.5 B5:0.5 B4:0.25 B4:0.25 | ' +
+                        'B4:0.5 B4:0.25 B4:0.25 B4:0.5 B4:0.25 B4:0.25 | E5:0.5 F#5:0.5 G#5:0.5 B4:0.25 B4:0.25 | B4:0.5 B4:0.25 B4:0.25 E5:0.5 G#5:0.5 | F#5:0.5 D#5:0.5 B4:0.5 B4:0.25 B4:0.25 | B4:0.5 B4:0.25 B4:0.25 B4:0.5 B4:0.25 B4:0.25 | E5:0.5 F#5:0.5 G#5:0.5 E5:0.375 G#5:0.125 | B5:0.75 B5:0.25 B5:0.25 A5:0.25 G#5:0.25 F#5:0.25 | E5:0.5 G#5:0.5 E5:0.5 r:0.5 | E4+G#4+B4+E5:1.5' },
+                    { wave: 'triangle', vol: 0.18, seq: 'r:0.5 | ' +
+                        'E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | B2:0.5 F#2:0.5 B2:0.5 F#2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | B2:0.5 F#2:0.5 B2:0.5 F#2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | ' +
+                        'C#3:0.5 G#2:0.5 C#3:0.5 G#2:0.5 | C#3:0.5 G#2:0.5 C#3:0.5 G#2:0.5 | C#3:0.5 G#2:0.5 C#3:0.5 G#2:0.5 | G#2:0.5 D#3:0.5 C#3:0.5 G#2:0.5 | C#3:0.5 G#2:0.5 C#3:0.5 G#2:0.5 | C#3:0.5 G#2:0.5 C#3:0.5 G#2:0.5 | F#2:0.5 C#3:0.5 F#2:0.5 C#3:0.5 | B2:0.5 F#2:0.5 B2:0.5 F#2:0.5 | ' +
+                        'E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | B2:0.5 F#2:0.5 B2:0.5 F#2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | E2:0.5 B2:0.5 E2:0.5 B2:0.5 | B2:0.5 F#2:0.5 B2:0.5 F#2:0.5 | E2:0.5 B2:0.5 E2:1 | E2+B2:1.5' }
+                ]
+            },
+            barb: {
+                title: '羅西尼《塞爾維亞的理髮師》序曲',
+                desc: '序曲的快板主題：輕快又俏皮，像機智的理髮師費加洛在城裡跑來跑去。',
+                bpm: 144,
+                voices: [
+                    { wave: 'triangle', vol: 0.28, seq: 'B4:0.5 B4:0.5 B4:0.5 | C5:0.5 B4:0.5 r:1.5 B4:0.5 B4:0.5 B4:0.5 | C5:0.5 B4:0.5 r:1.5 B4:0.5 B4:0.5 B4:0.5 | C5:0.5 B4:0.5 r:0.5 A4:0.5 A4:0.5 G4:0.5 r:0.5 F#4:0.5 | F#4:0.5 E4:0.25 r:0.25 E4:1.5 G4:0.5 G4:0.5 G4:0.5 | F#4:0.5 E4:0.5 r:0.5 G4:0.5 F#4:0.5 E4:0.5 r:0.5 G4:0.5 | B4:0.5 F#4:0.25 r:0.25 F#4:1 r:0.5 F#4:0.5 G4:0.5 A4:0.5 | A4:0.5 G4:0.5 G4:0.125 F#4:0.125 E4:0.75 E4:0.125 D4:0.125 C4:0.75 C4:0.125 B3:0.125 A#3:0.75 | B3:0.5 r:1 E5:0.5 D5:0.5 C5:0.5 | D5:0.125 C5:0.125 B4:0.75 C5:0.125 B4:0.125 A4:0.75 B4:0.125 A4:0.125 G4:0.75 A4:0.125 G4:0.125 F#4:0.75 | E4:0.5 r:0.5 E4+G4+B4:2' },
+                    { wave: 'triangle', vol: 0.15, seq: 'r:1.5 | E2:1 B2:1 E2:1 B2:1 | E2:1 B2:1 E2:1 B2:1 | A2:1 A2:1 B2:1 B2:1 | B2:1 E3:1 E2:1 G2:1 | B2:1 E2:1 B2:1 E2:1 | B2:1 D#3:1 B2:1 F#2:1 | C3:1 E2:1 A2:1 F#2:1 | B2:3 | G2:1 A2:1 E2:1 B2:1 | E2:1 E2+B2+E3:2' }
+                ]
+            },
+            trout: {
+                title: '舒伯特〈鱒魚〉',
+                desc: '小溪裡的鱒魚跳啊跳：藝術歌曲〈鱒魚〉的旋律（後來也用在《鱒魚》鋼琴五重奏），伴奏像流水一樣起伏。',
+                bpm: 132,
+                voices: [
+                    { wave: 'triangle', vol: 0.28, seq: 'A4:1 | D5:1 D5:1 F#5:1 F#5:1 | D5:2 A4:1 A4:1 | A4:1.5 A4:0.5 E5:0.5 D5:0.5 C#5:0.5 B4:0.5 | A4:2 r:1 A4:1 | D5:1 D5:1 F#5:1 F#5:1 | D5:2 A4:1 D5:1 | C#5:1 B4:0.5 C#5:0.5 D5:1 G#4:1 | A4:2 r:1 A4:1 | C#5:1.5 C#5:0.5 D5:0.5 C#5:0.5 B4:0.5 C#5:0.5 | D5:2 A4:1 D5:1 | C#5:1.5 C#5:0.5 C#5:0.5 G5:0.5 E5:0.5 C#5:0.5 | D5:3' },
+                    { wave: 'sine', vol: 0.16, leg: 0.8, seq: [rip('A2 E3 A3', 1), rip('D3 A3 D4', 8), rip('A2 E3 A3', 8), rip('D3 A3 D4', 8), rip('A2 E3 A3', 2), rip('E3 G#3 D4', 2), rip('A2 E3 A3', 4), rip('A2 E3 G3', 4), rip('D3 A3 D4', 4), rip('A2 E3 G3', 4), 'D3+A3+D4:3'].join(' ') }
+                ]
+            },
+            rose: {
+                title: '舒伯特〈野玫瑰〉',
+                desc: '藝術歌曲〈野玫瑰〉：歌詞是歌德的詩，旋律簡單又好唱。',
+                bpm: 88,
+                voices: [
+                    { wave: 'triangle', vol: 0.28, seq: 'B4:0.5 B4:0.5 B4:0.5 B4:0.5 | D5:0.25 C5:0.25 C5:0.25 B4:0.25 A4:1 | A4:0.5 A4:0.5 B4:0.5 C5:0.5 | D5:1 G5:0.5 r:0.5 | B4:0.5 B4:0.5 B4:0.5 B4:0.5 | D5:0.25 C#5:0.25 C#5:0.25 B4:0.25 A4:1 | D5:0.5 D5:0.5 E5:0.75 D5:0.25 | C#5:0.25 D5:0.25 E5:0.25 F#5:0.25 D5:1 | D5:0.25 F#5:0.25 E5:0.25 D5:0.25 C#5:0.25 B4:0.25 A#4:0.25 B4:0.25 | G5:0.75 C#5:0.25 D5:2 | A4:0.5 A4:0.5 B4:0.5 C5:0.5 | D5:0.5 E5:0.25 F#5:0.25 G5:2 | E5:0.5 G5:0.5 C5:0.5 E5:0.5 | G4:0.5 B4:0.25 A4:0.25 G4:2' },
+                    { wave: 'triangle', vol: 0.15, seq: 'G2:1 D3:1 | D2:1 F#2:1 | D2:1 C3:1 | G2:1 D3:1 | G2:1 D3:1 | A2:1 E3:1 | D3:1 A2:1 | A2:1 D3:1 | D3:1 F#2:1 | A2:1 D3:2 | D3:1 F#2:1 | D3:1 G2:2 | C3:1 C3:1 | D3:1 G2+D3:2' }
+                ]
+            },
+            lull: {
+                title: '舒伯特〈搖籃曲〉',
+                desc: '藝術歌曲〈搖籃曲〉：溫柔的旋律像在輕輕搖著搖籃，是舒伯特最常被哼唱的歌之一。',
+                bpm: 88,
+                voices: [
+                    { wave: 'sine', vib: true, vol: 0.3, seq: 'B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 G4:0.25 F#4:0.25 G4:0.25 A4:1 D4:1 | B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 B4:0.25 C5:0.25 A4:0.25 G4:1 r:1 | A4:1.5 A4:0.5 B4:0.75 A4:0.25 G4:1 | D5:1 C5:0.5 B4:0.5 A4:1 D4:1 | B4:1 D5:1 A4:0.75 B4:0.25 C5:1 | B4:0.5 B4:0.5 A4:0.25 B4:0.25 C5:0.25 A4:0.25 G4:2' },
+                    { wave: 'triangle', vol: 0.15, seq: 'G2:1 D3:1 D2:1 C3:1 | G2:1 D3:1 D2:1 C3:1 | G2:1 D3:1 D2:1 C3:1 | G2:1 D2:1 G2:2 | D2:1 C3:1 G2:1 D3:1 | B2:1 D3:0.5 G2:0.5 D2:2 | G2:1 D3:1 D2:1 C3:1 | G2:1 D2:1 G2+D3:2' }
+                ]
+            }
+        };
+
+        Object.values(TRACKS).forEach(tr => {
+            let len = 0;
+            tr.voices.forEach(v => { v.parsed = parseSeq(v.seq); len = Math.max(len, v.parsed.len); });
+            tr.dur = len * 60 / tr.bpm + 0.3;
+        });
+
+        const Synth = {
+            ctx: null,
+            master: null,
+            cur: null,
+
+            init() {
+                if (!this.ctx) {
+                    const AC = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AC();
+                    const comp = this.ctx.createDynamicsCompressor();
+                    this.master = this.ctx.createGain();
+                    this.master.gain.value = 0.9;
+                    this.master.connect(comp);
+                    comp.connect(this.ctx.destination);
+                }
+                if (this.ctx.state === 'suspended') this.ctx.resume();
+            },
+
+            toggle(id, btn) {
+                if (this.cur && this.cur.btn === btn) { this.stop(); return; }
+                this.play(id, btn);
+            },
+
+            play(id, btn) {
+                this.stop();
+                this.init();
+                const tr = TRACKS[id];
+                const ctx = this.ctx;
+                const bus = ctx.createGain();
+                bus.connect(this.master);
+                const spb = 60 / tr.bpm;
+                const t0 = ctx.currentTime + 0.08;
+                const nodes = [];
+                tr.voices.forEach(v => {
+                    v.parsed.notes.forEach(n => {
+                        const s = t0 + n.t * spb;
+                        const d = n.d * spb;
+                        const a = v.att || 0.012;
+                        const e = s + Math.max(d * (v.leg || 0.9), a + 0.04);
+                        const o = ctx.createOscillator();
+                        o.type = v.wave;
+                        o.frequency.value = n.f;
+                        const g = ctx.createGain();
+                        let src = o;
+                        if (v.lp) {
+                            const flt = ctx.createBiquadFilter();
+                            flt.type = 'lowpass';
+                            flt.frequency.value = v.lp;
+                            o.connect(flt);
+                            src = flt;
+                        }
+                        src.connect(g);
+                        g.connect(bus);
+                        g.gain.setValueAtTime(0.0001, s);
+                        g.gain.linearRampToValueAtTime(v.vol, s + a);
+                        g.gain.setTargetAtTime(v.vol * 0.65, s + a, Math.max(0.06, d * 0.5));
+                        g.gain.setTargetAtTime(0.0001, e, 0.035);
+                        if (v.vib) {
+                            const lfo = ctx.createOscillator();
+                            const lg = ctx.createGain();
+                            lfo.frequency.value = 5.5;
+                            lg.gain.value = n.f * 0.006;
+                            lfo.connect(lg);
+                            lg.connect(o.frequency);
+                            lfo.start(s);
+                            lfo.stop(e + 0.3);
+                            nodes.push(lfo);
+                        }
+                        o.start(s);
+                        o.stop(e + 0.3);
+                        nodes.push(o);
+                    });
+                });
+                const total = tr.dur;
+                this.cur = { id, btn, bus, nodes, t0, total, timer: null };
+                this.ui(btn, true, total, total);
+                this.cur.timer = setInterval(() => {
+                    const left = total - (ctx.currentTime - t0);
+                    if (left <= 0) { this.stop(); return; }
+                    this.ui(btn, true, left, total);
+                }, 200);
+            },
+
+            stop() {
+                const c = this.cur;
+                if (!c) return;
+                clearInterval(c.timer);
+                const now = this.ctx.currentTime;
+                c.bus.gain.setTargetAtTime(0, now, 0.03);
+                c.nodes.forEach(o => { try { o.stop(now + 0.15); } catch (err) { /* 已排定停止 */ } });
+                setTimeout(() => c.bus.disconnect(), 400);
+                this.cur = null;
+                this.ui(c.btn, false);
+            },
+
+            ui(btn, playing, left, total) {
+                const id = btn.dataset.track;
+                const secs = Math.round(TRACKS[id].dur);
+                const idle = btn.dataset.label + '（' + secs + ' 秒）';
+                btn.classList.toggle('playing', playing);
+                btn.textContent = playing ? '■ 停止（剩 ' + Math.max(1, Math.min(secs, Math.ceil(left))) + ' 秒）' : idle;
+                const box = btn.closest('.player');
+                const bar = box ? box.querySelector('.prog i') : null;
+                if (bar) bar.style.width = playing ? (100 * (1 - left / total)).toFixed(1) + '%' : '0';
+            }
+        };
+
+        function playerHtml(id) {
+            const tr = TRACKS[id];
+            return `
+                <div class="player">
+                    <div class="player-row">
+                        <div class="audio-info">
+                            <div class="audio-title">🎵 ${tr.title}</div>
+                            <div class="audio-desc">${tr.desc}</div>
+                        </div>
+                        <button class="play-btn" data-track="${id}" data-label="▶ 播放" onclick="Synth.toggle('${id}', this)">▶ 播放（${Math.round(tr.dur)} 秒）</button>
+                    </div>
+                    <div class="prog"><i></i></div>
+                </div>`;
+        }
+
+        // ===== 章節資料 =====
+        const chaptersData = [
+            {
+                tab: '第 1 話 浪漫的定義',
+                kicker: '📖 第 1 話',
+                title: '什麼是「浪漫」？是誰幫它取名字的？',
+                heroImg: 'images/hero_ch1.jpg',
+                heroCap: '▲ 1810 年德國樂評家 E.T.A. 霍夫曼把莫札特、海頓、貝多芬列為三大「浪漫作曲家」！',
+                content: `
+                    <div class="intro-dialog">
+                        <p><span class="spk">👦 小樂（國小五年級）：</span>「咪咪！老師說要學『浪漫樂派』，是不是全部都在寫粉紅泡泡的情歌啊？💕」</p>
+                        <p><span class="spk">🧚 音符精靈 咪咪：</span>「猜錯囉！『浪漫』（Romantic / Romance）的字根其實是『羅馬』（Roman / Roma）！原本是指羅馬或羅曼語系民族的熱情，後來演變成<strong>『對夢想不斷追求與實現的情懷』</strong>！」</p>
+                    </div>
+                    <h3>⏰ 時代座標</h3>
+                    <ul>
+                        <li>📚 文學界浪漫主義：1830–1850 年</li>
+                        <li>🎵 音樂界浪漫主義：<strong>1820–1900 年</strong>（廣義可從 1820 年代算到 1918 年）</li>
+                    </ul>
+                    <h3>👑 誰幫它取名字的？</h3>
+                    <ul>
+                        <li><strong>1810 年 E.T.A. 霍夫曼</strong>：把莫札特、海頓、貝多芬列為三大「浪漫作曲家」。</li>
+                        <li><strong>路易·史伯爾</strong>：用「好的浪漫風格」形容貝多芬《第五交響曲》。</li>
+                        <li><strong>歷史定案</strong>：後來音樂學家把莫札特、海頓歸回古典時期，確立貝多芬是浪漫主義的開端！</li>
+                    </ul>`,
+                mnemonic: '「1820 音樂門，字根『羅馬』追夢想！霍夫曼先取名字，『貝多芬』是開山王！」',
+                audioIntro: '霍夫曼和史伯爾都稱讚的貝多芬《第五交響曲》，先來聽聽它的開頭。',
+                audio: ['b5'],
+                comicTitle: '🎬 第 1 話情境記憶四格漫畫：《浪漫不是談戀愛？！》',
+                comicImg: 'images/comic_ch1.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（臉紅心跳💕）', lines: [['👦 小樂', '嘿嘿，浪漫樂派是不是都在教大家寫情書跟唱情歌呀？'], ['🧚 咪咪', '醒醒啊同學！你的粉紅泡泡快破掉啦！']] },
+                    { num: '第 2 格【承】（NO！飛高高🎈）', lines: [['🧚 咪咪', '浪漫（Romantic）字根是『羅馬』！代表坐上熱氣球去追夢的熱血情懷！'], ['👦 小樂', '原來是熱血追夢人，不是戀愛腦！']] },
+                    { num: '第 3 格【轉】（叮咚加冕👑）', lines: [['🎩 霍夫曼', '1810 年我宣布：莫札特、海頓、貝多芬是三大浪漫作曲家！'], ['👓 史伯爾', '沒錯！貝多芬《第五交響曲》就是『好的浪漫風格』！']] },
+                    { num: '第 4 格【合】（1820 轟隆⚡）', lines: [['😤 貝多芬', '莫札特、海頓請回古典隊，1820–1900 浪漫大門由我領軍衝鋒！'], ['👦 小樂', '記住了！1820 貝多芬是浪漫開山王！']] }
+                ],
+                quizzes: [
+                    { q: '「浪漫」（Romantic）一詞的字根最早來自哪裡？', options: ['羅馬（Roman / Roma）', '希臘（Greece）', '倫敦（London）'], ans: 0, exp: '字根源自羅馬（Roman / Roma），原本指羅馬或羅曼語系民族。' },
+                    { q: '音樂史上的「浪漫樂派」大約是哪一段時期？', options: ['1600–1750 年', '1820–1900 年', '1950–2000 年'], ans: 1, exp: '音樂界浪漫主義在 1820–1900 年（廣義可至 1918 年）。' },
+                    { q: '文學界的浪漫主義盛行於哪一段時期？', options: ['1830–1850 年', '1700–1720 年', '1920–1940 年'], ans: 0, exp: '文學浪漫主義主要是 1830–1850 年。' },
+                    { q: '浪漫主義演變到後來，代表什麼樣的情懷？', options: ['只能談戀愛', '對夢想不斷追求與實現的激情', '完全不能有情緒'], ans: 1, exp: '代表對夢想不斷追求與實現的情懷。' },
+                    { q: '1810 年是誰把莫札特、海頓、貝多芬列為三大「浪漫作曲家」？', options: ['E.T.A. 霍夫曼', '舒伯特', '羅西尼'], ans: 0, exp: '1810 年德國樂評家霍夫曼首先提出三大浪漫作曲家。' },
+                    { q: '霍夫曼當年點名的三大「浪漫作曲家」不包括誰？', options: ['莫札特', '海頓', '韋伯'], ans: 2, exp: '霍夫曼當時列的是莫札特、海頓、貝多芬。' },
+                    { q: '作曲家路易·史伯爾用「好的浪漫風格」形容貝多芬的哪一首作品？', options: ['《第五交響曲》', '《魔彈射手》', '《鱒魚》'], ans: 0, exp: '史伯爾稱讚貝多芬《第五交響曲》具有「好的浪漫風格」。' },
+                    { q: '後來音樂史重新分類後，莫札特被歸回哪一個時期？', options: ['巴洛克時期', '古典時期', '現代時期'], ans: 1, exp: '莫札特與海頓被歸回古典時期。' },
+                    { q: '音樂史上最終確立誰是「浪漫主義的開端」？', options: ['貝多芬', '巴哈', '莫札特'], ans: 0, exp: '貝多芬被公認為承接古典、開啟浪漫主義的開端。' },
+                    { q: '廣義的浪漫樂派音樂最晚可以算到哪一年左右？', options: ['1850 年', '1918 年', '2000 年'], ans: 1, exp: '廣義可從 1820 年代延續到 1918 年。' }
+                ]
+            },
+            {
+                tab: '第 2 話 風格特徵',
+                kicker: '📖 第 2 話',
+                title: '古典 vs 浪漫大變身！風格密碼大公開',
+                heroImg: 'images/hero_ch2.jpg',
+                heroCap: '▲ 左：巴洛克／古典時期重「形式與結構」；右：浪漫樂派重「感情、形象與想像力」！',
+                content: `
+                    <ul>
+                        <li>📏 <strong>巴洛克 ＆ 古典時期（穿制服排隊）</strong>：非常重視嚴格的形式與結構。</li>
+                        <li>🎨 <strong>浪漫樂派（去遊樂園說故事）</strong>：
+                            <ul>
+                                <li>重視感情與形象、輕形式與結構。</li>
+                                <li>受非現實文學影響，出現大量<strong>「標題音樂」</strong>（聽音樂就像看童話、讀故事）。</li>
+                                <li>強調多樣性、發展和聲、刻畫人物性格，多用轉調與半音製造情緒驚喜！</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>🎒 9 種流行的小型曲式百寶袋</h3>
+                    <ul>
+                        <li><strong>小品曲</strong>：篇幅短小精緻的鋼琴小曲。</li>
+                        <li><strong>幽默曲</strong>：俏皮逗趣、帶點反轉驚喜的曲子。</li>
+                        <li><strong>敘事曲</strong>：用音樂講一個完整冒險故事。</li>
+                        <li><strong>阿拉伯風格曲</strong>：充滿異國華麗裝飾旋律。</li>
+                        <li><strong>音樂的瞬間</strong>：把一閃而過的心情變成短篇音樂日記。</li>
+                        <li><strong>隨想曲</strong>：想到什麼寫什麼、自由不受拘束。</li>
+                        <li><strong>浪漫曲</strong>：旋律如歌、溫柔夢幻的抒情曲。</li>
+                        <li><strong>間奏曲</strong>：原本夾在兩段表演中間，後來獨立成好聽小品。</li>
+                        <li><strong>即興曲</strong>：彷彿當場靈感爆發直接彈出的自然樂曲。</li>
+                    </ul>
+                    <h3>👑 三大領域王者 ＆ 民族分化</h3>
+                    <ul>
+                        <li>先驅：貝多芬｜歌劇：華格納｜鋼琴：李斯特</li>
+                        <li>各國代表：法國（白遼士）、義大利（羅西尼）、匈牙利（李斯特）、波蘭（蕭邦）、俄羅斯（柴可夫斯基）。</li>
+                        <li>到馬勒與布拉姆斯時代式微，晚期出現各地民族樂派（西貝流士、史麥塔納、拉赫馬尼諾夫等）。</li>
+                    </ul>`,
+                mnemonic: null,
+                audioIntro: '先聽古典版，再聽浪漫版：同一段開頭，感覺差在哪裡？',
+                audio: ['moz', 'rom'],
+                comicTitle: '🎬 第 2 話情境記憶四格漫畫：《衝破紙箱大變身！》',
+                comicImg: 'images/comic_ch2.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（立正坐好📏）', lines: [['🎻 古典樂手', '一二三四、對稱整齊！巴洛克和古典時期最重『形式與結構』！'], ['👦 小樂', '大家坐在格子裡好像穿制服排隊喔！']] },
+                    { num: '第 2 格【承】（碰！衝啊🎢）', lines: [['🎺 浪漫樂手', '不管格子了！我們要重『感情與形象』，寫有故事的『標題音樂』！'], ['🧚 咪咪', '受非現實文學影響，音樂直接變童話遊樂園！']] },
+                    { num: '第 3 格【轉】（轉調魔法✨）', lines: [['🎹 咪咪', '看招！狂灑『轉調』跟『半音』升降記號，再變出即興曲、隨想曲！'], ['👦 小樂', '哇！短小自由的『小型曲式』超好聽！']] },
+                    { num: '第 4 格【合】（世界開花🌍）', lines: [['🚩 各國大師', '法國白遼士、義大利羅西尼、波蘭蕭邦、匈牙利李斯特、俄國柴可夫斯基報到！'], ['🧚 咪咪', '到馬勒與布拉姆斯時式微，晚期還開出西貝流士、史麥塔納等『民族樂派』！']] }
+                ],
+                quizzes: [
+                    { q: '和巴洛克、古典時期相比，浪漫樂派比較注重什麼？', options: ['嚴格的形式與對稱', '感情與形象', '完全不用樂器'], ans: 1, exp: '浪漫派輕形式與結構，非常重視「感情」與「形象」。' },
+                    { q: '浪漫樂派受「非現實文學」影響，大量出現哪一種有故事劇情的音樂？', options: ['標題音樂', '軍隊進行曲', '無聲音樂'], ans: 0, exp: '標題音樂就是帶有故事、畫面或文學標題的音樂。' },
+                    { q: '為了製造戲劇張力與驚喜，浪漫樂派常在和聲上使用什麼技巧？', options: ['只用白鍵', '轉調與半音', '全部單音齊奏'], ans: 1, exp: '多用轉調和半音，讓和聲色彩豐富。' },
+                    { q: '浪漫樂派的三大指標人物：先驅、歌劇、鋼琴分別是誰？', options: ['貝多芬、華格納、李斯特', '韋伯、羅西尼、舒伯特', '海頓、莫札特、巴哈'], ans: 0, exp: '先驅＝貝多芬、歌劇＝華格納、鋼琴＝李斯特。' },
+                    { q: '下列哪一個「屬於」浪漫樂派流行的小型曲式？', options: ['即興曲與隨想曲', '大協奏曲', '數位舞曲'], ans: 0, exp: '即興曲、隨想曲、敘事曲、幽默曲等皆為浪漫派小型曲式。' },
+                    { q: '「用音樂講一個完整冒險故事」的小型曲式通常叫什麼？', options: ['敘事曲', '間奏曲', '小品曲'], ans: 0, exp: '敘事曲（Ballade）擅長用音樂講述戲劇性故事。' },
+                    { q: '浪漫時期各國民族分化，波蘭與俄羅斯的代表作曲家分別是？', options: ['蕭邦、柴可夫斯基', '羅西尼、白遼士', '貝多芬、韋伯'], ans: 0, exp: '波蘭＝蕭邦、俄羅斯＝柴可夫斯基。' },
+                    { q: '浪漫主義音樂大約在哪兩位作曲家的時代開始式微？', options: ['馬勒與布拉姆斯', '韋伯與舒伯特', '莫札特與海頓'], ans: 0, exp: '浪漫主義到馬勒和布拉姆斯的時代逐漸式微。' },
+                    { q: '浪漫樂派晚期，各地興起了哪一個重視家鄉文化的樂派？', options: ['民族樂派', '極簡樂派', '爵士樂派'], ans: 0, exp: '晚期各地出現許多民族樂派。' },
+                    { q: '下列哪一位「不是」講義提到的晚期民族樂派作曲家？', options: ['西貝流士', '史麥塔納', '莫札特'], ans: 2, exp: '莫札特屬於古典時期。' }
+                ]
+            },
+            {
+                tab: '第 3 話 貝多芬',
+                kicker: '📖 第 3 話｜【早期 ①】',
+                title: '耳朵聽不見的超人「樂聖」——貝多芬（1770/12/16 – 1827/3/26）',
+                heroImg: 'images/hero_ch3.jpg',
+                heroCap: '▲ 路德維希·范·貝多芬：即使聽力下降，仍用內心聽見閃電般的震撼旋律！',
+                content: `
+                    <h3>📌 超人檔案</h3>
+                    <ul>
+                        <li><strong>國籍與身分</strong>：德意志作曲家、鋼琴演奏家。</li>
+                        <li><strong>歷史定位</strong>：承古典傳統、啟浪漫風格，漢字文化圈尊稱為<strong>「樂聖」</strong>。</li>
+                        <li><strong>感人故事</strong>：在聽力下降的情況下仍堅持創作，靠感受鋼琴震動與內心聽覺譜曲。</li>
+                        <li><strong>驚人作品量</strong>：9 部交響曲、36 首鋼琴奏鳴曲（其中 32 首有編號，1 首未完成 WoO. 51）、10 部小提琴奏鳴曲、16 首弦樂四重奏、1 部歌劇及 2 部彌撒曲。</li>
+                        <li><strong>必考代表作</strong>：32 首鋼琴奏鳴曲、第 3、5、6、9 號交響曲（英雄、命運、田園、合唱）與<strong>《莊嚴彌撒》</strong>！</li>
+                    </ul>`,
+                mnemonic: '「樂聖貝多芬，承古典啟浪漫；聽不見照樣寫，交響 3、5、6、9 最震撼！」',
+                audioIntro: '3 首雙聲部賞析：命運、合唱、田園。',
+                audio: ['b5', 'b9', 'b6'],
+                comicTitle: '🎬 第 3 話情境記憶四格漫畫：《聽不見的閃電樂聖！》',
+                comicImg: 'images/comic_ch3.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（跨時代🌈）', lines: [['😤 貝多芬', '我左腳踩著古典傳統，右腳踢開浪漫彩虹大門！'], ['👦 小樂', '漢字文化圈都尊稱您為『樂聖』！']] },
+                    { num: '第 2 格【承】（耳鳴危機🔇）', lines: [['😤 貝多芬', '什麼？！我的耳朵竟然聽不見聲音了……'], ['😤 貝多芬（握拳）', '但命運別想打倒我，我用內心照樣聽得見！']] },
+                    { num: '第 3 格【轉】（震動共鳴🎹）', lines: [['😤 貝多芬（耳貼鋼琴）', '靠木板震動，我寫了 9 部交響曲、36 首鋼琴奏鳴曲！'], ['🧚 咪咪', '其中 32 首有編號、1 首未完成，外加 16 弦樂四重奏與《莊嚴彌撒》！']] },
+                    { num: '第 4 格【合】（3・5・6・9⚡）', lines: [['⚡ 四道閃電', '必考交響曲密碼：3 英雄、5 命運、6 田園、9 合唱！'], ['👦 小樂', '3、5、6、9 四道閃電劈進腦袋，絕對不會忘！']] }
+                ],
+                quizzes: [
+                    { q: '貝多芬是哪一個地方的作曲家與鋼琴演奏家？', options: ['德意志', '義大利', '法國'], ans: 0, exp: '貝多芬是德意志作曲家、鋼琴演奏家。' },
+                    { q: '漢字文化圈尊稱貝多芬為什麼？', options: ['歌神', '樂聖', '鋼琴詩人'], ans: 1, exp: '漢字文化圈尊稱貝多芬為「樂聖」。' },
+                    { q: '貝多芬在音樂史上的核心貢獻是什麼？', options: ['承接古典傳統、開啟浪漫風格', '發明了吉他', '只寫歌劇'], ans: 0, exp: '貝多芬承古典傳統、啟浪漫風格，是跨時代的人物。' },
+                    { q: '貝多芬晚年遭遇了什麼身體上的巨大困難，卻仍堅持創作？', options: ['聽力下降', '手指受傷不能走路', '失去聲音'], ans: 0, exp: '聽力下降後，他靠感受鋼琴震動與內心聽覺繼續譜曲。' },
+                    { q: '貝多芬一生總共寫了幾部交響曲？', options: ['5 部', '9 部', '12 部'], ans: 1, exp: '貝多芬共寫了 9 部交響曲。' },
+                    { q: '貝多芬一共寫了幾首鋼琴奏鳴曲？', options: ['36 首（32 首有編號，1 首未完成 WoO. 51）', '10 首', '100 首'], ans: 0, exp: '36 首鋼琴奏鳴曲中，32 首有編號，1 首未完成。' },
+                    { q: '貝多芬寫了幾首弦樂四重奏與幾部小提琴奏鳴曲？', options: ['16 首弦樂四重奏、10 部小提琴奏鳴曲', '2 首', '50 首'], ans: 0, exp: '16 首弦樂四重奏、10 部小提琴奏鳴曲。' },
+                    { q: '下列哪一組交響曲編號是貝多芬最著名的四大必考代表作？', options: ['第 3、5、6、9 號', '第 1、2、4、7 號', '第 8、10 號'], ans: 0, exp: '第 3 英雄、第 5 命運、第 6 田園、第 9 合唱。' },
+                    { q: '貝多芬著名的宗教合唱代表作是哪一部？', options: ['《莊嚴彌撒》', '《魔彈射手》', '《天鵝之歌》'], ans: 0, exp: '《莊嚴彌撒》是貝多芬的宗教合唱代表作；《魔彈射手》是韋伯的歌劇，《天鵝之歌》是舒伯特的歌曲集。' },
+                    { q: '《第五交響曲（命運）》開頭著名的四音動機聽起來像什麼？', options: ['命運在敲門（登登登登—）', '小溪流水', '馬車鈴鐺'], ans: 0, exp: '「短-短-短-長」的四音動機，象徵命運來敲門。' }
+                ]
+            },
+            {
+                tab: '第 4 話 韋伯',
+                kicker: '📖 第 4 話｜【早期 ②】',
+                title: '走進魔法森林的「歌劇魔法師」——韋伯（1786/11/18 – 1826/6/5）',
+                heroImg: 'images/hero_ch4.jpg',
+                heroCap: '▲ 卡爾·馮·韋伯：在德國魔法森林中指揮出 7 顆魔彈與精靈號角！',
+                content: `
+                    <h3>📌 冒險檔案</h3>
+                    <ul>
+                        <li><strong>家庭背景</strong>：德國作曲家，母親是歌手、父親是巡迴劇團經理，從小隨劇團旅行，接觸大量民間音樂。</li>
+                        <li><strong>學藝與指揮</strong>：10 歲時跟隨海頓的弟弟（米夏埃爾）學習作曲，後定居維也納，曾任布雷斯勞、布拉格、德雷斯頓的指揮。</li>
+                        <li><strong>必考三大歌劇</strong>：
+                            <ul>
+                                <li><strong>1820 年《魔彈射手》（作品 77）</strong>：取材自阿培爾小說，是德國第一部浪漫主義歌劇！</li>
+                                <li><strong>1823 年《歐瑟安特》</strong>：沒有口白、音樂持續不斷，重現中世紀騎士氣氛。</li>
+                                <li><strong>1824 年《奧伯龍》</strong>：受皇家歌劇院之邀創作；兩年後抱病赴倫敦指揮首演，因長途勞累與肺病客死異鄉。</li>
+                            </ul>
+                        </li>
+                        <li><strong>其他名作</strong>：三部單簧管協奏曲（其中一部為小協奏曲）、鋼琴曲<strong>《邀舞》</strong>。</li>
+                    </ul>`,
+                mnemonic: '「劇團小孩卡爾韋伯，民間故事裝滿車；《魔彈射手》第一部，還有《奧伯龍》與《邀舞》！」',
+                audioIntro: '森林號角與魔法號角：聽聽韋伯的德國浪漫味。',
+                audio: ['frei', 'ober'],
+                comicTitle: '🎬 第 4 話情境記憶四格漫畫：《馬車小子的魔彈森林！》',
+                comicImg: 'images/comic_ch4.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（喀噠喀噠🐴）', lines: [['🧒 小韋伯', '媽媽是歌手、爸爸是劇團經理，坐馬車巡迴聽遍民間音樂真好玩！'], ['👦 小樂', '難怪他的音樂充滿民間童話味！']] },
+                    { num: '第 2 格【承】（10歲拜師✍️）', lines: [['👨‍🏫 米夏埃爾', '我是海頓的弟弟，韋伯才 10 歲就跟我學會作曲啦！'], ['🏹 韋伯', '長大我還去布雷斯勞、布拉格、德雷斯頓當大指揮！']] },
+                    { num: '第 3 格【轉】（百發百中🏹）', lines: [['🏹 韋伯', '1820 年我取材阿培爾小說寫出《魔彈射手》（作品77）！'], ['🦉 貓頭鷹', '咕咕！這可是『德國第一部浪漫主義歌劇』喔！']] },
+                    { num: '第 4 格【合】（魔法號角📯）', lines: [['🏹 韋伯', '我還有無口白的《歐瑟安特》、三部單簧管協奏曲和鋼琴《邀舞》！'], ['🧚 咪咪', '1824 寫《奧伯龍》，兩年後抱病去倫敦首演客死異鄉，太感人了！']] }
+                ],
+                quizzes: [
+                    { q: '卡爾·馮·韋伯是哪一國的作曲家？', options: ['德國', '義大利', '奧地利'], ans: 0, exp: '韋伯是德國作曲家。' },
+                    { q: '韋伯的爸爸和媽媽分別從事什麼工作，讓他從小接觸大量民間音樂？', options: ['母親是歌手、父親是巡迴劇團經理', '都是農夫', '都是國王大臣'], ans: 0, exp: '他從小跟著劇團到處旅行，聽了大量民間音樂。' },
+                    { q: '韋伯 10 歲時曾跟隨哪位大師的弟弟（米夏埃爾）學習作曲？', options: ['海頓的弟弟', '莫札特的弟弟', '貝多芬的弟弟'], ans: 0, exp: '米夏埃爾·海頓是約瑟夫·海頓的弟弟。' },
+                    { q: '韋伯曾擔任哪幾個城市的劇院指揮？', options: ['布雷斯勞、布拉格、德雷斯頓', '羅馬、米蘭', '東京、大阪'], ans: 0, exp: '他曾在布雷斯勞、布拉格、德雷斯頓擔任指揮。' },
+                    { q: '哪一部作品是韋伯 1820 年成名作，被稱為「德國第一部浪漫主義歌劇」？', options: ['《魔彈射手》（作品 77）', '《威廉泰爾》', '《未完成交響曲》'], ans: 0, exp: '《魔彈射手》是德國第一部浪漫主義歌劇；《威廉泰爾》是羅西尼的，《未完成交響曲》是舒伯特的。' },
+                    { q: '《魔彈射手》的劇本故事是取材自誰的小說？', options: ['阿培爾', '莎士比亞', '格林兄弟'], ans: 0, exp: '《魔彈射手》取材自阿培爾的小說。' },
+                    { q: '韋伯 1823 年的《歐瑟安特》有什麼創新的特色？', options: ['沒有口白、音樂持續不斷，重現中世紀騎士氣氛', '全部用清唱', '只有鋼琴'], ans: 0, exp: '《歐瑟安特》沒有口白，音樂從頭到尾不間斷。' },
+                    { q: '韋伯 1824 年受皇家歌劇院邀請創作了哪一部歌劇？', options: ['《奧伯龍》', '《理髮師》', '《鱒魚》'], ans: 0, exp: '《奧伯龍》是受皇家歌劇院之邀創作的。' },
+                    { q: '韋伯最後因為什麼原因客死在倫敦？', options: ['長途旅行勞累加上肺病', '在海邊迷路', '吃太多義大利麵'], ans: 0, exp: '他抱病赴倫敦指揮《奧伯龍》首演，因長途勞累與肺病客死異鄉。' },
+                    { q: '除了歌劇，韋伯還寫了三部哪種樂器的協奏曲以及鋼琴名曲《邀舞》？', options: ['單簧管協奏曲', '小號協奏曲', '定音鼓協奏曲'], ans: 0, exp: '三部單簧管協奏曲（其中一部為小協奏曲）。' }
+                ]
+            },
+            {
+                tab: '第 5 話 羅西尼',
+                kicker: '📖 第 5 話｜【早期 ③】',
+                title: '四年才過一次生日的「歌劇大廚」——羅西尼（1792/2/29 – 1868/11/13）',
+                heroImg: 'images/hero_ch5.jpg',
+                heroCap: '▲ 喬奇諾·羅西尼：一邊煮義大利麵、一邊寫出《威廉泰爾》與《塞爾維亞的理髮師》！',
+                content: `
+                    <h3>📌 美味檔案</h3>
+                    <ul>
+                        <li><strong>國籍與生日</strong>：義大利作曲家，出生於 1792 年 2 月 29 日（閏年出生，四年才過一次生日！）。</li>
+                        <li><strong>驚人產量</strong>：生前創作了 39 部歌劇，以及宗教音樂和室內樂。</li>
+                        <li><strong>兩大必考代表作</strong>：
+                            <ul>
+                                <li><strong>《威廉泰爾》</strong>：瑞士英雄射下兒子頭上蘋果的故事，序曲終段「萬馬奔騰」是運動會最愛播的名曲！</li>
+                                <li><strong>《塞爾維亞的理髮師》</strong>：機智理髮師費加洛幫忙撮合愛情的爆笑喜歌劇！</li>
+                            </ul>
+                        </li>
+                    </ul>`,
+                mnemonic: '「二二九出生羅西尼，三十九部義大利歌劇；左射蘋果《威廉泰爾》，右拿剪刀《理髮師》！」',
+                audioIntro: '左邊射蘋果、右邊拿剪刀：兩首必考序曲。',
+                audio: ['tell', 'barb'],
+                comicTitle: '🎬 第 5 話情境記憶四格漫畫：《四年一壽的歌劇大廚！》',
+                comicImg: 'images/comic_ch5.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（2月29日🎂）', lines: [['👨‍🍳 羅西尼（流汗）', '1792 年 2 月 29 日出生……什麼！我四年才能吃一次生日蛋糕？！'], ['👦 小樂', '閏年壽星太好記了吧！']] },
+                    { num: '第 2 格【承】（右手狂飆🍝）', lines: [['👨‍🍳 羅西尼', '沒關係！那我每天左手煮義大利麵、右手飆速寫歌劇補回來！'], ['🧚 咪咪', '煮一鍋麵的時間他就寫好一首序曲了！']] },
+                    { num: '第 3 格【轉】（39部高塔📚）', lines: [['👨‍🍳 羅西尼（插腰）', '鏘鏘！我總共寫了 39 部歌劇，外加宗教音樂跟室內樂！'], ['👦 小樂', '書堆得比人還要高啦！']] },
+                    { num: '第 4 格【合】（咻！喀嚓✂️）', lines: [['🏹 威廉泰爾', '左邊看我《威廉泰爾》神箭射蘋果！'], ['💈 理髮師', '右邊看我《塞爾維亞的理髮師》快嘴剪刀手！兩部必考！']] }
+                ],
+                quizzes: [
+                    { q: '喬奇諾·安東尼奧·羅西尼是哪一國的作曲家？', options: ['義大利', '德國', '奧地利'], ans: 0, exp: '羅西尼是義大利作曲家。' },
+                    { q: '羅西尼的出生日期有什麼超級特別的地方？', options: ['1792 年 2 月 29 日（四年才過一次生日）', '1 月 1 日', '12 月 25 日'], ans: 0, exp: '他在閏年的 2 月 29 日出生，四年才過一次生日。' },
+                    { q: '羅西尼除了寫音樂，私底下最著名的興趣是什麼？', options: ['美食與料理（歌劇大廚）', '爬高山', '開火車'], ans: 0, exp: '羅西尼熱愛美食與烹飪，所以被叫作「歌劇大廚」。' },
+                    { q: '羅西尼生前總共創作了幾部歌劇？', options: ['9 部', '39 部', '100 部'], ans: 1, exp: '羅西尼一生創作了 39 部歌劇。' },
+                    { q: '除了歌劇之外，羅西尼還創作了哪些類型的音樂？', options: ['宗教音樂與室內樂', '電子搖滾樂', '只寫歌劇'], ans: 0, exp: '他也寫宗教音樂和室內樂。' },
+                    { q: '羅西尼哪一部歌劇講的是神射手英雄拉弓射下兒子頭上蘋果的故事？', options: ['《威廉泰爾》', '《魔彈射手》', '《羅莎蒙》'], ans: 0, exp: '《威廉泰爾》講瑞士英雄射蘋果的故事；《魔彈射手》是韋伯的，《羅莎蒙》是舒伯特的。' },
+                    { q: '運動會大隊接力或卡通賽馬時常聽到的超快進行曲，來自哪一首序曲？', options: ['《威廉泰爾》序曲', '《未完成》交響曲', '《野玫瑰》'], ans: 0, exp: '《威廉泰爾》序曲的終段像萬馬奔騰。' },
+                    { q: '羅西尼另一部代表作《塞爾維亞的理髮師》是什麼類型的歌劇？', options: ['機智爆笑的喜歌劇', '恐怖鬼故事', '中世紀騎士悲劇'], ans: 0, exp: '機智理髮師費加洛幫忙撮合愛情的爆笑喜歌劇。' },
+                    { q: '羅西尼活到幾歲左右（1792–1868）？', options: ['31 歲', '76 歲', '40 歲'], ans: 1, exp: '1868 − 1792 ＝ 76，他活到 76 歲。' },
+                    { q: '下列哪一首「不是」羅西尼的作品？', options: ['《威廉泰爾》', '《塞爾維亞的理髮師》', '《奧伯龍》'], ans: 2, exp: '《奧伯龍》是韋伯的歌劇。' }
+                ]
+            },
+            {
+                tab: '第 6 話 舒伯特',
+                kicker: '📖 第 6 話｜【早期 ④】',
+                title: '住在咖啡館的「歌曲之王」——舒伯特（1797/1/31 – 1828/11/19）',
+                heroImg: 'images/hero_ch6.jpg',
+                heroCap: '▲ 法蘭茲·舒伯特：坐在清澈小溪旁看著跳躍的鱒魚，31 年寫出 600 多首藝術歌曲！',
+                content: `
+                    <h3>📌 旋律檔案</h3>
+                    <ul>
+                        <li><strong>國籍與定位</strong>：奧地利作曲家，早期浪漫主義代表，也被認為是古典主義音樂最後一位巨匠，尊稱<strong>【歌曲之王】</strong>。</li>
+                        <li><strong>生平故事</strong>：早年在父親學校裡當教師，辭職後沒有固定工作，經常靠朋友接濟。短短 31 年的生命中，創作了 600 餘首藝術歌曲！</li>
+                        <li><strong>作品統計</strong>：9 首交響曲（8 部完成，第 7、10 號僅有草稿，最著名為第 8 號《未完成交響曲》）、19 部歌劇／歌唱劇／配劇音樂、19 首弦樂四重奏、22 首鋼琴奏鳴曲、4 首小提琴奏鳴曲。</li>
+                        <li><strong>必考代表作</strong>：
+                            <ul>
+                                <li>三大聯篇歌曲集：《美麗的磨坊少女》、《冬之旅》、《天鵝之歌》</li>
+                                <li>室內樂與管弦樂：第 8 號<strong>《未完成交響曲》</strong>、五重奏<strong>《鱒魚》</strong>、弦樂四重奏<strong>《死與少女》</strong>、序曲<strong>《羅莎蒙》</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>感人結局</strong>：死後安葬在他生前極為崇拜卻只見過幾面的貝多芬墳墓旁。</li>
+                    </ul>`,
+                mnemonic: '「歌曲之王舒伯特，31 歲寫 600 歌；《未完成》加《鱒魚》游，磨坊冬旅天鵝飛！」',
+                audioIntro: '歌曲之王的三首歌：先聽鱒魚，再聽兩首大家都會哼的藝術歌曲。',
+                audio: ['trout', 'rose', 'lull'],
+                comicTitle: '🎬 第 6 話情境記憶四格漫畫：《咖啡館裡的歌曲之王！》',
+                comicImg: 'images/comic_ch6.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（好友請客☕）', lines: [['👓 舒伯特', '辭掉爸爸學校的老師工作後沒錢租房，還好朋友請我喝咖啡吃麵包！'], ['🧑‍🤝‍🧑 好友們', '你負責寫好聽的歌，飯錢交給我們！']] },
+                    { num: '第 2 格【承】（噗通600+🐟）', lines: [['👓 舒伯特', '看到小溪《鱒魚》跳起來，靈感像泉水噴發，寫了 600 多首藝術歌曲！'], ['🧚 咪咪', '既是古典最後巨匠，更是浪漫派的【歌曲之王】！']] },
+                    { num: '第 3 格【轉】（感動落淚😭）', lines: [['👓 舒伯特', '第 8 號交響曲只寫兩樂章，怎麼連音符精靈都聽到哭了？'], ['🧚 咪咪', '因為《未完成交響曲》加上《磨坊少女》《冬之旅》《天鵝之歌》太美了！']] },
+                    { num: '第 4 格【合】（31歲長眠💐）', lines: [['👦 小樂', '他只活了 31 歲，但死後葬在最崇拜的偶像貝多芬旁邊耶！'], ['🧚 咪咪', '兩位大音樂家在天堂一定天天一起合奏！']] }
+                ],
+                quizzes: [
+                    { q: '法蘭茲·舒伯特是哪一國的作曲家？', options: ['奧地利', '義大利', '法國'], ans: 0, exp: '舒伯特是奧地利作曲家。' },
+                    { q: '舒伯特在音樂史上有什麼雙重定位？', options: ['早期浪漫代表＆古典主義最後一位巨匠', '巴洛克開山祖', '現代電子先驅'], ans: 0, exp: '他是早期浪漫主義代表，也被認為是古典主義最後一位巨匠。' },
+                    { q: '舒伯特最響亮的稱號是什麼？', options: ['【歌曲之王】', '【樂聖】', '【鋼琴詩人】'], ans: 0, exp: '舒伯特是【歌曲之王】；樂聖是貝多芬。' },
+                    { q: '舒伯特短短的一生只活了幾歲（1797–1828）？', options: ['31 歲', '57 歲', '76 歲'], ans: 0, exp: '舒伯特只活了 31 歲。' },
+                    { q: '舒伯特一生寫了超過幾首藝術歌曲？', options: ['60 首', '600 餘首', '39 首'], ans: 1, exp: '短短 31 年寫了 600 餘首藝術歌曲。' },
+                    { q: '舒伯特早年曾做過什麼工作，辭職後常靠朋友接濟？', options: ['在父親的學校當教師', '劇團經理', '皇家廚師'], ans: 0, exp: '他早年在父親的學校當教師，辭職後常靠朋友接濟。' },
+                    { q: '舒伯特的 9 首交響曲中，第 7 號與第 10 號只有草稿，最著名的是哪一號？', options: ['第 8 號《未完成交響曲》', '第 5 號《命運》', '第 9 號《合唱》'], ans: 0, exp: '第 8 號《未完成交響曲》只完成兩個樂章；《命運》《合唱》是貝多芬的。' },
+                    { q: '舒伯特著名的「三大聯篇歌曲集」不包括下列哪一部？', options: ['《美麗的磨坊少女》', '《冬之旅》', '《魔彈射手》'], ans: 2, exp: '《魔彈射手》是韋伯的歌劇。' },
+                    { q: '舒伯特描寫魚兒在清澈小溪跳躍的室內樂五重奏叫什麼名字？', options: ['《鱒魚》', '《死與少女》', '《羅莎蒙》'], ans: 0, exp: '《鱒魚》五重奏；《死與少女》是弦樂四重奏，《羅莎蒙》是序曲。' },
+                    { q: '舒伯特生前最崇拜哪位大師（只見過幾面），死後也安葬在他墳墓旁？', options: ['貝多芬', '韋伯', '羅西尼'], ans: 0, exp: '舒伯特死後安葬在貝多芬墳墓旁。' }
+                ]
+            },
+            {
+                tab: '第 7 話 早期總整理',
+                kicker: '📖 第 7 話',
+                title: '早期四大天王咖啡館聚會 ＆ 浪漫時光地圖',
+                heroImg: 'images/hero_ch7.jpg',
+                heroCap: '▲ 貝多芬喝咖啡、韋伯帶貓頭鷹、羅西尼端義大利麵、舒伯特茶壺裡有鱒魚！',
+                content: `
+                    <h3>📋 早期四大天王總整理</h3>
+                    <div class="table-wrap">
+                        <table class="summary">
+                            <thead>
+                                <tr><th>作曲家</th><th>國籍</th><th>超好記綽號</th><th>關鍵數字</th><th>必考代表作</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>貝多芬</td><td>德意志</td><td>樂聖（承先啟後）</td><td>9 交響曲 / 36 鋼奏</td><td>第 3、5、6、9 交響曲、《莊嚴彌撒》</td></tr>
+                                <tr><td>韋伯</td><td>德國</td><td>德國浪漫歌劇先驅</td><td>1820 第一部浪漫歌劇</td><td>《魔彈射手》、《歐瑟安特》、《奧伯龍》、《邀舞》</td></tr>
+                                <tr><td>羅西尼</td><td>義大利</td><td>2/29 生日歌劇大廚</td><td>39 部歌劇</td><td>《威廉泰爾》、《塞爾維亞的理髮師》</td></tr>
+                                <tr><td>舒伯特</td><td>奧地利</td><td>【歌曲之王】</td><td>31 歲 / 600+ 首歌</td><td>《未完成交響曲》、《鱒魚》、三大聯篇歌曲集</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>🚂 浪漫樂派五階段列車路線（講義第 2 頁總表）</h3>
+                    <ul>
+                        <li><strong>【早期】</strong>（本冊已攻略）：貝多芬、韋伯、羅西尼、舒伯特</li>
+                        <li><strong>【前期】</strong>（下集預告）：孟德爾頌、蕭邦、舒曼、李斯特</li>
+                        <li><strong>【中期】</strong>：威爾第、華格納、布拉姆斯、小約翰·史特勞斯、布魯克納、比才、聖桑</li>
+                        <li><strong>【民族樂派】</strong>：柴可夫斯基、史麥塔納、德弗札克、葛利格</li>
+                        <li><strong>【後期】</strong>：馬勒、理查·史特勞斯</li>
+                    </ul>`,
+                mnemonic: null,
+                audioIntro: '四大天王點唱機：每人一首代表作，複習一下！',
+                audio: ['b5', 'frei', 'tell', 'trout'],
+                comicTitle: '🎬 第 7 話情境記憶四格漫畫：《早期四大天王口訣總點名！》',
+                comicImg: 'images/comic_ch7.jpg',
+                comicPanels: [
+                    { num: '第 1 格【起】（樂聖乾杯☕）', lines: [['😤 貝多芬', '德意志樂聖！9 交響、36 鋼奏，必考 3・5・6・9！'], ['👦 小樂', '承古典、啟浪漫的第一人！']] },
+                    { num: '第 2 格【承】（魔彈眨眼🦉）', lines: [['🏹 韋伯', '德國歌劇魔法師！1820《魔彈射手》第一部，還有《歐瑟安特》《奧伯龍》《邀舞》！'], ['🦉 貓頭鷹', '10 歲跟海頓弟弟學作曲也別忘記！']] },
+                    { num: '第 3 格【轉】（拋麵大廚🍝）', lines: [['👨‍🍳 羅西尼', '義大利 2/29 壽星！39 部歌劇，《威廉泰爾》配《理髮師》！'], ['🧚 咪咪', '看到蘋果跟剪刀就選羅西尼！']] },
+                    { num: '第 4 格【合】（嘟嘟出發🚂）', lines: [['👓 舒伯特', '奧地利歌曲之王！31 歲 600 首歌，《未完成》加《鱒魚》！'], ['👦 小樂', '早期四大天王滿分過關！搭火車前往下一站【前期】囉！']] }
+                ],
+                quizzes: [
+                    { q: '早期四大音樂天王裡，哪兩位來自德國／德意志地區？', options: ['貝多芬、韋伯', '羅西尼、舒伯特', '舒伯特、韋伯'], ans: 0, exp: '貝多芬（德意志）和韋伯（德國）；羅西尼是義大利人，舒伯特是奧地利人。' },
+                    { q: '早期四大天王中，誰的壽命最短（只有 31 歲）卻寫最多藝術歌曲？', options: ['舒伯特', '羅西尼', '貝多芬'], ans: 0, exp: '舒伯特 31 歲就過世，卻寫了 600 多首藝術歌曲。' },
+                    { q: '誰的歌劇《魔彈射手》開創了德國浪漫主義歌劇？', options: ['韋伯', '羅西尼', '貝多芬'], ans: 0, exp: '韋伯的《魔彈射手》是德國第一部浪漫主義歌劇。' },
+                    { q: '誰寫了 39 部歌劇，也是 2 月 29 日出生的義大利美食家？', options: ['羅西尼', '舒伯特', '韋伯'], ans: 0, exp: '「二二九出生羅西尼，三十九部義大利歌劇」。' },
+                    { q: '誰因為聽力下降仍寫出 9 部交響曲與 36 首鋼琴奏鳴曲，被稱為「樂聖」？', options: ['貝多芬', '舒伯特', '韋伯'], ans: 0, exp: '「樂聖貝多芬，聽不見照樣寫」。' },
+                    { q: '講義第 2 頁浪漫樂派五階段中，「早期」之後緊接著的是哪一個階段？', options: ['【前期】（孟德爾頌、蕭邦、舒曼、李斯特）', '【後期】', '【巴洛克】'], ans: 0, exp: '早期 → 前期 → 中期 → 民族樂派 → 後期。' },
+                    { q: '下列哪一位作曲家屬於下一階段的「前期」（不是本冊的早期）？', options: ['蕭邦', '貝多芬', '舒伯特'], ans: 0, exp: '蕭邦屬於【前期】；貝多芬、舒伯特是【早期】。' },
+                    { q: '威爾第、華格納、布拉姆斯、比才、聖桑屬於浪漫樂派的哪一個階段？', options: ['【中期】', '【早期】', '【前期】'], ans: 0, exp: '他們都在【中期】這一站。' },
+                    { q: '柴可夫斯基、史麥塔納、德弗札克、葛利格屬於講義總表中的哪一派？', options: ['【民族樂派】', '【早期】', '【古典樂派】'], ans: 0, exp: '他們是重視家鄉文化的【民族樂派】。' },
+                    { q: '馬勒與理查·史特勞斯位於浪漫樂派五階段的最後哪一站？', options: ['【後期】', '【早期】', '【前期】'], ans: 0, exp: '馬勒與理查·史特勞斯是【後期】。' }
+                ]
+            },
+            {
+                tab: '第 8 話 總複習',
+                kicker: '🏆 第 8 話',
+                title: '全冊總複習 ＆ 聽音辨曲大挑戰（16 題）',
+                heroImg: null,
+                content: `
+                    <div class="intro-dialog">
+                        <p><span class="spk">🧚 咪咪：</span>「最後一站！前 12 題是全冊重點，最後 4 題是<strong>🎧 聽音辨曲</strong>：先按『播放題目音樂』聽一聽，再選答案喔！」</p>
+                    </div>`,
+                mnemonic: null,
+                audio: [],
+                comicPanels: null,
+                quizzes: [
+                    { q: '「浪漫」（Romantic）這個詞最早的字根是從哪裡來的？', options: ['羅馬（Roman / Roma）', '希臘（Greece）', '倫敦（London）'], ans: 0, exp: '字根源自羅馬，後來演變成追求夢想的情懷。' },
+                    { q: '浪漫樂派的音樂時期大約是哪一段時間？（廣義可到 1918 年）', options: ['1600–1750 年', '1820–1900 年', '1950–2000 年'], ans: 1, exp: '音樂界浪漫主義在 1820–1900 年。' },
+                    { q: '1810 年是哪一位樂評家把莫札特、海頓、貝多芬列為三大「浪漫作曲家」？', options: ['E.T.A. 霍夫曼', '羅西尼', '舒伯特'], ans: 0, exp: '1810 年德國樂評家霍夫曼提出三大浪漫作曲家。' },
+                    { q: '浪漫樂派與古典時期相比，最大的風格轉變是什麼？', options: ['更講究對稱整齊的形式', '更注重「感情與形象」，愛用標題音樂、轉調與半音', '不再使用任何樂器'], ans: 1, exp: '浪漫派重感情與形象、輕形式與結構。' },
+                    { q: '下列哪一個「不是」講義裡提到的浪漫樂派小型曲式？', options: ['即興曲', '敘事曲', '數位電音曲'], ans: 2, exp: '9 種小型曲式裡沒有數位電音曲。' },
+                    { q: '被尊稱為「樂聖」，承接古典傳統、開啟浪漫風格的是誰？', options: ['貝多芬', '韋伯', '舒伯特'], ans: 0, exp: '貝多芬是漢字文化圈尊稱的「樂聖」。' },
+                    { q: '貝多芬最著名的代表作除了 32 首鋼琴奏鳴曲、《莊嚴彌撒》，還有哪幾號交響曲？', options: ['第 1、2、4、7 號', '第 3、5、6、9 號', '第 8、10 號'], ans: 1, exp: '3 英雄、5 命運、6 田園、9 合唱。' },
+                    { q: '哪一部作品被公認為「德國第一部浪漫主義歌劇」？', options: ['韋伯《魔彈射手》（作品 77）', '羅西尼《威廉泰爾》', '羅西尼《塞爾維亞的理髮師》'], ans: 0, exp: '韋伯的《魔彈射手》是德國第一部浪漫主義歌劇。' },
+                    { q: '韋伯 10 歲時曾跟隨哪位大作曲家的弟弟（米夏埃爾）學習作曲？', options: ['莫札特的弟弟', '海頓的弟弟', '貝多芬的弟弟'], ans: 1, exp: '米夏埃爾·海頓是海頓的弟弟。' },
+                    { q: '韋伯哪一部歌劇完全沒有口白、音樂持續不斷，複製出中世紀騎士氣氛？', options: ['《歐瑟安特》', '《奧伯龍》', '《魔彈射手》'], ans: 0, exp: '1823 年的《歐瑟安特》沒有口白。' },
+                    { q: '在 2 月 29 日閏年出生、生前寫了 39 部歌劇的義大利作曲家是誰？', options: ['舒伯特', '羅西尼', '韋伯'], ans: 1, exp: '羅西尼：2/29 壽星、39 部歌劇。' },
+                    { q: '舒伯特只活了 31 年卻寫了超過 600 首藝術歌曲，他死後被安葬在哪位崇拜的大師墳墓旁？', options: ['貝多芬', '莫札特', '海頓'], ans: 0, exp: '舒伯特安葬在貝多芬墳墓旁。' },
+                    { q: '【🎧 聽音辨曲】震撼的「短-短-短-長」四音敲門動機，是哪位大師的名曲？', listen: 'b5', options: ['貝多芬《第五交響曲・命運》', '舒伯特〈鱒魚〉', '羅西尼《威廉泰爾》序曲'], ans: 0, exp: '「命運來敲門」：貝多芬《第五交響曲》。' },
+                    { q: '【🎧 聽音辨曲】像萬馬奔騰一樣熱血的進行曲節奏，是哪一部歌劇的序曲？', listen: 'tell', options: ['韋伯《魔彈射手》', '羅西尼《威廉泰爾》', '貝多芬《第九交響曲》'], ans: 1, exp: '羅西尼《威廉泰爾》序曲終段，運動會最愛播。' },
+                    { q: '【🎧 聽音辨曲】像魚兒在小溪裡輕快跳躍的旋律，是舒伯特的哪一首作品？', listen: 'trout', options: ['《冬之旅》', '《未完成交響曲》', '《鱒魚》'], ans: 2, exp: '舒伯特〈鱒魚〉，旋律也用在《鱒魚》五重奏。' },
+                    { q: '【🎧 聽音辨曲】悠長神祕的三音號角聲，來自韋伯最後前往倫敦指揮首演的哪部歌劇序曲？', listen: 'ober', options: ['《奧伯龍》', '《歐瑟安特》', '《魔彈射手》'], ans: 0, exp: '《奧伯龍》序曲開頭的三音魔法號角。' }
+                ]
+            }
+        ];
+
+        // ===== 作答紀錄 =====
+        const answers = chaptersData.map(ch => ch.quizzes.map(() => null));
+        const LETTERS = ['A', 'B', 'C', 'D'];
+
+        function quizItemsHtml(ci) {
+            return chaptersData[ci].quizzes.map((q, qi) => `
+                <div class="quiz-item" id="q-${ci}-${qi}">
+                    <div class="quiz-q"><span class="qn">${qi + 1}.</span>${q.q}</div>
+                    ${q.listen ? `<button class="play-btn listen-btn" data-track="${q.listen}" data-label="🎧 播放題目音樂" onclick="Synth.toggle('${q.listen}', this)">🎧 播放題目音樂（${Math.round(TRACKS[q.listen].dur)} 秒）</button>` : ''}
+                    <div class="quiz-options">
+                        ${q.options.map((opt, oi) => `<button class="option-btn" onclick="checkAnswer(${ci}, ${qi}, ${oi})">(${LETTERS[oi]}) ${opt}</button>`).join('')}
+                    </div>
+                    <div class="quiz-explanation" id="exp-${ci}-${qi}"></div>
+                </div>`).join('');
+        }
+
+        function scoreText(ci) {
+            const list = answers[ci];
+            const done = list.filter(a => a !== null).length;
+            const right = list.filter(a => a === true).length;
+            return `已作答 ${done}／${list.length}・答對 ${right} 題`;
+        }
+
+        function renderChapters() {
+            const nav = document.getElementById('navTabs');
+            nav.innerHTML = chaptersData.map((ch, idx) =>
+                `<button class="tab-btn${idx === 0 ? ' active' : ''}" onclick="switchChapter(${idx})">${ch.tab}</button>`
+            ).join('');
+
+            const container = document.getElementById('chaptersContainer');
+            container.innerHTML = '';
+
+            chaptersData.forEach((ch, idx) => {
+                const card = document.createElement('article');
+                card.className = `chapter-card${idx === 0 ? ' active' : ''}`;
+                card.id = `chapter-${idx}`;
+
+                const heroHtml = ch.heroImg ? `
+                    <figure class="hero-img-container">
+                        <img src="${ch.heroImg}" width="1200" height="896" loading="lazy" alt="${ch.heroCap.replace('▲ ', '')}" class="hero-img">
+                        <figcaption class="caption">${ch.heroCap}</figcaption>
+                    </figure>` : '';
+
+                const mnemonicHtml = ch.mnemonic ? `<div class="mnemonic">💡 第 ${idx + 1} 話記憶口訣：${ch.mnemonic}</div>` : '';
+
+                const audioHtml = ch.audio.length ? `
+                    <section class="audio-section">
+                        <h3>🎧 示範音樂</h3>
+                        <p class="audio-note">${ch.audioIntro}（主旋律＋低音的電子示範，非原曲錄音）</p>
+                        ${ch.audio.map(playerHtml).join('')}
+                    </section>` : '';
+
+                const comicHtml = ch.comicPanels ? `
+                    <section class="comic-section">
+                        <div class="comic-title">${ch.comicTitle}</div>
+                        <div class="comic-img-container">
+                            <img src="${ch.comicImg}" width="1024" height="1024" loading="lazy" alt="${ch.comicTitle.replace('🎬 ', '')}" class="hero-img">
+                        </div>
+                        <div class="comic-grid">
+                            ${ch.comicPanels.map(p => `
+                                <div class="comic-panel">
+                                    <span class="panel-num">${p.num}</span>
+                                    ${p.lines.map(l => `<div class="dialogue-line"><span class="dialogue-speaker">${l[0]}：</span>「${l[1]}」</div>`).join('')}
+                                </div>`).join('')}
+                        </div>
+                    </section>` : '';
+
+                const isLast = idx === chaptersData.length - 1;
+                const nextHtml = isLast ? '' : `
+                    <div class="next-wrap">
+                        <button class="next-btn" onclick="switchChapter(${idx + 1})">下一站：${chaptersData[idx + 1].tab} →</button>
+                    </div>`;
+
+                const totalHtml = isLast ? `<div class="total-box" id="totalScore"></div>` : '';
+
+                card.innerHTML = `
+                    <div class="chapter-header">
+                        <span class="chapter-kicker">${ch.kicker}</span>
+                        <h2 class="chapter-title">${ch.title}</h2>
+                    </div>
+                    ${heroHtml}
+                    <div class="story">${ch.content}</div>
+                    ${mnemonicHtml}
+                    ${audioHtml}
+                    ${comicHtml}
+                    <section class="quiz-section">
+                        <div class="quiz-head">
+                            <div class="quiz-title">📝 第 ${idx + 1} 話隨堂考（${ch.quizzes.length} 題）</div>
+                            <div class="score" id="score-${idx}">${scoreText(idx)}</div>
+                        </div>
+                        <div id="quizItems-${idx}">${quizItemsHtml(idx)}</div>
+                        <div class="quiz-actions">
+                            <button class="reset-btn" onclick="resetQuiz(${idx})">↺ 重新作答</button>
+                            <span class="finish-msg" id="finish-${idx}"></span>
+                        </div>
+                    </section>
+                    ${totalHtml}
+                    ${nextHtml}
+                `;
+
+                container.appendChild(card);
+            });
+            updateTotal();
+        }
+
+        function switchChapter(index) {
+            Synth.stop();
+            document.querySelectorAll('.tab-btn').forEach((tab, i) => tab.classList.toggle('active', i === index));
+            document.querySelectorAll('.chapter-card').forEach((card, i) => card.classList.toggle('active', i === index));
+            const nav = document.getElementById('navTabs');
+            const activeTab = nav.querySelectorAll('.tab-btn')[index];
+            if (activeTab) nav.scrollLeft = activeTab.offsetLeft - (nav.clientWidth - activeTab.offsetWidth) / 2;
+            nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (history.replaceState) history.replaceState(null, '', '#ch' + (index + 1));
+        }
+
+        function checkAnswer(ci, qi, oi) {
+            if (answers[ci][qi] !== null) return;
+            const quiz = chaptersData[ci].quizzes[qi];
+            const ok = oi === quiz.ans;
+            answers[ci][qi] = ok;
+            const item = document.getElementById(`q-${ci}-${qi}`);
+            item.querySelectorAll('.option-btn').forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === quiz.ans) btn.classList.add('correct');
+                else if (i === oi) btn.classList.add('wrong');
+            });
+            const exp = document.getElementById(`exp-${ci}-${qi}`);
+            exp.className = 'quiz-explanation ' + (ok ? 'ok' : 'ng');
+            exp.textContent = (ok ? '✔ 答對了！' : `✘ 正解是 (${LETTERS[quiz.ans]})。`) + '解析：' + quiz.exp;
+            exp.style.display = 'block';
+            updateScore(ci);
+        }
+
+        function updateScore(ci) {
+            document.getElementById(`score-${ci}`).textContent = scoreText(ci);
+            const list = answers[ci];
+            const finish = document.getElementById(`finish-${ci}`);
+            if (list.every(a => a !== null)) {
+                const right = list.filter(a => a).length;
+                finish.textContent = right === list.length ? `🎉 全對！${right}／${list.length} 滿分過關！` : `🎉 完成！答對 ${right}／${list.length} 題，按「重新作答」再挑戰一次吧！`;
+            } else {
+                finish.textContent = '';
+            }
+            updateTotal();
+        }
+
+        function resetQuiz(ci) {
+            Synth.stop();
+            answers[ci] = answers[ci].map(() => null);
+            document.getElementById(`quizItems-${ci}`).innerHTML = quizItemsHtml(ci);
+            updateScore(ci);
+        }
+
+        function updateTotal() {
+            const box = document.getElementById('totalScore');
+            if (!box) return;
+            const all = answers.flat();
+            const done = all.filter(a => a !== null).length;
+            const right = all.filter(a => a === true).length;
+            box.textContent = `🏆 全冊成績：已作答 ${done}／${all.length} 題，答對 ${right} 題` + (done === all.length ? `　🎉 恭喜完成全部 ${all.length} 題！` : '');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChapters();
+            const m = /^#ch([1-8])$/.exec(location.hash);
+            if (m) switchChapter(Number(m[1]) - 1);
+        });
+    </script>
+</body>
+</html>
