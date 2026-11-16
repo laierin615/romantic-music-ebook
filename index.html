@@ -517,6 +517,82 @@
         .mem-win { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 16px; background: var(--lemon); border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); padding: 10px 14px; animation: popIn .45s ease both; }
         .mem-win b { font-family: 'Huninn', sans-serif; font-weight: 400; font-size: 1.5rem; }
         .mem-win span { font-weight: 700; }
+
+        /* ===== 互動遊戲 ===== */
+        .gm-area { margin-top: 4px; }
+        .shake { animation: shake .45s ease; }
+        .gm-ask { text-align: center; font-weight: 900; margin: 14px 0 10px; }
+        .gm-ask.big { font-size: 1.15rem; background: #fff; border: var(--bd); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); padding: 8px 12px; }
+        .gm-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+        .gm-cards.two { grid-template-columns: repeat(2, 1fr); }
+        .gm-card { min-height: 56px; padding: 8px 10px; border: var(--bd); border-radius: 14px; background: #fff; box-shadow: 3px 3px 0 var(--ink); font-weight: 900; font-size: 1rem; line-height: 1.35; transition: transform .1s; }
+        .gm-card:hover:not(:disabled) { transform: translate(-1px, -2px); background: #FFF7C9; }
+        .gm-card:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+        .gm-card.right { background: var(--mint); color: #fff; }
+        .gm-card.wrong { background: var(--bad); }
+        .gm-card:disabled { cursor: default; }
+        /* 時光列車 */
+        .tl-track { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 14px 8px; padding: 10px 6px 16px; border-radius: 16px; background: repeating-linear-gradient(90deg, #8b5a2b 0 6px, transparent 6px 22px) bottom 4px left / 100% 6px no-repeat, #E9F7FF; border: var(--bd); }
+        .tl-car { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 92px; padding: 6px 4px 12px; border: var(--bd); border-radius: 12px 12px 6px 6px; background: #fff; text-align: center; box-shadow: 3px 3px 0 var(--ink); }
+        .tl-car::before, .tl-car::after { content: ""; position: absolute; bottom: -9px; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); border: 3px solid #fff; }
+        .tl-car::before { left: 12px; } .tl-car::after { right: 12px; }
+        .tl-car b { background: var(--ink); color: #fff; border-radius: 999px; padding: 0 8px; font-size: .9rem; }
+        .tl-car span { font-size: .78rem; font-weight: 700; line-height: 1.3; }
+        .tl-car.now { background: var(--lemon); animation: pulse 1.2s ease-in-out infinite; }
+        .tl-car.filled { background: var(--mint); color: #fff; }
+        /* 分類籃 */
+        .sort-card { max-width: 420px; margin: 6px auto 0; padding: 18px 16px; text-align: center; background: #fff; border: var(--bd); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); font-family: 'Huninn', sans-serif; font-size: 1.3rem; line-height: 1.4; transform: rotate(var(--rot, 0)); animation: popIn .35s ease both; }
+        .bins { display: grid; gap: 10px; margin-top: 6px; }
+        .bins.b2 { grid-template-columns: 1fr 1fr; }
+        .bins.b4 { grid-template-columns: 1fr 1fr; }
+        @media (min-width: 640px) { .bins.b4 { grid-template-columns: repeat(4, 1fr); } }
+        .bin { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 6px 10px; border: var(--bd); border-radius: 16px 16px 28px 28px; background: var(--bc); box-shadow: 4px 4px 0 var(--ink); font-weight: 900; }
+        .bin b { background: #fff; border: 2.5px solid var(--ink); border-radius: 999px; padding: 0 10px; font-size: 1rem; }
+        .bin-ico { font-size: 2rem; line-height: 1.1; }
+        .bin-n { font-size: .7rem; letter-spacing: 2px; color: #fff; text-shadow: var(--outline-s); min-height: 1.2em; }
+        .bin:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+        .bin.hint { outline: 4px dashed var(--ink); outline-offset: 3px; animation: pulse .6s ease-in-out 2; }
+        /* 聽音猜名曲 */
+        .ls-disc { width: 84px; height: 84px; margin: 0 auto; display: grid; place-items: center; font-size: 60px; line-height: 1; }
+        body.music-on .ls-disc { animation: spin 2.4s linear infinite; }
+        .ls-note { margin-top: 14px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; background: #fff; border: var(--bd); border-radius: 16px; box-shadow: 4px 4px 0 var(--ink); padding: 12px; }
+        .ls-note span { font-size: .92rem; }
+        /* 魔彈射手打靶 */
+        .range { display: grid; gap: 10px; padding: 10px; border: var(--bd); border-radius: 18px; background: linear-gradient(#cdeffc, #e8f7d8); }
+        .lane { position: relative; height: 78px; border-bottom: 3px dashed rgba(34,34,34,.35); overflow: hidden; }
+        .target { position: absolute; top: 4px; left: 0; display: grid; place-items: center; min-width: 96px; max-width: 70%; height: 68px; padding: 0 16px; border: var(--bd); border-radius: 999px; font-weight: 900; font-size: .98rem; color: var(--ink); box-shadow: 3px 3px 0 var(--ink);
+            background: radial-gradient(circle, #fff 0 18%, var(--pink) 19% 34%, #fff 35% 52%, var(--pink) 53% 70%, #fff 71%);
+            animation: slideLane var(--dur) ease-in-out var(--delay) infinite var(--dir); }
+        .target span { background: rgba(255,255,255,.92); border-radius: 10px; padding: 0 6px; }
+        @keyframes slideLane { from { left: 0; transform: translateX(0); } to { left: 100%; transform: translateX(-100%); } }
+        .range.stop .target { animation-play-state: paused; }
+        .target.hit { background: var(--mint); animation-play-state: paused; }
+        .target.hit::after { content: "💥"; position: absolute; top: -10px; right: -6px; font-size: 1.8rem; }
+        .target.missed { opacity: .45; }
+        .target.reveal { outline: 4px dashed var(--ink); outline-offset: 2px; background: var(--lemon); }
+        @media (prefers-reduced-motion: reduce) { .target { animation: none; position: static; margin: 4px auto; } }
+        /* 大廚上菜 */
+        .pot-wrap { display: flex; justify-content: center; }
+        .pot { position: relative; width: min(260px, 80%); min-height: 96px; padding: 14px 10px 10px; border: var(--bd); border-radius: 12px 12px 60px 60px; background: #555; box-shadow: 4px 4px 0 var(--ink); }
+        .steam { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); font-size: 1.6rem; }
+        .pot-in { min-height: 52px; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 2px; font-size: 1.7rem; background: #F6A33A; border-radius: 10px 10px 40px 40px; padding: 4px; }
+        .pot-in small { color: #fff; font-size: .85rem; font-weight: 700; }
+        .recipe { margin-top: 16px; padding: 12px 14px; background: #FFF7E1; border: var(--bd); border-radius: 14px; box-shadow: 4px 4px 0 var(--ink); }
+        .recipe small { display: inline-block; background: var(--ink); color: #fff; border-radius: 999px; padding: 0 10px; font-size: .78rem; font-weight: 700; }
+        .recipe p { margin: 8px 0 0; font-size: 1.15rem; font-weight: 700; line-height: 1.7; }
+        .blank { display: inline-block; min-width: 3em; margin: 0 4px; padding: 0 8px; border-bottom: 3px solid var(--ink); background: #fff; text-align: center; color: var(--pink); font-weight: 900; }
+        .blank.filled { background: var(--mint); color: #fff; border-radius: 8px; animation: boing .5s ease; }
+        .gm-card.ingr { background: #FFFDF2; }
+        /* 鱒魚吃泡泡 */
+        .pond { position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 18px 10px 30px; border: var(--bd); border-radius: 22px; background: linear-gradient(#c9f1ff, #6CC3EE); overflow: hidden; }
+        .pond .gbub { flex: 0 0 96px; width: 96px; min-width: 96px; height: 96px; padding: 6px; border-radius: 50%; border: 3px solid rgba(34,34,34,.85); background: radial-gradient(circle at 30% 28%, #fff 0 12%, rgba(255,255,255,.75) 13% 40%, rgba(255,255,255,.45) 41%); font-weight: 900; font-size: .86rem; line-height: 1.25; color: var(--ink); animation: floaty var(--t) ease-in-out var(--d) infinite alternate; }
+        @keyframes floaty { from { transform: translateY(0); } to { transform: translateY(-10px) rotate(2deg); } }
+        .gbub.popped { animation: popOut .35s ease forwards; }
+        @keyframes popOut { to { transform: scale(1.5); opacity: 0; } }
+        .gbub.shake { animation: shake .45s ease; }
+        .trout { position: absolute; left: 8px; bottom: 2px; font-size: 40px; line-height: 1; transition: left .35s ease, top .35s ease; pointer-events: none; }
+        @media (max-width: 380px) { .pond .gbub { flex-basis: 86px; width: 86px; min-width: 86px; height: 86px; font-size: .8rem; } }
+        @media (prefers-reduced-motion: reduce) { .gbub { animation: none; } }
     </style>
 </head>
 <body>
@@ -1042,7 +1118,23 @@
                         <li><strong>1810 年 E.T.A. 霍夫曼</strong>：把莫札特、海頓、貝多芬列為三大「浪漫作曲家」。</li>
                         <li><strong>路易·史伯爾</strong>：用「好的浪漫風格」形容貝多芬《第五交響曲》。</li>
                         <li><strong>歷史定案</strong>：後來音樂學家把莫札特、海頓歸回古典時期，確立貝多芬是浪漫主義的開端！</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="浪漫時代的人最愛童話、森林、夜晚和夢，音樂也跟著說起故事喵！">📚 浪漫的好朋友：童話、傳說和大自然</h3>
+<p>浪漫主義不只出現在音樂裡，文學和繪畫也一起「變浪漫」了！</p>
+<ul>
+<li>📖 <strong>1812 年</strong>，德國的<strong>格林兄弟</strong>出版第一冊《格林童話》，把民間流傳的故事收集起來。</li>
+<li>🌙 浪漫時代的藝術家最愛：夜晚和夢、🌲 森林和高山、🧚 傳說和精靈，還有💓 強烈的心情。</li>
+<li>✍️ 德國大文豪<strong>歌德</strong>寫的詩〈魔王〉、〈野玫瑰〉，後來都被舒伯特譜成歌曲（第 6 話會聽到）。</li>
+</ul>
+<p>所以浪漫音樂常常在做三件事：<strong>說故事、畫風景、講心情</strong>。</p>
+<h3 data-tip="貝多芬把自己的心情寫進音樂，浪漫的大門就這樣被打開了喵！">⚡ 為什麼是貝多芬打開大門？</h3>
+<ul>
+<li>🏰 古典時期的作曲家，多半替<strong>國王、貴族或教會</strong>工作，照著主人的要求寫曲子。</li>
+<li>🎹 貝多芬不只當宮廷樂師，他靠<strong>出版樂譜、開音樂會</strong>，加上喜愛音樂的貴族朋友贊助過生活，是很早的「自由音樂家」之一。</li>
+<li>💥 他把自己的<strong>痛苦、奮鬥和勝利</strong>寫進音樂。這種「把心事唱出來」的作法，就是浪漫精神！</li>
+<li>🎖️ 1804 年完成的《第三號交響曲》原本想獻給<strong>拿破崙</strong>。據他的學生回憶，貝多芬聽說拿破崙自己當上了皇帝，氣得把題獻的名字劃掉。</li>
+</ul>
+`,
                 mnemonic: '「1820 音樂門，字根『羅馬』追夢想！霍夫曼先取名字，『貝多芬』是開山王！」',
                 audioIntro: '霍夫曼點名的三位「浪漫作曲家」：貝多芬、莫札特、海頓，各聽一段！',
                 audio: ['b5', 'twinkle', 'haydn'],
@@ -1057,7 +1149,17 @@
                     { q: '作曲家路易·史伯爾用「好的浪漫風格」形容貝多芬的哪一首作品？', options: ['《第五交響曲》', '《魔彈射手》', '《鱒魚》'], ans: 0, exp: '史伯爾稱讚貝多芬《第五交響曲》具有「好的浪漫風格」。' },
                     { q: '後來音樂史重新分類後，莫札特被歸回哪一個時期？', options: ['巴洛克時期', '古典時期', '現代時期'], ans: 1, exp: '莫札特與海頓被歸回古典時期。' },
                     { q: '音樂史上最終確立誰是「浪漫主義的開端」？', options: ['貝多芬', '巴哈', '莫札特'], ans: 0, exp: '貝多芬被公認為承接古典、開啟浪漫主義的開端。' },
-                    { q: '廣義的浪漫樂派音樂最晚可以算到哪一年左右？', options: ['1850 年', '1918 年', '2000 年'], ans: 1, exp: '廣義可從 1820 年代延續到 1918 年。' }
+                    { q: '廣義的浪漫樂派音樂最晚可以算到哪一年左右？', options: ['1850 年', '1918 年', '2000 年'], ans: 1, exp: '廣義可從 1820 年代延續到 1918 年。' },
+                    { q: "1812 年出版第一冊、收集德國民間故事的童話書是哪一部？", options: ["《格林童話》", "《伊索寓言》", "《安徒生童話》"], ans: 0, exp: "1812 年格林兄弟出版第一冊《格林童話》。" },
+                    { q: "浪漫時代的藝術家最喜歡描寫哪些主題？", options: ["夜晚、森林、傳說和強烈的心情", "工廠機器和數學公式", "只畫宮廷宴會"], ans: 0, exp: "浪漫藝術家最愛夜晚和夢、森林高山、傳說精靈與強烈心情。" },
+                    { q: "舒伯特〈魔王〉和〈野玫瑰〉的歌詞，來自哪位德國大文豪的詩？", options: ["歌德", "霍夫曼", "格林兄弟"], ans: 0, exp: "兩首都是歌德的詩，被舒伯特譜成歌曲。" },
+                    { q: "古典時期的作曲家多半替誰工作？", options: ["國王、貴族或教會", "電影公司", "唱片行"], ans: 0, exp: "古典時期作曲家多半替國王、貴族或教會寫曲子。" },
+                    { q: "貝多芬和許多古典作曲家不一樣，他怎麼過生活？", options: ["出版樂譜、開音樂會，加上貴族朋友贊助", "一輩子只替一位國王寫曲", "完全不寫曲子，只教書"], ans: 0, exp: "貝多芬不只當宮廷樂師，是很早的「自由音樂家」之一。" },
+                    { q: "把自己的痛苦、奮鬥和勝利寫進音樂，這是哪一種精神？", options: ["浪漫精神", "巴洛克精神", "極簡精神"], ans: 0, exp: "把心事唱出來，就是浪漫精神！" },
+                    { q: "貝多芬《第三號交響曲》原本想獻給誰？", options: ["拿破崙", "霍夫曼", "海頓"], ans: 0, exp: "原本想獻給拿破崙，後來把題獻的名字劃掉。" },
+                    { q: "據學生回憶，貝多芬為什麼把《第三號交響曲》題獻的名字劃掉？", options: ["聽說拿破崙自己當上了皇帝", "拿破崙沒有付錢", "他把名字寫錯了"], ans: 0, exp: "貝多芬聽說拿破崙自己稱帝，非常生氣。" },
+                    { q: "浪漫音樂最常在做哪三件事？", options: ["說故事、畫風景、講心情", "背公式、做實驗、算數學", "只練音階"], ans: 0, exp: "說故事、畫風景、講心情，就是浪漫音樂的特色。" },
+                    { q: "霍夫曼是在哪一年點名三大「浪漫作曲家」？", options: ["1810 年", "1900 年", "1700 年"], ans: 0, exp: "1810 年霍夫曼把莫札特、海頓、貝多芬稱為浪漫作曲家。" }
                 ]
             },
             {
@@ -1094,7 +1196,22 @@
                         <li>先驅：貝多芬｜歌劇：華格納｜鋼琴：李斯特</li>
                         <li>各國代表：法國（白遼士）、義大利（羅西尼）、匈牙利（李斯特）、波蘭（蕭邦）、俄羅斯（柴可夫斯基）。</li>
                         <li>到馬勒與布拉姆斯時代式微，晚期出現各地民族樂派（西貝流士、史麥塔納、拉赫馬尼諾夫等）。</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="鋼琴變大聲、樂團變大，浪漫音樂才能那麼有氣勢喵！">🎹 樂器也在長大！</h3>
+<ul>
+<li>🎹 <strong>鋼琴</strong>：莫札特小時候彈的鋼琴琴鍵比較少、聲音比較輕。到了浪漫時代，鋼琴裝上<strong>鐵做的骨架</strong>，琴弦拉得更緊，聲音又大又響亮。今天的鋼琴一共有 <strong>88 個鍵</strong>。</li>
+<li>🎺 <strong>管弦樂團</strong>：人數越來越多。貝多芬在《第五號交響曲》最後一個樂章，加進了<strong>長號、短笛和倍低音管</strong>，讓聲音更壯觀。</li>
+<li>👥 到了浪漫後期，有些作品甚至需要<strong>上百位</strong>演奏家一起上台！</li>
+</ul>
+<p>樂器變強了，作曲家就能寫出<strong>更大聲、更多顏色</strong>的音樂。</p>
+<h3 data-tip="有故事的叫標題音樂，沒有故事、只聽聲音本身的叫絕對音樂喵！">📖 標題音樂：聽音樂像在看故事</h3>
+<ul>
+<li>📖 <strong>標題音樂</strong>：作曲家先告訴你一個故事或畫面，再用聲音演出來。</li>
+<li>🐦 貝多芬《田園交響曲》每個樂章都有小標題，例如「溪邊的景色」、「暴風雨」。還用<strong>長笛、雙簧管、單簧管</strong>模仿夜鶯、鵪鶉和布穀鳥的叫聲。</li>
+<li>💭 1830 年，法國的<strong>白遼士</strong>寫了《幻想交響曲》，用音樂講一位年輕藝術家的奇幻夢境。</li>
+<li>🔢 相反地，沒有故事、只欣賞聲音本身的音樂，叫做<strong>絕對音樂</strong>。</li>
+</ul>
+`,
                 mnemonic: null,
                 audioIntro: '先聽古典版，再聽浪漫版：同一段開頭，感覺差在哪裡？',
                 audio: ['moz', 'rom'],
@@ -1110,7 +1227,17 @@
                     { q: '浪漫時期各國民族分化，波蘭與俄羅斯的代表作曲家分別是？', options: ['蕭邦、柴可夫斯基', '羅西尼、白遼士', '貝多芬、韋伯'], ans: 0, exp: '波蘭＝蕭邦、俄羅斯＝柴可夫斯基。' },
                     { q: '浪漫主義音樂大約在哪兩位作曲家的時代開始式微？', options: ['馬勒與布拉姆斯', '韋伯與舒伯特', '莫札特與海頓'], ans: 0, exp: '浪漫主義到馬勒和布拉姆斯的時代逐漸式微。' },
                     { q: '浪漫樂派晚期，各地興起了哪一個重視家鄉文化的樂派？', options: ['民族樂派', '極簡樂派', '爵士樂派'], ans: 0, exp: '晚期各地出現許多民族樂派。' },
-                    { q: '下列哪一位「不是」講義提到的晚期民族樂派作曲家？', options: ['西貝流士', '史麥塔納', '莫札特'], ans: 2, exp: '莫札特屬於古典時期。' }
+                    { q: '下列哪一位「不是」講義提到的晚期民族樂派作曲家？', options: ['西貝流士', '史麥塔納', '莫札特'], ans: 2, exp: '莫札特屬於古典時期。' },
+                    { q: "浪漫時代的鋼琴裝上了什麼，讓聲音又大又響亮？", options: ["鐵做的骨架", "塑膠外殼", "電子喇叭"], ans: 0, exp: "鐵骨架讓琴弦拉得更緊，聲音更大。" },
+                    { q: "今天的標準鋼琴一共有幾個琴鍵？", options: ["88 個", "52 個", "120 個"], ans: 0, exp: "標準鋼琴有 88 個鍵。" },
+                    { q: "貝多芬在《第五號交響曲》最後一個樂章加進了哪些樂器？", options: ["長號、短笛和倍低音管", "電吉他和爵士鼓", "直笛和三角鐵"], ans: 0, exp: "加進長號、短笛和倍低音管，聲音更壯觀。" },
+                    { q: "浪漫時代的管弦樂團人數有什麼變化？", options: ["越來越多，有的作品要上百位演奏家", "越來越少，只剩三個人", "完全沒有改變"], ans: 0, exp: "樂團越來越大，浪漫後期甚至要上百人。" },
+                    { q: "沒有故事、只欣賞聲音本身的音樂叫什麼？", options: ["絕對音樂", "標題音樂", "敘事曲"], ans: 0, exp: "有故事的是標題音樂，沒有故事的是絕對音樂。" },
+                    { q: "貝多芬《田園交響曲》用哪三種樂器模仿夜鶯、鵪鶉和布穀鳥？", options: ["長笛、雙簧管、單簧管", "小號、長號、低音號", "定音鼓、鈸、大鼓"], ans: 0, exp: "長笛扮夜鶯、雙簧管扮鵪鶉、單簧管扮布穀鳥。" },
+                    { q: "《田園交響曲》哪一個樂章的小標題描寫天氣突然變壞？", options: ["暴風雨", "月光", "小星星"], ans: 0, exp: "《田園》裡有一段「暴風雨」。" },
+                    { q: "1830 年用音樂講一位年輕藝術家奇幻夢境的《幻想交響曲》，作者是誰？", options: ["白遼士", "舒伯特", "羅西尼"], ans: 0, exp: "法國作曲家白遼士寫了《幻想交響曲》。" },
+                    { q: "樂器變強了，對作曲家有什麼幫助？", options: ["能寫出更大聲、更多顏色的音樂", "只能寫更小聲的曲子", "從此不能轉調"], ans: 0, exp: "樂器進步，音樂的聲音和色彩就更豐富。" },
+                    { q: "《田園交響曲》每個樂章都有小標題，它屬於哪一種音樂？", options: ["標題音樂", "絕對音樂", "練習曲"], ans: 0, exp: "有標題、有畫面，就是標題音樂。" }
                 ]
             },
             {
@@ -1127,7 +1254,21 @@
                         <li><strong>感人故事</strong>：在聽力下降的情況下仍堅持創作，靠感受鋼琴震動與內心聽覺譜曲。</li>
                         <li><strong>驚人作品量</strong>：9 部交響曲、36 首鋼琴奏鳴曲（其中 32 首有編號，1 首未完成 WoO. 51）、10 部小提琴奏鳴曲、16 首弦樂四重奏、1 部歌劇及 2 部彌撒曲。</li>
                         <li><strong>必考代表作</strong>：32 首鋼琴奏鳴曲、第 3、5、6、9 號交響曲（英雄、命運、田園、合唱）與<strong>《莊嚴彌撒》</strong>！</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="聽不見也不放棄，這就是貝多芬最打動人的地方喵！">🔇 聽不見的作曲家</h3>
+<ul>
+<li>👂 貝多芬大約 <strong>20 多歲</strong>時，耳朵開始嗡嗡叫，聽力越來越差。</li>
+<li>✉️ 1802 年，他在維也納郊外寫下一封信，後來被稱為《<strong>海利根施塔特遺書</strong>》。信裡說出心中的痛苦，但他也決定：為了音樂，要勇敢活下去！</li>
+<li>📒 後來他幾乎全聾，就用「<strong>談話簿</strong>」請朋友把話寫下來，和他聊天。</li>
+<li>👏 1824 年《第九號交響曲》首演，他站在台上一起指揮。音樂結束時他背對觀眾，聽不到掌聲；一位<strong>女歌手</strong>輕輕把他轉過身，他才看見全場觀眾揮舞帽子和手帕為他喝采。</li>
+</ul>
+<h3 data-tip="月光這個名字不是貝多芬取的，是樂評家取的喔喵！">🎵 名曲的小秘密</h3>
+<ul>
+<li>🎹 〈<strong>給愛麗絲</strong>〉：1810 年寫的鋼琴小品，貝多芬生前沒有出版，直到 <strong>1867 年</strong>才被人發現並出版。有一種說法是：曲名原本是「給<strong>泰瑞莎</strong>」，抄寫時看錯成「愛麗絲」。</li>
+<li>🌕 《<strong>月光奏鳴曲</strong>》：「月光」不是貝多芬取的！他過世後，一位<strong>樂評家</strong>說第一樂章像月光灑在瑞士<strong>琉森湖</strong>上，這個名字就流傳下來。</li>
+<li>🎶 〈<strong>歡樂頌</strong>〉：《第九號交響曲》第四樂章的合唱，歌詞來自德國詩人<strong>席勒</strong>，今天是<strong>歐洲聯盟</strong>的盟歌。</li>
+</ul>
+`,
                 mnemonic: '「樂聖貝多芬，承古典啟浪漫；聽不見照樣寫，交響 3、5、6、9 最震撼！」',
                 audioIntro: '6 首鐘琴版賞析：命運、英雄、田園、合唱，再加上大家都聽過的〈給愛麗絲〉和〈月光〉。',
                 audio: ['b5', 'b3', 'b6', 'b9', 'elise', 'moon'],
@@ -1142,7 +1283,17 @@
                     { q: '貝多芬寫了幾首弦樂四重奏與幾部小提琴奏鳴曲？', options: ['16 首弦樂四重奏、10 部小提琴奏鳴曲', '2 首', '50 首'], ans: 0, exp: '16 首弦樂四重奏、10 部小提琴奏鳴曲。' },
                     { q: '下列哪一組交響曲編號是貝多芬最著名的四大必考代表作？', options: ['第 3、5、6、9 號', '第 1、2、4、7 號', '第 8、10 號'], ans: 0, exp: '第 3 英雄、第 5 命運、第 6 田園、第 9 合唱。' },
                     { q: '貝多芬著名的宗教合唱代表作是哪一部？', options: ['《莊嚴彌撒》', '《魔彈射手》', '《天鵝之歌》'], ans: 0, exp: '《莊嚴彌撒》是貝多芬的宗教合唱代表作；《魔彈射手》是韋伯的歌劇，《天鵝之歌》是舒伯特的歌曲集。' },
-                    { q: '《第五交響曲（命運）》開頭著名的四音動機聽起來像什麼？', options: ['命運在敲門（登登登登—）', '小溪流水', '馬車鈴鐺'], ans: 0, exp: '「短-短-短-長」的四音動機，象徵命運來敲門。' }
+                    { q: '《第五交響曲（命運）》開頭著名的四音動機聽起來像什麼？', options: ['命運在敲門（登登登登—）', '小溪流水', '馬車鈴鐺'], ans: 0, exp: '「短-短-短-長」的四音動機，象徵命運來敲門。' },
+                    { q: "貝多芬大約幾歲開始耳朵嗡嗡叫、聽力變差？", options: ["20 多歲", "5 歲", "70 多歲"], ans: 0, exp: "大約 20 多歲就開始耳鳴、聽力下降。" },
+                    { q: "1802 年貝多芬說出痛苦、卻決定為音樂活下去的那封信，後來被稱為什麼？", options: ["《海利根施塔特遺書》", "《給愛麗絲》", "《莊嚴彌撒》"], ans: 0, exp: "那封信叫《海利根施塔特遺書》。" },
+                    { q: "貝多芬幾乎全聾後，用什麼方法和朋友聊天？", options: ["談話簿：請朋友把話寫下來", "打電話", "傳簡訊"], ans: 0, exp: "他用談話簿和朋友筆談。" },
+                    { q: "1824 年《第九號交響曲》首演結束時，貝多芬為什麼沒有馬上回應掌聲？", options: ["他背對觀眾，又聽不到掌聲", "他睡著了", "他先離開了"], ans: 0, exp: "一位女歌手把他轉過身，他才看見大家的喝采。" },
+                    { q: "首演時是誰把貝多芬轉過身，讓他看到觀眾的喝采？", options: ["一位女歌手", "拿破崙", "舒伯特"], ans: 0, exp: "是台上的一位女歌手。" },
+                    { q: "〈給愛麗絲〉是什麼時候出版的？", options: ["貝多芬過世後，1867 年才被發現並出版", "寫完馬上出版大賣", "1700 年"], ans: 0, exp: "手稿到 1867 年才被發現出版。" },
+                    { q: "有一種說法認為〈給愛麗絲〉原本是給誰的？", options: ["泰瑞莎", "阿嘉特", "康絲坦采"], ans: 0, exp: "可能是「給泰瑞莎」被抄錯成「愛麗絲」。" },
+                    { q: "「月光奏鳴曲」這個名字是誰取的？", options: ["貝多芬過世後的一位樂評家", "貝多芬自己", "莫札特"], ans: 0, exp: "名字是樂評家取的，不是貝多芬。" },
+                    { q: "樂評家說《月光奏鳴曲》第一樂章像月光灑在哪裡？", options: ["瑞士的琉森湖上", "臺灣的日月潭上", "埃及的金字塔上"], ans: 0, exp: "像月光灑在琉森湖上。" },
+                    { q: "〈歡樂頌〉的歌詞來自哪位詩人？今天又是哪個組織的盟歌？", options: ["席勒；歐洲聯盟", "歌德；聯合國", "霍夫曼；奧運"], ans: 0, exp: "歌詞是席勒的詩，今天是歐盟的盟歌。" }
                 ]
             },
             {
@@ -1164,7 +1315,22 @@
                             </ul>
                         </li>
                         <li><strong>其他名作</strong>：三部單簧管協奏曲（其中一部為小協奏曲）、鋼琴曲<strong>《邀舞》</strong>。</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="第 7 顆魔彈由魔鬼決定，好可怕！還好最後有隱士幫忙喵～">🎯 《魔彈射手》在演什麼？</h3>
+<ul>
+<li>🏹 年輕的獵人<strong>馬克斯</strong>要參加射擊比賽，贏了才能娶心愛的<strong>阿嘉特</strong>。</li>
+<li>😈 他最近總是射不準，壞心的獵人<strong>卡斯帕</strong>就騙他：半夜到可怕的「<strong>狼谷</strong>」鑄造魔彈，保證百發百中！</li>
+<li>🔫 魔彈一共 <strong>7 顆</strong>：前 6 顆會乖乖射中目標，<strong>第 7 顆卻由魔鬼決定</strong>要射向哪裡……</li>
+<li>🙏 比賽那天，第 7 顆子彈差點傷到阿嘉特，最後一位<strong>隱士</strong>出面幫忙，故事才圓滿結束。</li>
+</ul>
+<p>劇裡有森林、獵人、魔鬼和號角聲，充滿德國民間傳說的味道，所以成為<strong>德國第一部浪漫主義歌劇</strong>。</p>
+<h3 data-tip="韋伯的堂姊嫁給了莫札特！音樂家族真厲害喵！">💃 韋伯的有趣小檔案</h3>
+<ul>
+<li>👨‍👩‍👧 韋伯的堂姊<strong>康絲坦采</strong>嫁給了<strong>莫札特</strong>，所以莫札特算是韋伯的堂姊夫！</li>
+<li>💃 1819 年的鋼琴曲《<strong>邀舞</strong>》描寫一位紳士邀請小姐跳舞：邀請、跳舞、道謝、告別，就像一個小故事。後來法國作曲家<strong>白遼士</strong>把它改編成管弦樂版。</li>
+<li>🕊️ 韋伯 1826 年在倫敦過世。18 年後，<strong>華格納</strong>幫忙把他的遺體接回德國的德勒斯登安葬。</li>
+</ul>
+`,
                 mnemonic: '「劇團小孩卡爾韋伯，民間故事裝滿車；《魔彈射手》第一部，還有《奧伯龍》與《邀舞》！」',
                 audioIntro: '森林號角與魔法號角：聽聽韋伯的德國浪漫味。',
                 audio: ['frei', 'ober'],
@@ -1179,7 +1345,17 @@
                     { q: '韋伯 1823 年的《歐瑟安特》有什麼創新的特色？', options: ['沒有口白、音樂持續不斷，重現中世紀騎士氣氛', '全部用清唱', '只有鋼琴'], ans: 0, exp: '《歐瑟安特》沒有口白，音樂從頭到尾不間斷。' },
                     { q: '韋伯 1824 年受皇家歌劇院邀請創作了哪一部歌劇？', options: ['《奧伯龍》', '《理髮師》', '《鱒魚》'], ans: 0, exp: '《奧伯龍》是受皇家歌劇院之邀創作的。' },
                     { q: '韋伯最後因為什麼原因客死在倫敦？', options: ['長途旅行勞累加上肺病', '在海邊迷路', '吃太多義大利麵'], ans: 0, exp: '他抱病赴倫敦指揮《奧伯龍》首演，因長途勞累與肺病客死異鄉。' },
-                    { q: '除了歌劇，韋伯還寫了三部哪種樂器的協奏曲以及鋼琴名曲《邀舞》？', options: ['單簧管協奏曲', '小號協奏曲', '定音鼓協奏曲'], ans: 0, exp: '三部單簧管協奏曲（其中一部為小協奏曲）。' }
+                    { q: '除了歌劇，韋伯還寫了三部哪種樂器的協奏曲以及鋼琴名曲《邀舞》？', options: ['單簧管協奏曲', '小號協奏曲', '定音鼓協奏曲'], ans: 0, exp: '三部單簧管協奏曲（其中一部為小協奏曲）。' },
+                    { q: "《魔彈射手》裡的年輕獵人馬克斯為什麼要贏射擊比賽？", options: ["贏了才能娶心愛的阿嘉特", "為了得到一匹馬", "為了當國王"], ans: 0, exp: "贏了比賽才能娶阿嘉特。" },
+                    { q: "壞獵人卡斯帕騙馬克斯半夜去哪裡鑄造魔彈？", options: ["狼谷", "熊山", "天鵝湖"], ans: 0, exp: "在可怕的狼谷鑄造魔彈。" },
+                    { q: "《魔彈射手》裡的魔彈一共有幾顆？", options: ["7 顆", "3 顆", "12 顆"], ans: 0, exp: "魔彈一共 7 顆。" },
+                    { q: "第 7 顆魔彈會射向哪裡，由誰決定？", options: ["魔鬼", "馬克斯自己", "國王"], ans: 0, exp: "前 6 顆聽射手的話，第 7 顆由魔鬼決定。" },
+                    { q: "《魔彈射手》最後是誰出面幫忙，讓故事圓滿結束？", options: ["一位隱士", "拿破崙", "羅西尼"], ans: 0, exp: "一位隱士出面，故事圓滿結束。" },
+                    { q: "為什麼《魔彈射手》充滿浪漫的味道？", options: ["有森林、獵人、魔鬼和號角聲，像德國民間傳說", "講的是工廠機器", "完全沒有故事"], ans: 0, exp: "森林、獵人、魔鬼、傳說，都是浪漫的元素。" },
+                    { q: "韋伯的堂姊康絲坦采嫁給了哪位大作曲家？", options: ["莫札特", "貝多芬", "舒伯特"], ans: 0, exp: "康絲坦采是莫札特的太太。" },
+                    { q: "韋伯 1819 年的鋼琴曲《邀舞》描寫什麼情節？", options: ["紳士邀請小姐跳舞、道謝、告別", "獵人射箭比賽", "魚在小溪跳"], ans: 0, exp: "《邀舞》就像一場舞會的小故事。" },
+                    { q: "後來把《邀舞》改編成管弦樂版的是哪位法國作曲家？", options: ["白遼士", "羅西尼", "李斯特"], ans: 0, exp: "白遼士把《邀舞》改編成管弦樂版。" },
+                    { q: "韋伯在倫敦過世後，是誰幫忙把他的遺體接回德國安葬？", options: ["華格納", "貝多芬", "莫札特"], ans: 0, exp: "18 年後，華格納幫忙把韋伯接回德勒斯登。" }
                 ]
             },
             {
@@ -1199,7 +1375,22 @@
                                 <li><strong>《塞爾維亞的理髮師》</strong>：機智理髮師費加洛幫忙撮合愛情的爆笑喜歌劇！</li>
                             </ul>
                         </li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="首演有貓跑上舞台？黑貓老師發誓不是我喵！">⚡ 寫歌劇的速度王</h3>
+<ul>
+<li>✍️ 羅西尼寫曲子超級快！《塞爾維亞的理髮師》據說<strong>不到三個星期</strong>就寫完了。</li>
+<li>😵 1816 年在羅馬首演那天卻一團亂：演員跌倒、觀眾喝倒采，據說還有<strong>一隻貓跑上舞台</strong>！</li>
+<li>🎉 第二晚就成功了，從此成為最受歡迎的喜歌劇之一。</li>
+<li>✂️ 劇中理髮師<strong>費加洛</strong>唱的〈<strong>我是城裡的忙人</strong>〉，會一直唱「費加洛！費加洛！」，超好記。</li>
+</ul>
+<h3 data-tip="四段序曲：黎明、暴風雨、牧場、進行曲，最後一段最熱血喵！">🍳 退休當大廚</h3>
+<ul>
+<li>🎭 1829 年，<strong>37 歲</strong>的羅西尼寫完《威廉泰爾》後，就<strong>不再寫歌劇</strong>了，之後又活了將近 40 年。</li>
+<li>🥩 他愛吃也愛做菜，一道用牛排、鵝肝和松露做的料理，就叫「<strong>羅西尼牛排</strong>」。</li>
+<li>🐎 《威廉泰爾》序曲分成四段：🌅 <strong>黎明</strong> → ⛈️ <strong>暴風雨</strong> → 🐄 <strong>寧靜的牧場</strong> → 🎺 <strong>瑞士軍隊進行曲</strong>。最後一段就是運動會常播的「萬馬奔騰」。</li>
+<li>😢 據說他一生只哭過三次：歌劇第一次被喝倒采、聽到帕格尼尼拉小提琴，還有一隻塞滿松露的火雞掉進水裡！</li>
+</ul>
+`,
                 mnemonic: '「二二九出生羅西尼，三十九部義大利歌劇；左射蘋果《威廉泰爾》，右拿剪刀《理髮師》！」',
                 audioIntro: '左邊射蘋果、右邊拿剪刀：兩首必考序曲。',
                 audio: ['tell', 'barb'],
@@ -1214,7 +1405,17 @@
                     { q: '運動會大隊接力或卡通賽馬時常聽到的超快進行曲，來自哪一首序曲？', options: ['《威廉泰爾》序曲', '《未完成》交響曲', '《野玫瑰》'], ans: 0, exp: '《威廉泰爾》序曲的終段像萬馬奔騰。' },
                     { q: '羅西尼另一部代表作《塞爾維亞的理髮師》是什麼類型的歌劇？', options: ['機智爆笑的喜歌劇', '恐怖鬼故事', '中世紀騎士悲劇'], ans: 0, exp: '機智理髮師費加洛幫忙撮合愛情的爆笑喜歌劇。' },
                     { q: '羅西尼活到幾歲左右（1792–1868）？', options: ['31 歲', '76 歲', '40 歲'], ans: 1, exp: '1868 − 1792 ＝ 76，他活到 76 歲。' },
-                    { q: '下列哪一首「不是」羅西尼的作品？', options: ['《威廉泰爾》', '《塞爾維亞的理髮師》', '《奧伯龍》'], ans: 2, exp: '《奧伯龍》是韋伯的歌劇。' }
+                    { q: '下列哪一首「不是」羅西尼的作品？', options: ['《威廉泰爾》', '《塞爾維亞的理髮師》', '《奧伯龍》'], ans: 2, exp: '《奧伯龍》是韋伯的歌劇。' },
+                    { q: "《塞爾維亞的理髮師》據說大約花多久寫完？", options: ["不到三個星期", "整整十年", "一天"], ans: 0, exp: "羅西尼寫曲超快，據說不到三週。" },
+                    { q: "1816 年《塞爾維亞的理髮師》在羅馬首演那天怎麼了？", options: ["一團亂、被喝倒采，據說還有貓跑上舞台", "大成功，觀眾鼓掌一小時", "因為下雨取消"], ans: 0, exp: "首演一團亂，第二晚才成功。" },
+                    { q: "《塞爾維亞的理髮師》首演失敗之後呢？", options: ["第二晚就成功，成為最受歡迎的喜歌劇之一", "從此再也沒有演出", "被改成交響曲"], ans: 0, exp: "第二晚就大受歡迎。" },
+                    { q: "劇中理髮師費加洛唱的名曲是哪一首？", options: ["〈我是城裡的忙人〉", "〈歡樂頌〉", "〈鱒魚〉"], ans: 0, exp: "費加洛唱〈我是城裡的忙人〉。" },
+                    { q: "羅西尼寫完哪一部歌劇後，就不再寫歌劇了？", options: ["《威廉泰爾》", "《塞爾維亞的理髮師》", "《魔彈射手》"], ans: 0, exp: "1829 年《威廉泰爾》是他最後一部歌劇。" },
+                    { q: "羅西尼寫完最後一部歌劇時大約幾歲？", options: ["37 歲", "18 歲", "76 歲"], ans: 0, exp: "37 歲就不再寫歌劇了。" },
+                    { q: "用牛排、鵝肝和松露做的料理，取了誰的名字？", options: ["羅西尼", "貝多芬", "韋伯"], ans: 0, exp: "這道菜叫「羅西尼牛排」。" },
+                    { q: "《威廉泰爾》序曲分成四段，正確順序是？", options: ["黎明→暴風雨→寧靜的牧場→瑞士軍隊進行曲", "進行曲→黎明→牧場→暴風雨", "暴風雨→進行曲→黎明→牧場"], ans: 0, exp: "黎明、暴風雨、牧場、進行曲。" },
+                    { q: "運動會常播的「萬馬奔騰」是《威廉泰爾》序曲的哪一段？", options: ["最後一段：瑞士軍隊進行曲", "第一段：黎明", "第三段：寧靜的牧場"], ans: 0, exp: "最後一段的進行曲最熱血！" },
+                    { q: "傳說羅西尼一生只哭過三次，下列哪一次是其中之一？", options: ["塞滿松露的火雞掉進水裡", "考試拿 100 分", "第一次看到下雪"], ans: 0, exp: "還有歌劇被喝倒采、聽到帕格尼尼拉琴。" }
                 ]
             },
             {
@@ -1236,7 +1437,22 @@
                             </ul>
                         </li>
                         <li><strong>感人結局</strong>：死後安葬在他生前極為崇拜卻只見過幾面的貝多芬墳墓旁。</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="鋼琴的三連音就是馬蹄聲，一位歌手要演四個角色喵！">🐎 18 歲的名曲〈魔王〉</h3>
+<ul>
+<li>📜 1815 年，<strong>18 歲</strong>的舒伯特讀了<strong>歌德</strong>的詩〈魔王〉，把它寫成歌曲。</li>
+<li>🌫️ 故事：深夜裡，爸爸抱著生病的兒子騎馬趕路。魔王一直溫柔地呼喚孩子，孩子嚇得大叫，爸爸卻說那只是霧和風聲……到家時，孩子已經離開了人世。</li>
+<li>🎤 一位歌手要唱出<strong>四個角色</strong>：說書人、爸爸、兒子、魔王，用不同的聲音表演。</li>
+<li>🐎 鋼琴一直快速彈著<strong>三連音</strong>，就像馬蹄「答答答」不停奔跑。</li>
+</ul>
+<h3 data-tip="朋友幫他辦的音樂聚會，就叫舒伯特聚會喵！">☕ 舒伯特聚會</h3>
+<ul>
+<li>🍄 舒伯特個子不高，戴著圓眼鏡，好朋友們暱稱他「<strong>小蘑菇</strong>」。</li>
+<li>🎉 朋友們常在家裡辦聚會，聽舒伯特彈新寫的歌、一起唱歌跳舞、朗讀詩，這種聚會叫「<strong>舒伯特聚會</strong>」。</li>
+<li>🐟 〈鱒魚〉這首歌很受歡迎，後來他把旋律放進《鱒魚五重奏》的<strong>第四樂章</strong>，寫成變奏曲。這首五重奏少見地用了<strong>低音提琴</strong>。</li>
+<li>📜 《未完成交響曲》寫於 1822 年，只完成<strong>兩個樂章</strong>，樂譜一直被朋友收著，直到 <strong>1865 年</strong>才第一次演出，那時舒伯特已經過世 37 年了。</li>
+</ul>
+`,
                 mnemonic: '「歌曲之王舒伯特，31 歲寫 600 歌；《未完成》加《鱒魚》游，磨坊冬旅天鵝飛！」',
                 audioIntro: '歌曲之王的五首作品：〈鱒魚〉、〈野玫瑰〉、〈搖籃曲〉，再加上《未完成交響曲》和《冬之旅》〈菩提樹〉。',
                 audio: ['trout', 'rose', 'lull', 'unfin', 'linden'],
@@ -1251,7 +1467,17 @@
                     { q: '舒伯特的 9 首交響曲中，第 7 號與第 10 號只有草稿，最著名的是哪一號？', options: ['第 8 號《未完成交響曲》', '第 5 號《命運》', '第 9 號《合唱》'], ans: 0, exp: '第 8 號《未完成交響曲》只完成兩個樂章；《命運》《合唱》是貝多芬的。' },
                     { q: '舒伯特著名的「三大聯篇歌曲集」不包括下列哪一部？', options: ['《美麗的磨坊少女》', '《冬之旅》', '《魔彈射手》'], ans: 2, exp: '《魔彈射手》是韋伯的歌劇。' },
                     { q: '舒伯特描寫魚兒在清澈小溪跳躍的室內樂五重奏叫什麼名字？', options: ['《鱒魚》', '《死與少女》', '《羅莎蒙》'], ans: 0, exp: '《鱒魚》五重奏；《死與少女》是弦樂四重奏，《羅莎蒙》是序曲。' },
-                    { q: '舒伯特生前最崇拜哪位大師（只見過幾面），死後也安葬在他墳墓旁？', options: ['貝多芬', '韋伯', '羅西尼'], ans: 0, exp: '舒伯特死後安葬在貝多芬墳墓旁。' }
+                    { q: '舒伯特生前最崇拜哪位大師（只見過幾面），死後也安葬在他墳墓旁？', options: ['貝多芬', '韋伯', '羅西尼'], ans: 0, exp: '舒伯特死後安葬在貝多芬墳墓旁。' },
+                    { q: "舒伯特寫〈魔王〉時大約幾歲？", options: ["18 歲", "8 歲", "31 歲"], ans: 0, exp: "1815 年，他才 18 歲。" },
+                    { q: "〈魔王〉的歌詞是哪位詩人寫的？", options: ["歌德", "席勒", "霍夫曼"], ans: 0, exp: "歌詞是歌德的詩。" },
+                    { q: "〈魔王〉裡，一位歌手要唱出幾個角色？", options: ["4 個：說書人、爸爸、兒子、魔王", "1 個", "10 個"], ans: 0, exp: "一人分飾四角！" },
+                    { q: "〈魔王〉的鋼琴伴奏一直快速彈著三連音，像什麼聲音？", options: ["馬蹄奔跑", "下雨", "鐘聲"], ans: 0, exp: "三連音就像馬蹄不停奔跑。" },
+                    { q: "好朋友們幫舒伯特取了什麼可愛綽號？", options: ["小蘑菇", "小麵包", "小獅子"], ans: 0, exp: "個子不高的舒伯特被叫做「小蘑菇」。" },
+                    { q: "朋友們聚在一起聽舒伯特的新歌、唱歌跳舞的聚會叫什麼？", options: ["舒伯特聚會", "貝多芬派對", "羅西尼晚宴"], ans: 0, exp: "這種聚會叫「舒伯特聚會」。" },
+                    { q: "舒伯特把〈鱒魚〉的旋律放進《鱒魚五重奏》的第幾樂章？", options: ["第四樂章", "第一樂章", "第九樂章"], ans: 0, exp: "第四樂章是〈鱒魚〉的變奏曲。" },
+                    { q: "《鱒魚五重奏》少見地用了哪一種大型樂器？", options: ["低音提琴", "管風琴", "豎琴"], ans: 0, exp: "這首五重奏用了低音提琴。" },
+                    { q: "《未完成交響曲》一共完成了幾個樂章？", options: ["2 個", "4 個", "9 個"], ans: 0, exp: "只完成兩個樂章。" },
+                    { q: "《未完成交響曲》在哪一年第一次演出？", options: ["1865 年（舒伯特過世 37 年後）", "1822 年", "1797 年"], ans: 0, exp: "樂譜被朋友收著，1865 年才首演。" }
                 ]
             },
             {
@@ -1282,7 +1508,22 @@
                         <li><strong>【中期】</strong>：威爾第、華格納、布拉姆斯、小約翰·史特勞斯、布魯克納、比才、聖桑</li>
                         <li><strong>【民族樂派】</strong>：柴可夫斯基、史麥塔納、德弗札克、葛利格</li>
                         <li><strong>【後期】</strong>：馬勒、理查·史特勞斯</li>
-                    </ul>`,
+                    </ul>
+<h3 data-tip="貝多芬就像大家的偶像，其他三位天王都跟他有故事喵！">🤝 四大天王其實互相認識！</h3>
+<ul>
+<li>🍝 <strong>1822 年</strong>，羅西尼到維也納拜訪貝多芬。貝多芬稱讚《塞爾維亞的理髮師》，還勸他多寫喜歌劇。</li>
+<li>🏹 <strong>1823 年</strong>，韋伯也去拜訪貝多芬，兩人聊得很開心。</li>
+<li>🕯️ <strong>1827 年</strong>貝多芬的葬禮上，舒伯特是拿著火炬送行的人之一；隔年舒伯特也過世，被安葬在貝多芬旁邊。</li>
+</ul>
+<h3 data-tip="最年長貝多芬、最長壽羅西尼、最年輕就過世的是舒伯特，記起來喵！">⏳ 四大天王的生命長度</h3>
+<ul>
+<li>😤 貝多芬：1770–1827（56 歲）</li>
+<li>🏹 韋伯：1786–1826（39 歲）</li>
+<li>🍝 羅西尼：1792–1868（<strong>76 歲</strong>）</li>
+<li>🎤 舒伯特：1797–1828（<strong>31 歲</strong>）</li>
+</ul>
+<p>發現了嗎？貝多芬、韋伯、舒伯特在 <strong>1826～1828 年</strong>這三年間接連過世，只有羅西尼活到 76 歲，還看到了浪漫樂派的【前期】和【中期】。</p>
+`,
                 mnemonic: null,
                 audioIntro: '四大天王點唱機：每人一首代表作，複習一下！',
                 audio: ['b5', 'elise', 'frei', 'tell', 'trout', 'linden'],
@@ -1297,7 +1538,17 @@
                     { q: '下列哪一位作曲家屬於下一階段的「前期」（不是本冊的早期）？', options: ['蕭邦', '貝多芬', '舒伯特'], ans: 0, exp: '蕭邦屬於【前期】；貝多芬、舒伯特是【早期】。' },
                     { q: '威爾第、華格納、布拉姆斯、比才、聖桑屬於浪漫樂派的哪一個階段？', options: ['【中期】', '【早期】', '【前期】'], ans: 0, exp: '他們都在【中期】這一站。' },
                     { q: '柴可夫斯基、史麥塔納、德弗札克、葛利格屬於講義總表中的哪一派？', options: ['【民族樂派】', '【早期】', '【古典樂派】'], ans: 0, exp: '他們是重視家鄉文化的【民族樂派】。' },
-                    { q: '馬勒與理查·史特勞斯位於浪漫樂派五階段的最後哪一站？', options: ['【後期】', '【早期】', '【前期】'], ans: 0, exp: '馬勒與理查·史特勞斯是【後期】。' }
+                    { q: '馬勒與理查·史特勞斯位於浪漫樂派五階段的最後哪一站？', options: ['【後期】', '【早期】', '【前期】'], ans: 0, exp: '馬勒與理查·史特勞斯是【後期】。' },
+                    { q: "1822 年，哪位天王到維也納拜訪貝多芬？", options: ["羅西尼", "舒伯特", "韋伯"], ans: 0, exp: "1822 年羅西尼拜訪貝多芬。" },
+                    { q: "貝多芬稱讚了羅西尼的哪一部作品，還勸他多寫喜歌劇？", options: ["《塞爾維亞的理髮師》", "《威廉泰爾》", "《奧伯龍》"], ans: 0, exp: "貝多芬稱讚《塞爾維亞的理髮師》。" },
+                    { q: "1823 年也去拜訪貝多芬、兩人聊得很開心的是誰？", options: ["韋伯", "羅西尼", "舒伯特"], ans: 0, exp: "1823 年韋伯拜訪貝多芬。" },
+                    { q: "1827 年貝多芬的葬禮上，舒伯特擔任什麼？", options: ["拿火炬送行的人", "樂團指揮", "主持人"], ans: 0, exp: "舒伯特拿著火炬為偶像送行。" },
+                    { q: "四大天王中，誰最年長（1770 年出生）？", options: ["貝多芬", "韋伯", "舒伯特"], ans: 0, exp: "貝多芬 1770 年出生，最年長。" },
+                    { q: "四大天王中，誰最長壽（活到 76 歲）？", options: ["羅西尼", "貝多芬", "韋伯"], ans: 0, exp: "羅西尼 1792–1868，活到 76 歲。" },
+                    { q: "韋伯（1786–1826）大約活了幾歲？", options: ["39 歲", "31 歲", "76 歲"], ans: 0, exp: "韋伯大約活了 39 歲。" },
+                    { q: "貝多芬（1770–1827）大約活了幾歲？", options: ["56 歲", "31 歲", "76 歲"], ans: 0, exp: "貝多芬大約活了 56 歲。" },
+                    { q: "哪三位天王在 1826～1828 年這三年間接連過世？", options: ["貝多芬、韋伯、舒伯特", "羅西尼、韋伯、舒伯特", "貝多芬、羅西尼、舒伯特"], ans: 0, exp: "只有羅西尼活得特別久。" },
+                    { q: "哪一位天王活得夠久，還看到浪漫樂派的前期和中期？", options: ["羅西尼", "舒伯特", "韋伯"], ans: 0, exp: "羅西尼活到 1868 年。" }
                 ]
             },
             {
@@ -1327,7 +1578,15 @@
                     { q: '【🎧 聽音辨曲】震撼的「短-短-短-長」四音敲門動機，是哪位大師的名曲？', listen: 'b5', options: ['貝多芬《第五交響曲・命運》', '舒伯特〈鱒魚〉', '羅西尼《威廉泰爾》序曲'], ans: 0, exp: '「命運來敲門」：貝多芬《第五交響曲》。' },
                     { q: '【🎧 聽音辨曲】像萬馬奔騰一樣熱血的進行曲節奏，是哪一部歌劇的序曲？', listen: 'tell', options: ['韋伯《魔彈射手》', '羅西尼《威廉泰爾》', '貝多芬《第九交響曲》'], ans: 1, exp: '羅西尼《威廉泰爾》序曲終段，運動會最愛播。' },
                     { q: '【🎧 聽音辨曲】像魚兒在小溪裡輕快跳躍的旋律，是舒伯特的哪一首作品？', listen: 'trout', options: ['《冬之旅》', '《未完成交響曲》', '《鱒魚》'], ans: 2, exp: '舒伯特〈鱒魚〉，旋律也用在《鱒魚》五重奏。' },
-                    { q: '【🎧 聽音辨曲】悠長神祕的三音號角聲，來自韋伯最後前往倫敦指揮首演的哪部歌劇序曲？', listen: 'ober', options: ['《奧伯龍》', '《歐瑟安特》', '《魔彈射手》'], ans: 0, exp: '《奧伯龍》序曲開頭的三音魔法號角。' }
+                    { q: '【🎧 聽音辨曲】悠長神祕的三音號角聲，來自韋伯最後前往倫敦指揮首演的哪部歌劇序曲？', listen: 'ober', options: ['《奧伯龍》', '《歐瑟安特》', '《魔彈射手》'], ans: 0, exp: '《奧伯龍》序曲開頭的三音魔法號角。' },
+                    { q: "1824 年《第九號交響曲》首演時，幾乎全聾的貝多芬怎麼知道觀眾在喝采？", options: ["女歌手把他轉過身，看到大家揮帽子和手帕", "他聽到很大的掌聲", "有人打電話告訴他"], ans: 0, exp: "他轉過身才看見全場的喝采。" },
+                    { q: "《魔彈射手》裡的第 7 顆魔彈由誰決定射向哪裡？", options: ["魔鬼", "獵人自己", "國王"], ans: 0, exp: "前 6 顆聽射手的話，第 7 顆由魔鬼決定。" },
+                    { q: "羅西尼寫完《威廉泰爾》之後做了什麼？", options: ["不再寫歌劇，研究美食，又活了將近 40 年", "改行當獵人", "馬上寫了 10 部新歌劇"], ans: 0, exp: "37 歲後不再寫歌劇，變成美食家。" },
+                    { q: "舒伯特 18 歲時用歌德的詩寫成、一位歌手要唱四個角色的歌曲是？", options: ["〈魔王〉", "〈鱒魚〉", "〈菩提樹〉"], ans: 0, exp: "〈魔王〉：說書人、爸爸、兒子、魔王。" },
+                    { q: "【🎧 聽音辨曲】這段全世界都會唱的旋律是哪一首？", listen: "b9", options: ["貝多芬〈歡樂頌〉（第九號交響曲）", "舒伯特〈搖籃曲〉", "韋伯〈獵人合唱〉"], ans: 0, exp: "這是〈歡樂頌〉，今天也是歐盟的盟歌。" },
+                    { q: "【🎧 聽音辨曲】這段熱鬧的合唱旋律來自哪裡？", listen: "frei", options: ["韋伯《魔彈射手》〈獵人合唱〉", "貝多芬〈歡樂頌〉", "舒伯特〈菩提樹〉"], ans: 0, exp: "這是《魔彈射手》的〈獵人合唱〉。" },
+                    { q: "【🎧 聽音辨曲】這段輕快的序曲是哪一部歌劇？", listen: "barb", options: ["羅西尼《塞爾維亞的理髮師》", "羅西尼《威廉泰爾》", "韋伯《奧伯龍》"], ans: 0, exp: "這是《塞爾維亞的理髮師》序曲。" },
+                    { q: "【🎧 聽音辨曲】這首鋼琴小品是哪一首？", listen: "elise", options: ["貝多芬〈給愛麗絲〉", "貝多芬《月光奏鳴曲》", "舒伯特〈野玫瑰〉"], ans: 0, exp: "這是〈給愛麗絲〉。" }
                 ]
             }
         ];
@@ -1401,7 +1660,7 @@
             pokes: ['喵？要摸摸頭嗎？', '我是黑貓老師，不是黑輪老師喵！', '播音樂的時候，我會跟著跳舞喔～', '肉球按一下，知識加一百！', '喵～翻到下一頁繼續冒險吧！'],
             result: ['喵……這次沒拿到星星，看看答錯的題目，再挑戰一次吧！', '拿到 1 顆星！回去看看漫畫再來挑戰，一定更好喵～', '2 顆星，很棒喵！再挑戰一次就有機會拿 3 顆星！', '3 顆星！你是浪漫小天才，貼紙送你喵～🎉'],
             quizStart(ci) {
-                const n = chaptersData[ci].quizzes.length;
+                const n = QN(ci);
                 const need = Math.ceil(n * 0.9);
                 return ci === 7
                     ? `最後大魔王！前 12 題是全冊重點，最後 4 題要先按「播放題目音樂」聽一聽再作答。答對 ${need} 題以上拿 3 顆星喵！`
@@ -1712,7 +1971,23 @@
         const QS = chaptersData.map(() => null);
         const starsFor = (right, total) => { const r = right / total; return r >= 0.9 ? 3 : r >= 0.7 ? 2 : r >= 0.5 ? 1 : 0; };
         const starStr = n => '★'.repeat(n) + '☆'.repeat(3 - n);
-        function chapterStars(ci) { const b = Store.data.best[ci]; return b == null ? 0 : starsFor(b, chaptersData[ci].quizzes.length); }
+        function chapterStars(ci) { const b = Store.data.best[ci]; return b == null ? 0 : starsFor(Math.min(b, QN(ci)), QN(ci)); }
+        // 每次闖關從題庫隨機抽題，選項也重新洗牌（答案不會老是 A）
+        const QN = ci => ci === 7 ? 16 : 10;
+        function shuffled(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+        function shuffleOpts(q) {
+            const order = shuffled(q.options.map((_, k) => k));
+            return Object.assign({}, q, { options: order.map(k => q.options[k]), ans: order.indexOf(q.ans) });
+        }
+        function drawQuiz(ci) {
+            const pool = chaptersData[ci].quizzes;
+            let qs;
+            if (ci === 7) {
+                const lis = pool.filter(q => q.listen), txt = pool.filter(q => !q.listen);
+                qs = shuffled(txt).slice(0, QN(ci) - 4).concat(shuffled(lis).slice(0, 4));
+            } else qs = shuffled(pool).slice(0, QN(ci));
+            return qs.map(shuffleOpts);
+        }
         function bestRight(ci) { return Math.max(Store.data.best[ci] || 0, QS[ci] ? QS[ci].right : 0); }
         function totalCoins() { return chaptersData.reduce((s, _, i) => s + bestRight(i) * 10, 0); }
         function totalStars() { return chaptersData.reduce((s, _, i) => s + chapterStars(i), 0); }
@@ -1722,7 +1997,7 @@
         const PAGES = [];
         const CH_START = [];
         function splitContent(html) {
-            const parts = html.split(/(?=<h3>)/).map(s => s.trim()).filter(s => s.replace(/<[^>]+>/g, '').trim());
+            const parts = html.split(/(?=<h3[\s>])/).map(s => s.trim()).filter(s => s.replace(/<[^>]+>/g, '').trim());
             const pages = [];
             let cur = '', len = 0;
             parts.forEach(p => {
@@ -1742,7 +2017,7 @@
                 if (ci < 7) splitContent(ch.content).forEach((html, k, arr) => PAGES.push({ type: 'know', ci, html, k, n: arr.length }));
                 if (ch.audio.length || ch.mnemonic) PAGES.push({ type: 'music', ci });
                 if (COMICS[ci]) PAGES.push({ type: 'comic', ci });
-                if (MEM[ci]) PAGES.push({ type: 'game', ci });
+                if (GAMES[ci]) PAGES.push({ type: 'game', ci });
                 PAGES.push({ type: 'quiz', ci });
             });
             PAGES.push({ type: 'end' });
@@ -1757,7 +2032,7 @@
                     <h1 class="cover-h"><span class="l1">穿越音符時光機！</span><span class="l2">${'浪漫樂派大冒險'.split('').map(c => `<b class="tile">${c}</b>`).join('')}</span><span class="l3">初期 ＆ 早期篇</span></h1>
                     <figure class="frame tilt"><img src="images/hero_cover.jpg" width="1200" height="896" alt="封面插圖：小樂站在古典鋼琴前，穿過 1820 年的金色音符大門，就是充滿故事與色彩的浪漫世界"></figure>
                     ${catBox(CAT.cover)}
-                    <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🔔 27 首鐘琴示範曲', '📝 86 題闖關', '🧠 7 關記憶翻牌', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
+                    <ul class="feat">${['🗺️ 8 關冒險地圖', '🎬 28 格搞笑漫畫', '🔔 27 首鐘琴示範曲', '📝 164 題題庫', '🎮 7 款互動遊戲', '🐾 黑貓老師陪讀'].map(t => `<li>${t}</li>`).join('')}</ul>
                     <div class="cta"><button class="big-btn" onclick="Book.goType('map')">🚀 開始冒險</button>${r > 1 && r < PAGES.length ? `<button class="ghost-btn" onclick="Book.go(${r})">📖 從第 ${r + 1} 頁繼續</button>` : ''}</div>
                     <p class="tip">👆 翻頁：按下方 ◀ ▶、手機左右滑、鍵盤方向鍵都可以。<br>🔈 iPhone／iPad 請先關閉「靜音模式」，才聽得到音樂和朗讀。</p>`;
             },
@@ -1790,8 +2065,8 @@
                 if (knowN) steps.push(`📖 讀 ${knowN} 頁`);
                 if (ch.audio.length) steps.push(`🎧 聽 ${ch.audio.length + (ch.formsAudio || []).length} 首`);
                 if (COMICS[ci]) steps.push('🎬 看漫畫');
-                if (MEM[ci]) steps.push('🧠 翻牌');
-                steps.push(`📝 闖關 ${ch.quizzes.length} 題`);
+                if (GAMES[ci]) steps.push(`${GAMES[ci].icon} ${GAMES[ci].name}`);
+                steps.push(`📝 闖關 ${QN(ci)} 題${ch.quizzes.length > QN(ci) ? `（題庫 ${ch.quizzes.length} 題隨機抽）` : ''}`);
                 const hero = ch.heroImg
                     ? `<figure class="frame"><img src="${ch.heroImg}" width="1200" height="896" alt="${esc(ch.heroCap.replace('▲ ', ''))}"><figcaption>${ch.heroCap}</figcaption></figure>`
                     : `<div class="boss"><div class="trophy">🏆</div><b>最終關卡：16 題大魔王</b><span>📖 全冊重點 12 題 ＋ 🎧 聽音辨曲 4 題</span></div>`;
@@ -1803,10 +2078,11 @@
             },
             know(p) {
                 const tips = CAT.chapters[p.ci].tips;
+                const own = (p.html.match(/data-tip="([^"]+)"/) || [])[1];
                 const hint = p.html.includes('table-wrap') ? '<p class="swipe-hint">👉 表格可以左右滑動看完整內容</p>' : '';
                 return `${headHtml(p.ci, `📖 知識頁 ${p.k + 1} / ${p.n}`)}
                     <div class="story">${p.html}</div>${hint}
-                    ${catBox(tips[p.k] || tips[tips.length - 1] || '')}`;
+                    ${catBox(own || tips[p.k] || tips[tips.length - 1] || '')}`;
             },
             music(p) {
                 const ch = chaptersData[p.ci];
@@ -1835,16 +2111,17 @@
                             </figcaption>
                         </figure>`).join('')}</div>
                     <div class="mn-card comic-sum"><div class="mn-label">💡 漫畫重點</div><p>${CAT.chapters[ci].comicDone.replace(/^重點複習：/, '').replace(/喵！?$/, '')}</p></div>
-                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">🧠 下一頁：記憶翻牌遊戲 ▶</button></div>`;
+                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">${GAMES[ci].icon} 下一頁：${GAMES[ci].name} ▶</button></div>`;
             },
             game(p) {
-                return `${headHtml(p.ci, '🧠 記憶翻牌遊戲')}
-                    <h2 class="comic-name">記憶翻牌大挑戰</h2>
-                    ${catBox('翻兩張牌，一張黃色「題目」配一張藍色「答案」，配對成功就會亮起來！全部 6 對找出來喵～', { cls: 'compact' })}
-                    <div class="mem-hud"></div>
-                    <div class="mem-grid"></div>
-                    <div class="mem-end"></div>
-                    <div class="center"><button class="ghost-btn small" onclick="Mem.mount(${p.ci}, this.closest('.page'))">🔀 重新洗牌</button></div>`;
+                const g = GAMES[p.ci];
+                return `${headHtml(p.ci, `${g.icon} 互動遊戲`)}
+                    <h2 class="comic-name">${g.icon} ${g.name}</h2>
+                    ${catBox(g.intro, { cls: 'compact' })}
+                    <div class="mem-hud gm-hud"></div>
+                    <div class="gm-area no-swipe"></div>
+                    <div class="gm-end"></div>
+                    <div class="center"><button class="ghost-btn small" onclick="Game.mount(${p.ci}, this.closest('.page'))">🔀 重新開始</button></div>`;
             },
             quiz(p) {
                 return `${headHtml(p.ci, '📝 闖關測驗')}
@@ -1897,7 +2174,7 @@
         function onEnter(p, el) {
             if (!el.isConnected) return;
             if (p.type === 'quiz') { Quiz.mount(p.ci, el); return; }
-            if (p.type === 'game' && !el.querySelector('.mem-card')) Mem.mount(p.ci, el);
+            if (p.type === 'game' && !el._g) Game.mount(p.ci, el);
             const box = el.querySelector('.catbox');
             if (box) Cat.say(box, null, box.dataset.mood || 'normal');
         }
@@ -1992,7 +2269,7 @@
             if (p.type === 'cover') return '📕 封面　' + n;
             if (p.type === 'map') return '🗺️ 冒險地圖　' + n;
             if (p.type === 'end') return '🏅 結業證書　' + n;
-            const names = { title: '關卡開場', know: '知識頁', music: '口訣＋音樂', comic: '四格漫畫', game: '記憶翻牌', quiz: '闖關測驗' };
+            const names = { title: '關卡開場', know: '知識頁', music: '口訣＋音樂', comic: '四格漫畫', game: '互動遊戲', quiz: '闖關測驗' };
             return `第 ${p.ci + 1} 關・${names[p.type]}　${n}`;
         }
 
@@ -2069,82 +2346,295 @@
         };
 
 
-        // ===== 記憶翻牌遊戲：每關 6 對（左：題目卡、右：答案卡）=====
-        const MEM = [
-            [['浪漫的字根', '羅馬'], ['音樂浪漫', '1820–1900 年'], ['文學浪漫', '1830–1850 年'], ['幫「浪漫」取名', '霍夫曼'], ['浪漫開山王', '貝多芬'], ['莫札特後來歸回', '古典時期']],
-            [['浪漫樂派重視', '感情與形象'], ['有故事的音樂', '標題音樂'], ['製造驚喜的和聲', '轉調與半音'], ['浪漫先驅', '貝多芬'], ['歌劇王者', '華格納'], ['鋼琴王者', '李斯特']],
-            [['第 3 號交響曲', '英雄'], ['第 5 號交響曲', '命運'], ['第 6 號交響曲', '田園'], ['第 9 號交響曲', '合唱'], ['鋼琴奏鳴曲', '36 首'], ['宗教合唱名作', '《莊嚴彌撒》']],
-            [['德國第一部浪漫歌劇', '《魔彈射手》'], ['1824 年英國邀請', '《奧伯龍》'], ['鋼琴名曲', '《邀舞》'], ['10 歲的作曲老師', '海頓的弟弟'], ['韋伯的媽媽', '歌手'], ['韋伯的爸爸', '巡迴劇團經理']],
-            [['羅西尼的生日', '2 月 29 日'], ['國籍', '義大利'], ['一生寫了', '39 部歌劇'], ['射蘋果的英雄', '《威廉泰爾》'], ['拿剪刀的喜歌劇', '《塞爾維亞的理髮師》'], ['私下的興趣', '美食料理']],
-            [['舒伯特的稱號', '歌曲之王'], ['只活了', '31 歲'], ['藝術歌曲', '600 多首'], ['第 8 號交響曲', '《未完成》'], ['小溪裡跳的魚', '《鱒魚》'], ['最崇拜的大師', '貝多芬']],
-            [['貝多芬', '樂聖'], ['韋伯', '《魔彈射手》'], ['羅西尼', '歌劇大廚'], ['舒伯特', '歌曲之王'], ['「早期」的下一站', '前期'], ['馬勒、理查·史特勞斯', '後期']]
+        // ===== 互動遊戲：每關玩法都不一樣 =====
+        const GAMES = [
+            { type: 'timeline', name: '時光列車排排站', icon: '🚂',
+              intro: '時光列車要出發了！每節車廂是一個年份，從最早的開始，把對的事件卡片放上車廂喵～',
+              done: '時光列車全部坐滿了！',
+              data: [['1770', '貝多芬出生'], ['1804', '貝多芬完成《英雄交響曲》'], ['1810', '霍夫曼點名三位「浪漫作曲家」'], ['1812', '格林兄弟出版第一冊童話'], ['1820', '音樂的浪漫樂派開始'], ['1830', '文學浪漫主義盛行（到 1850 年）'], ['1900', '浪漫樂派大約結束（廣義到 1918 年）']] },
+            { type: 'sort', name: '古典 vs 浪漫分類籃', icon: '🧺',
+              intro: '卡片一張一張出現！它比較像古典的「穿制服排隊」，還是浪漫的「去遊樂園說故事」？點對的籃子喵～',
+              ask: '這張卡片是「古典」還是「浪漫」？',
+              done: '兩個籃子都裝滿了！',
+              data: { bins: [['c', '古典時期', '🎻', '#6CC3EE'], ['r', '浪漫樂派', '🎢', '#F0604D']],
+                cards: [['重視嚴格的形式與結構', 'c'], ['樂句整齊對稱，像穿制服排隊', 'c'], ['作曲家多半替國王、貴族或教會工作', 'c'], ['海頓和莫札特（後來被歸類的時期）', 'c'], ['鋼琴琴鍵少、聲音比較輕', 'c'],
+                        ['重視感情與形象', 'r'], ['用音樂說故事的「標題音樂」', 'r'], ['大量轉調與半音，情緒像坐雲霄飛車', 'r'], ['鋼琴裝上鐵骨架，聲音又大又響亮', 'r'], ['即興曲、敘事曲等小型曲式流行', 'r'], ['各國興起「民族樂派」', 'r'], ['樂團越來越大，有的作品要上百人', 'r']] } },
+            { type: 'listen', name: '聽音猜名曲', icon: '🎧',
+              intro: '貝多芬名曲大集合！每題先按播放聽一聽，再猜是哪一首。耳朵打開喵～',
+              done: '6 首名曲全部聽完了！',
+              data: [['b3', '《英雄》第 3 號交響曲'], ['b5', '《命運》第 5 號交響曲'], ['b6', '《田園》第 6 號交響曲'], ['b9', '〈歡樂頌〉第 9 號交響曲'], ['elise', '〈給愛麗絲〉'], ['moon', '《月光奏鳴曲》']] },
+            { type: 'shoot', name: '魔彈射手打靶', icon: '🎯',
+              intro: '魔彈射手訓練場！靶子會左右移動，瞄準寫著正確答案的那一個，點下去就發射喵！',
+              done: '8 發魔彈全部射完！',
+              data: [['德國第一部浪漫主義歌劇是？', '《魔彈射手》', '《威廉泰爾》', '《鱒魚》'], ['魔彈一共有幾顆？', '7 顆', '3 顆', '10 顆'], ['第 7 顆魔彈由誰決定射向哪裡？', '魔鬼', '國王', '獵人自己'],
+                     ['半夜鑄造魔彈的可怕地方叫？', '狼谷', '熊山', '鹿湖'], ['韋伯的堂姊嫁給了誰？', '莫札特', '貝多芬', '海頓'], ['紳士邀請小姐跳舞的鋼琴曲是？', '《邀舞》', '《月光》', '〈小星星〉'],
+                     ['韋伯為英國倫敦寫的最後一部歌劇是？', '《奧伯龍》', '《魔彈射手》', '《理髮師》'], ['韋伯 10 歲時的作曲老師是？', '海頓的弟弟', '莫札特的爸爸', '貝多芬']] },
+            { type: 'cloze', name: '羅西尼大廚上菜', icon: '🍳',
+              intro: '羅西尼大廚的秘密食譜缺了關鍵材料！選對材料丟進鍋子，完成一道浪漫大餐喵～',
+              done: '羅西尼特製大餐完成！',
+              data: [['羅西尼出生在 1792 年', '2 月 29 日', '，四年才過一次生日。', '12 月 25 日', '1 月 1 日', '🍅'], ['羅西尼是', '義大利', '作曲家。', '德國', '奧地利', '🧀'], ['他一生寫了', '39', '部歌劇。', '9', '600', '🍝'],
+                     ['《塞爾維亞的理髮師》裡機智的理髮師叫', '費加洛', '。', '馬克斯', '威廉泰爾', '🧄'], ['《威廉泰爾》的英雄射下兒子頭上的', '蘋果', '。', '帽子', '氣球', '🍎'],
+                     ['《威廉泰爾》序曲最後一段是', '瑞士軍隊進行曲', '，運動會最愛播！', '搖籃曲', '小夜曲', '🥕'], ['寫完《威廉泰爾》時他', '37', '歲，之後就不再寫歌劇。', '18', '76', '🍄'],
+                     ['用牛排、鵝肝和松露做的料理叫', '羅西尼', '牛排。', '貝多芬', '舒伯特', '🥩']] },
+            { type: 'bubbles', name: '鱒魚吃泡泡', icon: '🐟',
+              intro: '小鱒魚肚子餓了！只點寫著正確答案的泡泡，點錯的泡泡會讓鱒魚嗆到喵！',
+              done: '小鱒魚吃得飽飽的！',
+              data: [{ ask: '點破所有「舒伯特的作品」泡泡！', good: ['〈鱒魚〉', '〈魔王〉', '〈野玫瑰〉', '《未完成交響曲》', '《冬之旅》', '〈搖籃曲〉'], bad: ['《命運》', '《魔彈射手》', '《威廉泰爾》', '《邀舞》'] },
+                     { ask: '點破所有「跟舒伯特有關」的泡泡！', good: ['歌曲之王', '只活了 31 歲', '600 多首歌', '綽號小蘑菇', '舒伯特聚會', '奧地利'], bad: ['樂聖', '2 月 29 日生日', '39 部歌劇', '義大利'] }] },
+            { type: 'sort', name: '咖啡館對號入座', icon: '☕',
+              intro: '四大天王在咖啡館聚會！每張卡片都是一位天王的小秘密，把卡片送到對的座位喵～',
+              ask: '這張卡片屬於哪一位天王？',
+              done: '四位天王都坐好了！',
+              data: { bins: [['B', '貝多芬', '😤', '#F0604D'], ['W', '韋伯', '🏹', '#5DBB4F'], ['R', '羅西尼', '🍝', '#F6A33A'], ['S', '舒伯特', '🎤', '#8A8CF0']],
+                cards: [['《命運》交響曲', 'B'], ['聽不見還一起指揮《第九號》', 'B'], ['1770 年出生，最年長', 'B'], ['《魔彈射手》', 'W'], ['鋼琴曲《邀舞》', 'W'], ['在倫敦過世', 'W'],
+                        ['2 月 29 日生日', 'R'], ['《威廉泰爾》', 'R'], ['活到 76 歲，最長壽', 'R'], ['18 歲寫〈魔王〉', 'S'], ['綽號「小蘑菇」', 'S'], ['只活了 31 歲', 'S']] } }
         ];
-        const Mem = {
+
+        const Game = {
             mount(ci, page) {
-                const pairs = MEM[ci];
-                const cards = [];
-                pairs.forEach((pr, k) => { cards.push({ k, side: 'q', t: pr[0] }); cards.push({ k, side: 'a', t: pr[1] }); });
-                for (let i = cards.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [cards[i], cards[j]] = [cards[j], cards[i]]; }
-                clearInterval((page._mem || {}).timer);
-                const st = page._mem = { ci, cards, open: [], lock: false, moves: 0, found: 0, t0: 0, sec: 0, timer: null, page };
-                page.querySelector('.mem-grid').innerHTML = cards.map((c, i) => `<button class="mem-card ${c.side}" data-i="${i}" onclick="Mem.flip(this)" aria-label="翻開第 ${i + 1} 張牌"><span class="mc-in"><span class="mc-back"><b>?</b><small>🐾</small></span><span class="mc-face"><small>${c.side === 'q' ? '題目' : '答案'}</small><b>${c.t}</b></span></span></button>`).join('');
-                page.querySelector('.mem-end').innerHTML = '';
-                this.hud(st);
+                const g = GAMES[ci];
+                Synth.stop();
+                const st = page._g = { ci, g, page, i: 0, ok: 0, miss: 0, t0: Date.now(), done: false, lock: false };
+                page.querySelector('.gm-end').innerHTML = '';
+                this[g.type].start(st);
             },
-            hud(st) {
-                const ci = st.ci;
-                const m = st.page.querySelector('.mem-hud');
-                m.innerHTML = `<span>👆 翻牌 <b>${st.moves}</b> 次</span><span>🧩 配對 <b>${st.found}</b> / ${MEM[ci].length}</span><span>⏱️ <b>${st.sec}</b> 秒</span>`;
+            st(el) { return el.closest('.page')._g; },
+            area(st) { return st.page.querySelector('.gm-area'); },
+            hud(st, parts) { st.page.querySelector('.gm-hud').innerHTML = parts.map(p => `<span>${p}</span>`).join(''); },
+            say(st, text, mood) { Cat.say(st.page.querySelector('.catbox'), text, mood); },
+            good(st, el, msg) { Sfx.ok(); if (el) confetti(el, 14); if (msg) this.say(st, msg, 'happy'); },
+            bad(st, el, msg) {
+                Sfx.bad();
+                if (el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+                if (msg) this.say(st, msg, 'sad');
             },
-            flip(el) {
-                const st = el.closest('.page')._mem;
-                if (!st || st.lock) return;
-                const ci = st.ci, i = +el.dataset.i;
-                if (el.classList.contains('open') || el.classList.contains('done')) return;
-                if (!st.t0) {
-                    st.t0 = Date.now();
-                    st.timer = setInterval(() => {
-                        if (!st.page.isConnected) { clearInterval(st.timer); return; }
-                        st.sec = Math.round((Date.now() - st.t0) / 1000);
-                        this.hud(st);
-                    }, 1000);
-                }
-                el.classList.add('open');
-                Sfx.pop();
-                st.open.push(i);
-                if (st.open.length < 2) return;
-                st.moves++;
-                const [a, b] = st.open.map(x => st.cards[x]);
-                const els = st.open.map(x => st.page.querySelector(`.mem-card[data-i="${x}"]`));
-                st.open = [];
-                const box = st.page.querySelector('.catbox');
-                if (a.k === b.k && a.side !== b.side) {
-                    st.found++;
-                    els.forEach(e => { e.classList.add('done'); e.style.setProperty('--pc', ACCENTS[a.k % ACCENTS.length]); });
-                    Sfx.ok();
-                    const pr = MEM[ci][a.k];
-                    if (st.found < MEM[ci].length) Cat.say(box, `${pick(['配對成功喵！', '答對了！', '好記性喵～', '肉球給你！🐾'])}「${pr[0]}」就是「${pr[1].replace(/[《》]/g, '')}」！`, 'happy');
-                    else this.win(st);
-                } else {
-                    st.lock = true;
-                    Sfx.bad();
-                    setTimeout(() => { els.forEach(e => e.classList.remove('open')); st.lock = false; }, 950);
-                    if (st.moves % 3 === 0) Cat.say(box, pick(['再翻翻看，記住剛剛看到的位置喵！', '沒關係，貓也會記錯喵～', '題目卡是黃色、答案卡是藍色，要一黃一藍才配得起來喵！']), 'think');
-                }
-                this.hud(st);
-            },
-            win(st) {
-                const ci = st.ci;
-                clearInterval(st.timer);
-                st.sec = Math.round((Date.now() - st.t0) / 1000);
-                this.hud(st);
-                const n = MEM[ci].length;
-                const grade = st.moves <= n + 2 ? '⭐⭐⭐ 記憶大師' : st.moves <= n * 2 ? '⭐⭐ 記性很好' : '⭐ 全部配對完成';
+            win(st, total) {
+                st.done = true;
+                const sec = Math.round((Date.now() - st.t0) / 1000);
+                const grade = st.miss === 0 ? '⭐⭐⭐ 完美過關' : st.miss <= Math.ceil(total / 4) ? '⭐⭐ 表現很棒' : '⭐ 挑戰完成';
                 Sfx.win();
-                confetti(st.page.querySelector('.mem-grid'), 40);
-                Cat.say(st.page.querySelector('.catbox'), `全部配對完成！翻了 ${st.moves} 次、${st.sec} 秒，${grade.replace(/⭐+ /, '')}！現在去闖關一定沒問題喵！`, 'happy');
-                st.page.querySelector('.mem-end').innerHTML = `<div class="mem-win"><b>${grade}</b><span>翻牌 ${st.moves} 次・${st.sec} 秒</span></div>
-                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">📝 去闖關 ▶</button><button class="ghost-btn" onclick="Mem.mount(${ci}, this.closest('.page'))">🔁 再玩一次</button></div>`;
+                confetti(this.area(st), 40);
+                this.say(st, `${st.g.done}失誤 ${st.miss} 次、${sec} 秒，${grade.replace(/⭐+ /, '')}！現在去闖關一定沒問題喵！`, 'happy');
+                st.page.querySelector('.gm-end').innerHTML = `<div class="mem-win"><b>${grade}</b><span>失誤 ${st.miss} 次・${sec} 秒</span></div>
+                    <div class="comic-ctrl"><button class="big-btn" onclick="Book.next()">📝 去闖關 ▶</button><button class="ghost-btn" onclick="Game.mount(${st.ci}, this.closest('.page'))">🔁 再玩一次</button></div>`;
+            },
+
+            // 第 1 關：時光列車（依年份把事件放上車廂）
+            timeline: {
+                start(st) { st.order = shuffled(st.g.data.map((_, k) => k)); this.draw(st); },
+                draw(st) {
+                    const d = st.g.data;
+                    Game.hud(st, [`🚃 第 <b>${Math.min(st.i + 1, d.length)}</b> / ${d.length} 節車廂`, `❌ 失誤 <b>${st.miss}</b>`]);
+                    Game.area(st).innerHTML = `<div class="tl-track">${d.map((x, k) => `<div class="tl-car${k < st.i ? ' filled' : k === st.i ? ' now' : ''}"><b>${x[0]}</b><span>${k < st.i ? esc(x[1]) : k === st.i ? '？' : '・・・'}</span></div>`).join('')}</div>
+                        ${st.i < d.length ? `<p class="gm-ask">🚂 <b>${d[st.i][0]} 年</b>發生了什麼事？點卡片放上車廂！</p>
+                        <div class="gm-cards">${st.order.filter(k => k >= st.i).map(k => `<button class="gm-card" data-k="${k}" onclick="Game.timeline.pick(this)">${esc(d[k][1])}</button>`).join('')}</div>` : ''}`;
+                },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done) return;
+                    const k = +btn.dataset.k, d = st.g.data;
+                    if (k === st.i) {
+                        Game.good(st, btn, `答對了！${d[k][0]} 年：${d[k][1]}。`);
+                        st.i++;
+                        this.draw(st);
+                        if (st.i >= d.length) Game.win(st, d.length);
+                    } else {
+                        st.miss++;
+                        Game.bad(st, btn, `這張是 ${d[k][0]} 年的事喔！${d[st.i][0]} 年發生的是別張，再找找看喵～`);
+                        Game.hud(st, [`🚃 第 <b>${st.i + 1}</b> / ${d.length} 節車廂`, `❌ 失誤 <b>${st.miss}</b>`]);
+                    }
+                }
+            },
+
+            // 第 2、7 關：分類（2 個籃子或 4 個座位）
+            sort: {
+                start(st) { st.cards = shuffled(st.g.data.cards); st.got = {}; this.draw(st); },
+                draw(st) {
+                    const g = st.g.data, n = st.cards.length, c = st.cards[st.i];
+                    Game.hud(st, [`🃏 第 <b>${Math.min(st.i + 1, n)}</b> / ${n} 張`, `✅ <b>${st.ok}</b>`, `❌ <b>${st.miss}</b>`]);
+                    Game.area(st).innerHTML = `${c ? `<div class="sort-card" style="--rot:${(Math.random() * 6 - 3).toFixed(1)}deg">${esc(c[0])}</div><p class="gm-ask">${st.g.ask}</p>` : ''}
+                        <div class="bins b${g.bins.length}">${g.bins.map(b => `<button class="bin" style="--bc:${b[3]}" data-key="${b[0]}" onclick="Game.sort.pick(this)"><span class="bin-ico">${b[2]}</span><b>${b[1]}</b><span class="bin-n">${'●'.repeat(st.got[b[0]] || 0) || '　'}</span></button>`).join('')}</div>`;
+                },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done || st.lock) return;
+                    const c = st.cards[st.i];
+                    if (!c) return;
+                    const right = btn.dataset.key === c[1];
+                    const name = st.g.data.bins.find(b => b[0] === c[1])[1];
+                    if (right) {
+                        st.ok++;
+                        st.got[c[1]] = (st.got[c[1]] || 0) + 1;
+                        Game.good(st, btn, `沒錯！「${c[0]}」屬於${name}。`);
+                    } else {
+                        st.miss++;
+                        Game.bad(st, btn, `喵～「${c[0]}」要放在${name}喔！`);
+                        const hint = Game.area(st).querySelector(`.bin[data-key="${c[1]}"]`);
+                        if (hint) hint.classList.add('hint');
+                    }
+                    st.i++;
+                    st.lock = true;
+                    setTimeout(() => {
+                        st.lock = false;
+                        if (!st.page.isConnected) return;
+                        this.draw(st);
+                        if (st.i >= st.cards.length) Game.win(st, st.cards.length);
+                    }, right ? 450 : 1300);
+                }
+            },
+
+            // 第 3 關：聽音猜名曲
+            listen: {
+                start(st) { st.order = shuffled(st.g.data); this.draw(st); },
+                draw(st) {
+                    const T = st.g.data, n = st.order.length, cur = st.order[st.i];
+                    Game.hud(st, [`🎵 第 <b>${Math.min(st.i + 1, n)}</b> / ${n} 首`, `✅ <b>${st.ok}</b>`, `❌ <b>${st.miss}</b>`]);
+                    if (!cur) { Game.area(st).innerHTML = ''; return; }
+                    const opts = shuffled([cur].concat(shuffled(T.filter(t => t !== cur)).slice(0, 3)));
+                    Game.area(st).innerHTML = `<div class="ls-disc" aria-hidden="true">💿</div>
+                        <p class="gm-ask">第 ${st.i + 1} 首：先按播放聽一聽，這是哪一首？</p>
+                        ${listenHtml(cur[0])}
+                        <div class="gm-cards two">${opts.map(o => `<button class="gm-card" data-id="${o[0]}" onclick="Game.listen.pick(this)">${o[1]}</button>`).join('')}</div>
+                        <div class="ls-note" hidden></div>`;
+                },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done || st.lock) return;
+                    const cur = st.order[st.i], right = btn.dataset.id === cur[0];
+                    Synth.stop();
+                    st.lock = true;
+                    Game.area(st).querySelectorAll('.gm-card').forEach(b => { b.disabled = true; if (b.dataset.id === cur[0]) b.classList.add('right'); });
+                    if (right) { st.ok++; Game.good(st, btn, `答對了！這是${cur[1]}。`); }
+                    else { st.miss++; btn.classList.add('wrong'); Game.bad(st, btn, `喵～這一首是${cur[1]}喔！`); }
+                    const note = Game.area(st).querySelector('.ls-note');
+                    note.hidden = false;
+                    note.innerHTML = `<b>${TRACKS[cur[0]].title}</b><span>${TRACKS[cur[0]].desc}</span><button class="big-btn" onclick="Game.listen.next(this)">${st.i < st.order.length - 1 ? '下一首 ▶' : '看成績 🏁'}</button>`;
+                },
+                next(btn) {
+                    const st = Game.st(btn);
+                    if (!st) return;
+                    st.lock = false;
+                    st.i++;
+                    this.draw(st);
+                    if (st.i >= st.order.length) Game.win(st, st.order.length);
+                }
+            },
+
+            // 第 4 關：魔彈射手打靶
+            shoot: {
+                start(st) { st.list = shuffled(st.g.data); this.draw(st); },
+                draw(st) {
+                    const n = st.list.length, q = st.list[st.i];
+                    Game.hud(st, [`🔫 第 <b>${Math.min(st.i + 1, n)}</b> / ${n} 發魔彈`, `🎯 命中 <b>${st.ok}</b>`, `💨 落空 <b>${st.miss}</b>`]);
+                    if (!q) { Game.area(st).innerHTML = ''; return; }
+                    const opts = shuffled(q.slice(1).map((t, k) => ({ t, ok: k === 0 })));
+                    Game.area(st).innerHTML = `<p class="gm-ask big">🎯 ${esc(q[0])}</p>
+                        <div class="range">${opts.map((o, k) => `<div class="lane"><button class="target" style="--dur:${(2.8 + k * 0.7 + Math.random() * 0.8).toFixed(2)}s;--delay:-${(Math.random() * 2).toFixed(2)}s;--dir:${k % 2 ? 'alternate-reverse' : 'alternate'}" data-ok="${o.ok ? 1 : 0}" onclick="Game.shoot.pick(this)"><span>${esc(o.t)}</span></button></div>`).join('')}</div>`;
+                },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done || st.lock) return;
+                    const right = btn.dataset.ok === '1', q = st.list[st.i];
+                    st.lock = true;
+                    Game.area(st).querySelector('.range').classList.add('stop');
+                    if (right) { st.ok++; btn.classList.add('hit'); Game.good(st, btn, `命中！答案是「${q[1]}」！`); }
+                    else {
+                        st.miss++;
+                        btn.classList.add('missed');
+                        Game.area(st).querySelector('.target[data-ok="1"]').classList.add('reveal');
+                        Game.bad(st, btn, `射偏了！正確答案是「${q[1]}」喵。`);
+                    }
+                    st.i++;
+                    setTimeout(() => {
+                        st.lock = false;
+                        if (!st.page.isConnected) return;
+                        this.draw(st);
+                        if (st.i >= st.list.length) Game.win(st, st.list.length);
+                    }, right ? 1000 : 1700);
+                }
+            },
+
+            // 第 5 關：大廚填空（選對材料放進鍋子）
+            cloze: {
+                start(st) { st.list = shuffled(st.g.data); st.pot = []; this.draw(st); },
+                draw(st) {
+                    const n = st.list.length, r = st.list[st.i];
+                    Game.hud(st, [`📜 第 <b>${Math.min(st.i + 1, n)}</b> / ${n} 步`, `❌ 失誤 <b>${st.miss}</b>`]);
+                    Game.area(st).innerHTML = `<div class="pot-wrap"><div class="pot"><span class="steam" aria-hidden="true">♨️</span><div class="pot-in">${st.pot.join('') || '<small>鍋子還是空的</small>'}</div></div></div>
+                        ${r ? `<div class="recipe"><small>📜 羅西尼的秘密食譜・第 ${st.i + 1} 步</small><p>${esc(r[0])}<span class="blank">？</span>${esc(r[2])}</p></div>
+                        <p class="gm-ask">選一個材料填進空格！</p>
+                        <div class="gm-cards">${shuffled([r[1], r[3], r[4]]).map(t => `<button class="gm-card ingr" data-t="${esc(t)}" onclick="Game.cloze.pick(this)">${esc(t)}</button>`).join('')}</div>` : ''}`;
+                },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done || st.lock) return;
+                    const r = st.list[st.i];
+                    if (btn.dataset.t === r[1]) {
+                        st.lock = true;
+                        const blank = Game.area(st).querySelector('.blank');
+                        blank.textContent = r[1];
+                        blank.classList.add('filled');
+                        st.pot.push(r[5]);
+                        Game.good(st, btn, `好香喵！${r[0]}「${r[1]}」${r[2]}`);
+                        st.i++;
+                        setTimeout(() => {
+                            st.lock = false;
+                            if (!st.page.isConnected) return;
+                            this.draw(st);
+                            if (st.i >= st.list.length) Game.win(st, st.list.length);
+                        }, 900);
+                    } else {
+                        st.miss++;
+                        btn.disabled = true;
+                        Game.bad(st, btn, '這個材料放錯了，大廚皺眉頭了！再選一次喵～');
+                        Game.hud(st, [`📜 第 <b>${st.i + 1}</b> / ${st.list.length} 步`, `❌ 失誤 <b>${st.miss}</b>`]);
+                    }
+                }
+            },
+
+            // 第 6 關：鱒魚吃泡泡
+            bubbles: {
+                start(st) { st.round = 0; this.draw(st); },
+                draw(st) {
+                    const R = st.g.data[st.round];
+                    st.left = R.good.length;
+                    st.total = st.g.data.reduce((a, x) => a + x.good.length, 0);
+                    const all = shuffled(R.good.map(t => [t, 1]).concat(R.bad.map(t => [t, 0])));
+                    this.hud(st);
+                    Game.area(st).innerHTML = `<p class="gm-ask">🐟 第 ${st.round + 1} 回合：${R.ask}</p>
+                        <div class="pond">${all.map(b => `<button class="gbub" style="--d:${(Math.random() * 2).toFixed(2)}s;--t:${(2.2 + Math.random() * 1.4).toFixed(2)}s" data-ok="${b[1]}" onclick="Game.bubbles.pick(this)">${esc(b[0])}</button>`).join('')}
+                        <span class="trout" aria-hidden="true">🐟</span></div>`;
+                },
+                hud(st) { Game.hud(st, [`🫧 第 <b>${st.round + 1}</b> / ${st.g.data.length} 回合`, `🐟 還要吃 <b>${st.left}</b> 個`, `❌ 失誤 <b>${st.miss}</b>`]); },
+                pick(btn) {
+                    const st = Game.st(btn);
+                    if (!st || st.done || btn.classList.contains('popped')) return;
+                    if (btn.dataset.ok === '1') {
+                        btn.classList.add('popped');
+                        btn.disabled = true;
+                        st.ok++;
+                        st.left--;
+                        const fish = Game.area(st).querySelector('.trout');
+                        const pr = btn.parentElement.getBoundingClientRect(), br = btn.getBoundingClientRect();
+                        fish.style.left = (br.left - pr.left + br.width / 2 - 20) + 'px';
+                        fish.style.top = (br.top - pr.top + br.height / 2 - 20) + 'px';
+                        fish.style.bottom = 'auto';
+                        Game.good(st, null, st.left ? `啊嗚～「${btn.textContent}」好吃！還有 ${st.left} 個喵！` : '這回合的泡泡全吃光了！');
+                        this.hud(st);
+                        if (!st.left) {
+                            st.round++;
+                            setTimeout(() => {
+                                if (!st.page.isConnected) return;
+                                if (st.round < st.g.data.length) this.draw(st);
+                                else Game.win(st, st.total);
+                            }, 900);
+                        }
+                    } else {
+                        st.miss++;
+                        Game.bad(st, btn, `咳咳！「${btn.textContent}」不是答案，鱒魚嗆到了喵！`);
+                        this.hud(st);
+                    }
+                }
             }
         };
 
@@ -2154,7 +2644,7 @@
         }
         const Quiz = {
             state(ci) {
-                if (!QS[ci]) QS[ci] = { i: 0, right: 0, combo: 0, ans: [], done: false };
+                if (!QS[ci]) QS[ci] = { i: 0, right: 0, combo: 0, ans: [], done: false, qs: drawQuiz(ci) };
                 return QS[ci];
             },
             mount(ci, page) {
@@ -2163,7 +2653,7 @@
                 else this.showQ(ci, page, true);
             },
             hud(ci, page) {
-                const st = this.state(ci), qs = chaptersData[ci].quizzes;
+                const st = this.state(ci), qs = st.qs;
                 page.querySelector('.q-count').innerHTML = st.done ? '🏁 成績單' : `第 <b>${st.i + 1}</b> / ${qs.length} 題`;
                 page.querySelector('.q-dots').innerHTML = qs.map((q, k) => {
                     const a = st.ans[k];
@@ -2173,7 +2663,7 @@
                 page.querySelector('.combo').textContent = !st.done && st.combo >= 2 ? `🔥 連對 ${st.combo} 題` : '';
             },
             showQ(ci, page, entering) {
-                const st = this.state(ci), q = chaptersData[ci].quizzes[st.i], n = chaptersData[ci].quizzes.length;
+                const st = this.state(ci), q = st.qs[st.i], n = st.qs.length;
                 this.hud(ci, page);
                 page.querySelector('.q-area').innerHTML = `<div class="q-card">
                         <div class="q-text"><span class="q-no">Q${st.i + 1}</span>${q.q}</div>
@@ -2190,7 +2680,7 @@
             answer(ci, oi, btn) {
                 const st = this.state(ci);
                 if (st.done || st.ans[st.i] != null) return;
-                const q = chaptersData[ci].quizzes[st.i];
+                const q = st.qs[st.i];
                 st.ans[st.i] = oi;
                 if (oi === q.ans) { st.right += 1; st.combo += 1; } else st.combo = 0;
                 Synth.stop();
@@ -2199,7 +2689,7 @@
                 updateHud();
             },
             paint(ci, page, oi, fresh) {
-                const st = this.state(ci), q = chaptersData[ci].quizzes[st.i], ok = oi === q.ans;
+                const st = this.state(ci), q = st.qs[st.i], ok = oi === q.ans;
                 page.querySelectorAll('.opt').forEach((b, k) => {
                     b.disabled = true;
                     if (k === q.ans) { b.classList.add('right'); b.querySelector('.opt-l').textContent = '✔'; }
@@ -2226,7 +2716,7 @@
                 row.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
             },
             next(ci, btn) {
-                const st = this.state(ci), n = chaptersData[ci].quizzes.length;
+                const st = this.state(ci), n = st.qs.length;
                 const page = btn.closest('.page');
                 if (st.i < n - 1) {
                     st.i += 1;
@@ -2249,7 +2739,7 @@
                 if (hud.getBoundingClientRect().top < 70) hud.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
             },
             showResult(ci, page, fresh) {
-                const st = this.state(ci), qs = chaptersData[ci].quizzes, n = qs.length;
+                const st = this.state(ci), qs = st.qs, n = qs.length;
                 const stars = starsFor(st.right, n), bestStars = chapterStars(ci);
                 const wrong = qs.map((q, k) => ({ q, a: st.ans[k] })).filter(x => x.a !== x.q.ans);
                 const [stk, stkName] = STICKERS[ci];
