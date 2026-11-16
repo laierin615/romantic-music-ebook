@@ -60,6 +60,10 @@
         .hud-chip { background: var(--paper); border: 2.5px solid var(--ink); border-radius: 999px; padding: 1px 10px; font-weight: 900; font-size: .9rem; box-shadow: 2px 2px 0 var(--ink); white-space: nowrap; }
         .hud-chip.bump { animation: bump .5s ease; }
         .icon-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--paper); border: 2.5px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); font-size: 1rem; line-height: 1; }
+        a.icon-btn { display: inline-grid; place-items: center; text-decoration: none; }
+        .hall-btn { background: var(--sky); }
+        #refreshBtn.spin { animation: spin .8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes bump { 30% { transform: scale(1.25) rotate(-4deg); background: var(--mint); } }
 
         /* ===== 章節書籤 ===== */
@@ -523,6 +527,8 @@
                 <span class="hud-chip" title="音符幣（每答對 1 題得 10 枚，取每關最佳成績）">🪙 <b id="hudCoins">0</b></span>
                 <span class="hud-chip" title="星星（每關最多 3 顆）">⭐ <b id="hudStars">0</b></span>
                 <button id="sfxBtn" class="icon-btn" onclick="App.toggleSfx()" aria-label="音效開關">🔔</button>
+                <button id="refreshBtn" class="icon-btn" type="button" aria-label="更新網頁到最新版" title="更新到最新版">🔄</button>
+                <a class="icon-btn hall-btn" href="https://laierin615.github.io/anzhen-magic-academy/" aria-label="回到安真魔法學院大廳" title="回魔法學院大廳">🏰</a>
             </div>
         </div>
     </header>
@@ -2325,6 +2331,18 @@
             }
         };
         App.init();
+    </script>
+    <script>
+        // 更新按鈕：強制向伺服器拿最新的網頁，再重新整理
+        (function () {
+            var btn = document.getElementById('refreshBtn');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                btn.classList.add('spin'); btn.disabled = true;
+                fetch(location.href, { cache: 'reload' }).catch(function () {}).then(function () { location.reload(); });
+                setTimeout(function () { location.reload(); }, 4000);
+            });
+        })();
     </script>
 </body>
 </html>
